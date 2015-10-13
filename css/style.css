@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+a { 
+	text-decoration:none;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+input[type=checkbox], input[type=radio] {
+	max-width:16px !important;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.div_center {
+	text-align:center !important;
+}
+
+
+/*====================================== BUTTONS ==========================================*/
+.a a{
+	text-decoration:none;
+	color:#fff !important;
+}
+.wp_poll_button_medium {
+	font-size: 22px;
+    color: white !important;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+	text-align:center;
+	-webkit-user-select:none;
+}
+
+.wp_poll_button_small {
+	font-size: 14px;
+    color: white !important;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+	text-align:center;
+	-webkit-user-select:none;
+}
+
+.wp_poll_button_green {
+    background-color: #26a65b;
+}
+.wp_poll_button_green:hover {
+	background-color: #208C4D;
+}
+
+.wp_poll_button_light_violate {
+    background-color: #A066FF;
+}
+.wp_poll_button_light_violate:hover {
+	background-color: rgb(112, 58, 202);
+}
+
+.wp_poll_button_sky_blue {
+    background-color: #3993D0;
+}
+.wp_poll_button_sky_blue:hover {
+	background-color: #2978AD;
+}
+
+.wp_poll_button_navy_blue {
+    background-color: #5B65DA;
+}
+.wp_poll_button_navy_blue:hover {
+	background-color: #3D47BB;
+}
+.wp_poll_button_dark_blue {
+    background-color: #08519B;
+}
+.wp_poll_button_dark_blue:hover {
+	background-color: #083A6D;
+}
+
+.wp_poll_button_red {
+    background-color: #CC685E;
+}
+.wp_poll_button_red:hover {
+	background-color: #CA2513;
+}
+
+.wp_poll_button_facebook {
+    background-color: #45619D;
+}
+.wp_poll_button_facebook:hover {
+	background-color: #1D459A;
+}
