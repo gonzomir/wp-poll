@@ -26,8 +26,12 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	function set_wp_poll_page($content = NULL) 
 	{
 		$wp_poll_page =  get_option( 'wp_poll_page' );
+		$wp_poll_show_page_content =  get_option( 'wp_poll_show_page_content' );
+		
 		if ( get_the_title() == $wp_poll_page)
 		{
+			if ( $wp_poll_show_page_content == 'no' ) 
+				return '<style>.entry-title {display:none;}</style>'.'['.wp_poll_list_short_code.']';
 			$content .= '<style>.entry-title {display:none;}</style>';
 			return $content. '['.wp_poll_list_short_code.']';
 		}	

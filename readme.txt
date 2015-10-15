@@ -4,7 +4,7 @@
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
 	Tested up to: 4.3.1
-	Stable tag: 1.0.0
+	Stable tag: 1.0.1
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,3 +47,8 @@ It allows user to poll in your website with many awesome feature.
 
 	= 1.0.0 =
     * 10/13/2015 Initial release.
+	
+	= 1.0.1 =
+    * 10/16/2015 Provide Extra Feature.
+	
+	

@@ -8,6 +8,24 @@ jQuery(document).ready(function($)
 		
 		
 		
+		$(document).on('click', '.wp_poll_archive_button', function()
+		{
+			var wp_poll_page 	= $(this).attr('wp_poll_page');
+			if ( wp_poll_page )
+			{
+				$(location).attr('href', wp_poll_page)
+			}
+			else 
+			{
+				$(".wp_poll_archive_message").fadeIn();
+				setTimeout(function()
+				{
+					$(".wp_poll_archive_message").fadeOut();
+				}, 5000);
+			}
+		})
+		
+		
 		$(document).on('click', '.wp_poll_button_results', function()
 		{
 			setTimeout(function()

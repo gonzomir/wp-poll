@@ -46,7 +46,8 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	
 			$polled_posts = wp_count_posts( 'wp_polled_by' ); 
 			$wp_polled_all_posts = $polled_posts->publish;
-			$poll_impact = ( $class_wp_poll_functions->wp_poll_get_total_submit(get_the_ID()) * 100 ) / $wp_polled_all_posts;
+			if ( empty( $wp_polled_all_posts ) ) $poll_impact = 0;
+			else $poll_impact = ( $class_wp_poll_functions->wp_poll_get_total_submit(get_the_ID()) * 100 ) / $wp_polled_all_posts;
 			
 			if ( $sort_by == 'impact' && $data != $poll_impact )  continue;
 			if ( $sort_by == 'category' && $data != $wp_poll_category_name[0]->cat_name )  continue;

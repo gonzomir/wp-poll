@@ -71,4 +71,13 @@
 	width:50%;
 }
 
+.wp_poll_container .wp_poll_archive_message {
+	text-align:center;
+}
+
+.wp_poll_container .wp_poll_archive_message  p{
+	color: red;
+    font-size: 16px;
+}
+
 

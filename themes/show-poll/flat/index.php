@@ -7,6 +7,12 @@
 
 if ( ! defined('ABSPATH')) exit;  // if direct access
 
+	$wp_poll_page =  get_option( 'wp_poll_page' );
+	$page = get_page_by_title( $wp_poll_page );
+	
+	if ( empty($wp_poll_page) || $wp_poll_page == 'none' ) $page_link = ''; 
+	else $page_link = get_permalink($page->ID);
+	
 	$wp_query = new WP_Query(
 		array (
 			'post_type' => 'wp_poll',
@@ -42,6 +48,8 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 			for ( $i = 1; $i <= 5; $i ++ )
 			{
 				$opt = get_post_meta($wp_poll_post_id,'wp_poll_option_'.$i,true);
+				if ( empty( $opt ) ) continue;
+				
 				$percent = $class_wp_poll_functions->wp_poll_get_submit_percent( $wp_poll_post_id, $opt );
 				
 				$html .= '
@@ -59,6 +67,11 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 			</div>
 			';
 			
+			$html .= '
+			<div class="wp_poll_archive_message no_display">
+				<p>Archive is not Set Yet !</p>
+			</div>
+			';
 
 			$html .= '
 			<div class="wp_poll_buttons">
@@ -73,7 +86,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 						</div>
 					</li>
 					<li>
-						<div class="wp_poll_button_small '.$wp_poll_archive_button.'">
+						<div wp_poll_page="'.$page_link.'" class="wp_poll_archive_button wp_poll_button_small '.$wp_poll_archive_button.'">
 							'.__($wp_poll_archive_btn_text,'wp_poll').'
 						</div>
 					</li>
@@ -126,4 +139,13 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	
 	
 	
-	
+	function fn_get_link($name)
+	{
+		$pages = get_pages( );
+		foreach($pages as $page)
+		{
+			if ( $page->post_title == $name)
+				//$array_pages[$page->post_title] = $page->post_title;
+				return $page->post_status;
+		}
+	}

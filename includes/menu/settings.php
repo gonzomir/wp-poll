@@ -69,6 +69,17 @@ class class_wp_poll_settings_page  {
 				'input_args'=> fn_get_array_pages(),
 			),
 			
+			'wp_poll_show_page_content'=>array(
+				'css_class'=>'wp_poll_show_page_content',					
+				'title'=>'Do you want to show page Content?',
+				'option_details'=>'',						
+				'input_type'=>'radio',
+				'input_values'=>'yes', 
+				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
+			),
+			
+			
+			
 			'wp_poll_list_per_page'=>array(
 				'css_class'=>'wp_poll_list_per_page',					
 				'title'=>'List Per Page',
@@ -386,14 +397,26 @@ class class_wp_poll_settings_page  {
 			{
 				$option_value =  get_option( $option_key );				
 				
+				if(!isset($option_info['placeholder'])) $placeholder = '';
+				else $placeholder = $option_info['placeholder'];
+				
+				if(!isset($option_info['input_values'])) $option_info['input_values'] = '';
+				if(!isset($option_info['status'])) $option_info['status'] = '';
+				if(!isset($option_info['option_details'])) $option_info['option_details'] = '';
+				
+				
+				
 				if(empty($option_value)) $option_value = $option_info['input_values'];
 				
 				$html_box.= '<div class="option-box '.$option_info['css_class'].'">';
 				$html_box.= '<p class="option-title">'.$option_info['title'].'</p>';
 				$html_box.= '<p class="option-info">'.$option_info['option_details'].'</p>';
 				
+				
+				
+				
 				if($option_info['input_type'] == 'text') 
-					$html_box.= '<input type="text" '.$option_info['status'].' placeholder="'.$option_info['placeholder'].'" name="'.$option_key.'" id="'.$option_key.'" value="'.$option_value.'" /> ';					
+					$html_box.= '<input type="text" '.$option_info['status'].' placeholder="'.$placeholder.'" name="'.$option_key.'" id="'.$option_key.'" value="'.$option_value.'" /> ';					
 				elseif($option_info['input_type'] == 'text-multi')
 				{
 					$input_args = $option_info['input_args'];
@@ -500,6 +523,8 @@ class class_wp_poll_settings_page  {
 			{
 				foreach($options as $option_key=>$option_data)
 				{
+					if(!isset($_POST[$option_key])) $_POST[$option_key] = '';
+					
 					${$option_key} = stripslashes_deep($_POST[$option_key]);
 					update_option($option_key, ${$option_key});
 				}
@@ -551,7 +576,9 @@ class class_wp_poll_settings_page  {
 	{
 		$pages = get_pages( );
 		$array_pages = array();
-		foreach($pages as $page) 
+		$array_pages['none'] = 'None';
+		
+		foreach($pages as $page)
 		{
 			if ( $page->post_title )
 				$array_pages[$page->post_title] = $page->post_title;
@@ -559,6 +586,8 @@ class class_wp_poll_settings_page  {
 		
 		return $array_pages;
 	}
+	
+	
 	
 ?>
 				

@@ -225,7 +225,7 @@ class class_wp_poll_post_meta{
 	
 	public function meta_boxes_wp_poll_save($post_id){
 		if (!isset($_POST['wp_poll_nonce_check_value'])) return $post_id;
-	 
+
 		$nonce = $_POST['wp_poll_nonce_check_value'];
 		
 	 	if (!wp_verify_nonce($nonce, 'wp_poll_nonce_check')) return $post_id;
@@ -240,7 +240,7 @@ class class_wp_poll_post_meta{
 		}
 	 
 		$wp_poll_meta_options = $this->wp_poll_meta_options();
-			
+		
 		foreach($wp_poll_meta_options as $options_tab=>$options)
 		{
 			foreach($options as $option_key=>$option_data)

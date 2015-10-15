@@ -3,7 +3,7 @@
 	Plugin Name: WP Poll
 	Plugin URI: http://pluginbazar.ml/
 	Description: It allows user to poll in your website with many awesome feature.
-	Version: 1.0.0
+	Version: 1.0.1
 	Author: Jaed Mosharraf
 	Author URI: http://pluginbazar.ml/
 	License: GPLv2 or later
