@@ -22,7 +22,9 @@ It allows user to poll in your website with many awesome feature.
 	Username: demo
 	Password: demo
 
+<strong>Video tutorial:</strong>
 
+https://www.youtube.com/watch?v=UCNewwHNtVU
 
 
 
