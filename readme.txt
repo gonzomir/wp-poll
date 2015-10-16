@@ -21,6 +21,16 @@ It allows user to poll in your website with many awesome feature.
 * [Back Admin Look &raquo;](http://pluginbazar.ml/demo-wp-poll/wp-admin/)
 	Username: demo
 	Password: demo
+	
+### KEY Features
+* 100% User Friendly and Customization Support without having any coding skill.
+* 100% Unique Review. No SPAM. No one can review twice in single Question.
+* 100% Browser Compatibility.
+* 100% WordPress Build in jQuery.
+* 100% Support to use Categorized Poll.
+* Visitors can see All Polls with Awesome filters.
+
+### SO WHY LATE? GET RIGHT NOW
 
 <strong>Video tutorial:</strong>
 
