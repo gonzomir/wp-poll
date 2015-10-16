@@ -48,6 +48,7 @@ It allows user to poll in your website with many awesome feature.
 	= 1.0.0 =
     * 10/13/2015 Initial release.
 	
+
 	= 1.0.1 =
     * 10/16/2015 Provide Extra Feature.
 	
