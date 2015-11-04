@@ -5,9 +5,6 @@
 
 jQuery(document).ready(function($)
 	{
-		
-		
-		
 		$(document).on('click', '.wp_poll_archive_button', function()
 		{
 			var wp_poll_page 	= $(this).attr('wp_poll_page');

@@ -4,6 +4,7 @@
 
 a { 
 	text-decoration:none;
+	outline:none !important;
 }
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {

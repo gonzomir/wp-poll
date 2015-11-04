@@ -3,5 +3,28 @@ Admin css
 */
 
 
+.back-settings .option-box #pie_chart, .back-settings .option-box #geo_chart {
+	width:900px;
+	height:500px;
+}
+
+.wp_poll_admin_list ol li a {
+	text-decoration:none;
+}
 	
+.wp_poll_admin_settings_header img{
+	border:1px solid #bbb;
+}
+
+.wp_poll_admin_settings_header span{
+	position: absolute;
+    padding: 10px;
+    font-size: 25px;
+    color: red;
+}
+
+.wp_poll_admin_settings_header span a{
+	text-decoration:none;
+}
+
 	

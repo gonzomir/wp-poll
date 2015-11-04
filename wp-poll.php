@@ -3,7 +3,7 @@
 	Plugin Name: WP Poll
 	Plugin URI: http://pluginbazar.ml/
 	Description: It allows user to poll in your website with many awesome feature.
-	Version: 1.0.1
+	Version: 1.1.0
 	Author: Jaed Mosharraf
 	Author URI: http://pluginbazar.ml/
 	License: GPLv2 or later
@@ -41,6 +41,7 @@ class WPPollManager {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-shortcodes.php');	
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-functions.php');
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/class-settings.php');
+	
 	//require_once( plugin_dir_path( __FILE__ ) . 'includes/class-widget.php');
 		
 
@@ -103,6 +104,8 @@ class WPPollManager {
 		//BackAdmin
 		wp_enqueue_style('BackAdmin', wp_poll_plugin_url.'BackAdmin/css/BackAdmin.css');		
 		wp_enqueue_script('BackAdmin', plugins_url( 'BackAdmin/js/BackAdmin.js' , __FILE__ ) , array( 'jquery' ));
+		
+		wp_enqueue_script('Google-Chart-API', 'http://www.google.com/jsapi');
 	}
 	
 	

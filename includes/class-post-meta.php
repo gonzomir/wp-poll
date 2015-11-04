@@ -78,6 +78,20 @@ class class_wp_poll_post_meta{
 						
 		);
 		
+		$options['Poll Settings'] = array(
+									
+			'wp_poll_all_time'=>array(
+				'css_class'=>'wp_poll_all_time',					
+				'title'=>'Set This for Alltime',
+				'option_details'=>'If you set this Poll Yes then it will show alltime.',						
+				'input_type'=>'radio', 
+				'input_values'=> 'no',
+				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
+				
+				),
+						
+		);
+		
 		$options = apply_filters( 'wp_poll_filters_meta_options', $options );
 		return $options;
 	}

@@ -540,36 +540,25 @@ class class_wp_poll_settings_page  {
 
 
 
-<div class="wrap">
-
-	<div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__(wp_poll_plugin_name.' Settings', 'wp_poll')."</h2>";?>
+	<div class="wrap">
+		<div id="icon-tools" class="icon32"><br></div>
+		<?php echo "<h2>".__(wp_poll_plugin_name.' Settings', 'wp_poll')."</h2>";?>
+		
 		<form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
-	<input type="hidden" name="wp_poll_hidden" value="Y">
-        <?php settings_fields( 'wp_poll_plugin_options' );
+			<input type="hidden" name="wp_poll_hidden" value="Y" />
+			<?php 
+				settings_fields( 'wp_poll_plugin_options' );
 				do_settings_sections( 'wp_poll_plugin_options' );
+					
+				$class_wp_poll_settings_page = new class_wp_poll_settings_page();
+				echo $class_wp_poll_settings_page->wp_poll_settings_options_form(); 
+			?>
 			
-			
-	$class_wp_poll_settings_page = new class_wp_poll_settings_page();
-        echo $class_wp_poll_settings_page->wp_poll_settings_options_form(); 
-	
-			
-			
-		?>
-
-    
-
-
-
-
-
-
-<p class="submit">
-                    <input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes','wp_poll' ); ?>" />
-                </p>
+			<input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes','wp_poll' ); ?>" />
+			<!--<div class="button button-primary" id="wp_poll_reset_settings" > <?php //_e('Reset Settings','wp_poll' ); ?> </div> -->
 		</form>
-
-
-</div>
+		
+	</div>
 
 <?php
 	function fn_get_array_pages()

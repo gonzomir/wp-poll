@@ -7,15 +7,49 @@
 
 if ( ! defined('ABSPATH')) exit;  // if direct access
 
+	
 	$wp_poll_page =  get_option( 'wp_poll_page' );
 	$page = get_page_by_title( $wp_poll_page );
 	
 	if ( empty($wp_poll_page) || $wp_poll_page == 'none' ) $page_link = ''; 
 	else $page_link = get_permalink($page->ID);
 	
+	//================================//
+	
+	$wp_poll_to_be_shown = 0;
+	
 	$wp_query = new WP_Query(
 		array (
 			'post_type' => 'wp_poll',
+			'order' => 'ASC'
+		) );
+	
+	if ( $wp_query->have_posts() ) :
+		while ( $wp_query->have_posts() ) : $wp_query->the_post();	
+			$wp_poll_all_time = get_post_meta(get_the_ID(),'wp_poll_all_time',true);
+			
+			if ( $wp_poll_all_time == 'yes' ) $wp_poll_to_be_shown = get_the_ID();
+		
+		endwhile;
+		wp_reset_query();
+	endif;	
+	
+	
+	if ( $wp_poll_to_be_shown != 0 && $wp_poll_to_be_shown != '' ) 
+	{
+		$ids = array($wp_poll_to_be_shown);
+		$wp_query = new WP_Query(
+		array (
+			'post_type' => 'wp_poll',
+			'post__in' => $ids,
+		) );
+	}
+	else 
+	{
+		$wp_query = new WP_Query(
+		array (
+			'post_type' => 'wp_poll',
+			
 			'meta_query' => array(
 				array(
 					'key' => 'wp_poll_for_date',
@@ -24,6 +58,9 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 					),					
 				),
 		) );
+	}
+	
+	//==================================//
 	
 	$html .= '<div class="wp_poll_container">';		
 				

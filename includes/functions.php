@@ -19,7 +19,21 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	}
 	add_action('wp_ajax_wp_poll_ajax_onclick_submit', 'wp_poll_ajax_onclick_submit');
 	add_action('wp_ajax_nopriv_wp_poll_ajax_onclick_submit', 'wp_poll_ajax_onclick_submit');
-
+	
+	function wp_poll_ajax_reset_settings()
+	{
+		//$is_success = 0;
+		
+		
+		$is_success = delete_option( 'wp_poll_plugin_options' );
+		
+		echo $is_success;
+		die();
+	}
+	add_action('wp_ajax_wp_poll_ajax_reset_settings', 'wp_poll_ajax_reset_settings');
+	add_action('wp_ajax_nopriv_wp_poll_ajax_reset_settings', 'wp_poll_ajax_reset_settings');
+	
+	
 
 //============= Others Functions =====================================//
 

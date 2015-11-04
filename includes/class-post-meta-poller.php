@@ -40,6 +40,23 @@ class class_wp_poller_post_meta{
 				'input_type'=>'text', // text, radio, checkbox, select, 
 				'input_values'=> '', // could be array
 				),
+			
+			'wp_poller_location'=>array(
+				'css_class'=>'wp_poller_location',					
+				'title'=>'Poller Location',
+				'option_details'=>'',						
+				'input_type'=>'text', // text, radio, checkbox, select, 
+				'input_values'=> '', // could be array
+				),
+				
+			'wp_poller_country'=>array(
+				'css_class'=>'wp_poller_country',					
+				'title'=>'Poller Country',
+				'option_details'=>'',						
+				'input_type'=>'text', // text, radio, checkbox, select, 
+				'input_values'=> '', // could be array
+				),
+				
 				
 						
 		);
