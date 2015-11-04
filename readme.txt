@@ -17,7 +17,7 @@ It allows user to poll in your website with many awesome feature.
 
 ### WP Poll by pluginbazar - Jaed Mosharraf
 * [Live Demo &raquo;](http://pluginbazar.ml/demo-wp-poll/)
-* [Get WP Poll &raquo;](http://pluginbazar.ml/blog/wp-poll/)
+* [Get WP Poll PRO &raquo;](http://pluginbazar.ml/downloads/wp-poll-pro/)
 * [Back Admin Look &raquo;](http://pluginbazar.ml/demo-wp-poll/wp-admin/)
 	Username: demo
 	Password: demo
@@ -29,6 +29,11 @@ It allows user to poll in your website with many awesome feature.
 * 100% WordPress Build in jQuery.
 * 100% Support to use Categorized Poll.
 * Visitors can see All Polls with Awesome filters.
+* Admin can set any Poll for all TIME.
+
+### PRO Features
+* Analytics as like as Google.
+
 
 ### SO WHY LATE? GET RIGHT NOW
 
