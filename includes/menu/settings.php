@@ -32,12 +32,13 @@ class class_wp_poll_settings_page  {
 				'status'=>'disabled', // could be array
 			),
 			
-			'wp_poll_submit_btn_text'=>array(
-				'css_class'=>'wp_poll_submit_btn_text',					
-				'title'=>'Submit Button Text',
+			'wp_poll_show_featured'=>array(
+				'css_class'=>'wp_poll_show_featured',					
+				'title'=>'Show Featured Post',
 				'option_details'=>'',						
-				'input_type'=>'text', 
-				'placeholder'=>'Submit',
+				'input_type'=>'radio', 
+				'input_values'=> 'no',
+				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
 			),	
 			
 			'wp_poll_result_btn_text'=>array(

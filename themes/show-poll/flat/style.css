@@ -57,11 +57,16 @@
 .wp_poll_container .wp_poll_buttons{
 	width:220px;
 	margin:0 auto;
+	margin-bottom: 15px;
 }
 
 .wp_poll_container .wp_poll_buttons ul {
 	display:inline-flex;
 	width:100%;
+}
+
+.wp_poll_container .wp_poll_buttons .wp_poll_secondary_buttons {
+	margin:0;
 }
 
 .wp_poll_container .wp_poll_buttons ul  li{

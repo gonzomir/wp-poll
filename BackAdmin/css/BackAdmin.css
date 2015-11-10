@@ -21,11 +21,7 @@
   max-width:16px;
 }
 
-
-.back-settings .option-box:hover {
-  
-}
-
+.back-settings .option-box:hover {}
 
 .back-settings .option-box .option-title {
   font-size: 16px;
@@ -74,14 +70,9 @@
   width: 100%;
 }
 
-
-
-
 .back-settings .new_user_profile_social {
   margin: 15px 5px;
 }
-
-
 
 .back-settings ul.voting-bg-img-list{}
 
@@ -97,17 +88,13 @@
   border: 2px solid #ff5a11;
 }
 
-
 .back-settings h2 {
   font-size: 20px;
   font-weight: bold;
   margin: 25px 0;
 }
 
-
-.back-settings .expandable {
-
-}
+.back-settings .expandable {}
 
 .back-settings .expandable .items {
   background: none repeat scroll 0 0 rgb(255, 255, 255);
@@ -121,9 +108,7 @@
 }
 
 .back-settings .expandable .active .options {
-  
   display: block;
-
 }
 .back-settings .expandable .options {
 	background: none repeat scroll 0 0 rgb(240, 240, 240);
@@ -131,50 +116,20 @@
   padding: 10px;
 }
 
-
 @media all and (max-width: 799px) {
-
-	
 	.back-settings ul.tab-nav li {
 	  display: block;
 	  float: none;
 	
 	}
-	
 	.back-settings ul.tab-nav li.active{
 		font-weight: bold;
-		}	
-	
-
-
-
-
+		}
 	.back-settings .pricing-table .column {
 		display:block;
 		float:none;
 		width:100%;
 		border-right: 1px solid #ff9601;
 		margin: 50px 0;
-	
-	}
-
-
-
-
-
-	
+	}	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

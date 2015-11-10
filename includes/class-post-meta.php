@@ -89,6 +89,19 @@ class class_wp_poll_post_meta{
 				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
 				
 				),
+		);
+		
+		$options['Featured Poll'] = array(
+									
+			'wp_poll_featured'=>array(
+				'css_class'=>'wp_poll_featured',					
+				'title'=>'Set This as Featured',
+				'option_details'=>'If you set this Poll Yes then it will show in the Featured Tab (in case of Show Featured Tab).',						
+				'input_type'=>'radio', 
+				'input_values'=> 'no',
+				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
+				
+				),
 						
 		);
 		

@@ -3,7 +3,7 @@
 	Plugin Name: WP Poll
 	Plugin URI: http://pluginbazar.ml/
 	Description: It allows user to poll in your website with many awesome feature.
-	Version: 1.1.0
+	Version: 1.1.1
 	Author: Jaed Mosharraf
 	Author URI: http://pluginbazar.ml/
 	License: GPLv2 or later
@@ -52,21 +52,6 @@ class WPPollManager {
 	add_action( 'wp_enqueue_scripts', array( $this, 'wp_poll_front_scripts' ) );
 	add_action( 'admin_enqueue_scripts', array( $this, 'wp_poll_admin_scripts' ) );
 	
-	}
-
-	public function job_bm_report_install()
-	{
-		do_action( 'job_bm_report_action_install' );
-	}		
-		
-	public function job_bm_report_uninstall()
-	{
-		do_action( 'job_bm_report_action_uninstall' );
-	}		
-		
-	public function job_bm_report_deactivation()
-	{
-		do_action( 'job_bm_report_action_deactivation' );
 	}
 
 	public function wp_poll_front_scripts()

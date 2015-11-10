@@ -36,7 +36,10 @@ class class_wp_poll_shortcodes{
 
 			require_once( plugin_dir_path( __FILE__ ) . 'wp-poll-variables.php');			
 			
-			include $wp_poll_themes_dir[$themes].'/index.php';				
+			include $wp_poll_themes_dir[$themes].'/index.php';		
+			
+			require_once( plugin_dir_path( __FILE__ ) . 'wp-poll-custom-css.php');	
+				
 			return $html;
 	}
 	

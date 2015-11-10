@@ -4,7 +4,7 @@
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
 	Tested up to: 4.3.1
-	Stable tag: 1.1.0
+	Stable tag: 1.1.1
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,7 @@ It allows user to poll in your website with many awesome feature.
 * 100% Support to use Categorized Poll.
 * Visitors can see All Polls with Awesome filters.
 * Admin can set any Poll for all TIME.
+* Featured Polling System. IT's FREE !
 
 ### PRO Features
 * Analytics as like as Google.
@@ -72,4 +73,6 @@ https://www.youtube.com/watch?v=UCNewwHNtVU
 	= 1.1.0 =
     * 11/04/2015 Released a Super Version with Paid Features ( Analytics )
 	
+	= 1.1.1 =
+    * 11/10/2015 Added Featured Polling. FREE Feature.
 	

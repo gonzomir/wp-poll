@@ -25,11 +25,24 @@ jQuery(document).ready(function($)
 		
 		$(document).on('click', '.wp_poll_button_results', function()
 		{
+			var pre_html = $(this).html();
+			$(this).html('<i class="fa fa-refresh fa-spin"></i>');
+			
 			setTimeout(function()
 			{
 				$(".wp_poll_total_submit").fadeIn();
 				$("span.wp_poll_option_result").fadeIn();
 			}, 1000);
+			
+			setTimeout(function()
+			{
+				$(".wp_poll_total_submit").fadeOut();
+				$("span.wp_poll_option_result").fadeOut();
+				
+				$('.wp_poll_button_results').html(pre_html);				
+			}, 5000);
+			
+			
 		})
 		
 		$(document).on('click', '.wp_poll_button_submit', function()
