@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.pb-settings {
+  /*margin: 20px 10px;*/
+}
+
+.pb-settings ul.tab-nav {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+.pb-settings ul.tab-nav li {
+	background: none repeat scroll 0 0 rgb(230, 230, 230);
+	
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	padding: 8px 15px;
+	width:35%;
+    margin-bottom: 10px;
+	margin-left: 0;
+	margin-right: 0px;
+	font-size:16px;
+	font-family: inherit;
+}
+
+.pb-settings ul.tab-nav li.active{
+	background:#d8d6d6;
+	padding-top:6px;
+	position: relative;
+}
+
+/* CODE START FOR ARROW */
+
+.pb-settings ul.tab-nav li.active:after {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(216, 214, 214, 0);
+	border-top-color: #d8d6d6;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+/* CODE END FOR ARROW */
+
+.pb-settings ul.box {
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+.pb-settings ul.box li.tab-box {
+  /*border: 1px solid rgb(153, 153, 153);*/
+  display: none;
+  margin: 0;
+  width: 100%;
+}
+
+@media all and (max-width: 799px) {
+	.pb-settings ul.tab-nav li {
+	  display: block;
+	  
+	}
+	.pb-settings ul.tab-nav li.active{
+		font-weight: bold;
+	}
+}
