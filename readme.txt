@@ -77,5 +77,5 @@ https://www.youtube.com/watch?v=UCNewwHNtVU
     * 11/10/2015 Added Featured Polling. FREE Feature.
 	
 	= 1.1.2 =
-    * 11/10/2015 Implement New Back Admin Design.
+    * 12/02/2016 Implement New Back Admin Design.
 	
