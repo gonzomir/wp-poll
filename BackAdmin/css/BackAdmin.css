@@ -1,8 +1,25 @@
 @charset "utf-8";
 /* CSS Document */
 
-
 /*Admin CSS*/
+
+
+#wp_poll_metabox {
+	background: #C7C7C7;
+}
+
+#wp_poll_metabox h2.hndle.ui-sortable-handle {
+	background: #1189EF;
+    color: #fff;
+}
+
+#wp_poll_metabox .handlediv {
+    color: #fff;
+}
+
+
+
+
 
 .back-settings {
   margin: 20px 10px;
@@ -53,10 +70,15 @@
 
 .back-settings ul.tab-nav li.active{
 	background:#d8d6d6;
-	border-top:2px solid #08519B;
+	border-top:2px solid #EF1111;
+	color:#CC0404;
 	padding-top:6px;
 	font-weight: bold;
-	}
+}
+.back-settings ul.tab-nav li{
+	border-top:2px solid #1189EF;
+}
+
 .back-settings ul.box {
   clear: both;
   margin: 0;
@@ -68,6 +90,7 @@
   display: none;
   margin: 0;
   width: 100%;
+  background:#fff;
 }
 
 .back-settings .new_user_profile_social {

@@ -53,7 +53,7 @@ class class_wp_poll_post_types{
 				'taxonomies' 			=> array('category'), 
 				'rewrite' 				=> true,
 				'query_var' 			=> true,
-				'supports' 				=> array('title','custom-fields','category'),
+				'supports' 				=> array('title','category'),
 				'show_in_nav_menus' 	=> false,
 				'menu_icon' => 'dashicons-admin-users',
 			) )

@@ -15,6 +15,22 @@ class class_wp_poll_post_meta{
 	}
 
 	public function wp_poll_meta_options($options = array()){
+		
+		global $post;
+		
+		$options['Naming'] = array(
+				
+			'wp_poll_self_shortcode'=>array(
+				'css_class'=>'wp_poll_self_shortcode',					
+				'title'=>'Self Shortcode',
+				'option_details'=>'Use this shortcode to show this poll seperately.',						
+				'input_type'=>'text',
+				'input_values'=> '[wp_poll_display_today id='.get_the_ID().']',
+				'autoselect'=> true,
+			),
+						
+		);
+		
 		$options['Poll Info'] = array(
 									
 			'wp_poll_main_question'=>array(
@@ -140,8 +156,13 @@ class class_wp_poll_post_meta{
 				$html_box.= '<p class="option-title">'.$option_info['title'].'</p>';
 				$html_box.= '<p class="option-info">'.$option_info['option_details'].'</p>';
 				
-				if($option_info['input_type'] == 'text')
-					$html_box.= '<input id="'.$option_key.'" type="text" placeholder="" name="'.$option_key.'" value="'.$option_value.'" /> ';					
+				if($option_info['input_type'] == 'text') {
+					if( $option_info['autoselect'] ) $autoselect = 'readonly="true" onclick="this.select()"';
+					else $autoselect = '';
+						
+					$html_box.= '<input '.$autoselect.' id="'.$option_key.'" type="text" placeholder="" name="'.$option_key.'" value="'.$option_value.'" /> ';					
+				
+				}
 				elseif($option_info['input_type'] == 'textarea')
 					$html_box.= '<textarea placeholder="" name="'.$option_key.'" >'.$option_value.'</textarea> ';
 				elseif($option_info['input_type'] == 'date')
