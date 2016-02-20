@@ -1,3 +1,5 @@
+
+
 <?php
 
 /*
@@ -40,6 +42,30 @@ class class_wp_poll_functions{
 					);
 			
 		foreach(apply_filters( 'wp_poll_themes_url', $themes_url ) as $theme_key=> $theme_url)
+			$theme_list_url[$theme_key] = $theme_url;
+		return $theme_list_url;
+	}
+	
+	public function wp_poll_single_themes_dir($themes_dir = array())
+	{
+		$main_dir = wp_poll_plugin_dir.'themes/single-poll/';
+		$themes_dir = array(
+						'flat'=>$main_dir.'flat',
+					);
+			
+		foreach(apply_filters( 'wp_poll_single_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
+			$theme_list_dir[$theme_key] = $theme_dir;
+		return $theme_list_dir;
+	}
+
+	public function wp_poll_single_themes_url($themes_url = array())
+	{
+		$main_url = wp_poll_plugin_url.'themes/single-poll/';
+		$themes_url = array(
+						'flat'=>$main_url.'flat',
+					);
+			
+		foreach(apply_filters( 'wp_poll_single_themes_url', $themes_url ) as $theme_key=> $theme_url)
 			$theme_list_url[$theme_key] = $theme_url;
 		return $theme_list_url;
 	}

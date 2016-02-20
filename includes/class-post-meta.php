@@ -25,7 +25,7 @@ class class_wp_poll_post_meta{
 				'title'=>'Self Shortcode',
 				'option_details'=>'Use this shortcode to show this poll seperately.',						
 				'input_type'=>'text',
-				'input_values'=> '[wp_poll_display_today id='.get_the_ID().']',
+				'input_values'=> '[wp_poll_single id='.get_the_ID().']',
 				'autoselect'=> true,
 			),
 						

@@ -12,6 +12,7 @@ class class_wp_poll_shortcodes{
     public function __construct()
 	{
 		add_shortcode( wp_poll_short_code, array( $this, 'wp_poll_display_for_today' ) );		
+		add_shortcode( 'wp_poll_single', array( $this, 'wp_poll_single' ) );		
 		add_shortcode( 'wp_poll_list', array( $this, 'wp_poll_list_display' ) );	
 		
 		add_filter( 'widget_text', 'do_shortcode', 11);
@@ -36,6 +37,29 @@ class class_wp_poll_shortcodes{
 
 			echo '<link  type="text/css" media="all" rel="stylesheet"  href="'.$wp_poll_themes_url[$themes].'/style.css" >';				
 			include $wp_poll_themes_dir[$themes].'/index.php';		
+							
+			return $html;
+	}
+	
+	public function wp_poll_single($atts, $content = null ) 
+	{
+			$atts = shortcode_atts(
+				array(
+					'themes' => 'flat',
+					'id' => '',
+					
+				), $atts);
+	
+			$html = '';
+			$themes = $atts['themes'];
+			$wp_poll_to_be_shown = $atts['id'];
+			
+			$class_wp_poll_functions = new class_wp_poll_functions();
+			$wp_poll_single_themes_dir = $class_wp_poll_functions->wp_poll_single_themes_dir();
+			$wp_poll_single_themes_url = $class_wp_poll_functions->wp_poll_single_themes_url();
+
+			echo '<link  type="text/css" media="all" rel="stylesheet"  href="'.$wp_poll_single_themes_url[$themes].'/style.css" >';				
+			include $wp_poll_single_themes_dir[$themes].'/index.php';		
 							
 			return $html;
 	}
