@@ -1,0 +1,22 @@
+/*
+Admin css
+*/
+
+.wpp_option_list {}
+
+
+.wpp_option_list .wpp_option_single {
+    display: inherit;
+    margin: 0;
+}
+
+
+.wpp_result_list {
+    display: none;
+}
+
+.wpp_result_list li{
+    list-style:none;
+}
+
+
