@@ -1,56 +1,44 @@
 === WP Poll ===
-	Contributors: jaedm97
+	Contributors: jaedm97,pluginbazar
 	Donate link: http://pluginbazar.ml/donate
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
-	Tested up to: 4.6
-	Stable tag: 1.1.4
+	Tested up to: 4.7
+	Stable tag: 2.0.0
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-	It allows user to poll in your website with many awesome feature.
+	This plugin will allow you to create and manage poll in your WordPress
 
 == Description ==
 
-It allows user to poll in your website with many awesome feature.
+Hello, Now a days, to be updated with the flow of time, having a option to take your visitor's opinion is almost obvious.
+From this Idea we build this plugin that will satisfy your need in case of poll management. You can easily create and maintain 
+a poll in your WordPress without any harrasement.
+
+And finally you will get a Report in the Admin view to be confirmed about how your visitor react on your each Poll.
 
 
-### WP Poll by pluginbazar - Jaed Mosharraf
-* [Live Demo &raquo;](http://pluginbazar.ml/demo-wp-poll/)
-* [Get WP Poll PRO &raquo;](http://pluginbazar.ml/downloads/wp-poll-pro/)
-* [Back Admin Look &raquo;](http://pluginbazar.ml/demo-wp-poll/wp-admin/)
+`
+	http://www.demo.pluginbazar.net/wp-poll/
+	
 	Username: demo
 	Password: demo
+`
 	
 ### KEY Features
 * 100% User Friendly and Customization Support without having any coding skill.
 * 100% Unique Review. No SPAM. No one can review twice in single Question.
 * 100% Browser Compatibility.
-* 100% WordPress Build in jQuery.
-* 100% Support to use Categorized Poll.
+* Support Categorized Poll.
 * Visitors can see All Polls with Awesome filters.
-* Admin can set any Poll for all TIME.
 * Featured Polling System. IT's FREE !
-
-### PRO Features
-* Analytics as like as Google.
-
-
-### SO WHY LATE? GET RIGHT NOW
-
-<strong>Video tutorial:</strong>
-
-https://www.youtube.com/watch?v=UCNewwHNtVU
-
 
 
 == Installation ==
 
 1. Install as regular WordPress plugin.<br />
 2. Go your plugin settings via WordPress Dashboard and find "<strong>WP Poll</strong>" activate it.<br />
-
-
-
 
 == Screenshots ==
 
@@ -62,11 +50,9 @@ https://www.youtube.com/watch?v=UCNewwHNtVU
 
 == Changelog ==
 
-
 	= 1.0.0 =
     * 10/13/2015 Initial release.
 	
-
 	= 1.0.1 =
     * 10/16/2015 Provide Extra Feature.
 	
@@ -81,4 +67,8 @@ https://www.youtube.com/watch?v=UCNewwHNtVU
 	
 	= 1.1.3 =
     * 21/02/2016 You can show each Poll with shortcode.
+	
+	= 2.0.0 =
+    * 01/01/2017 It's a Major Update, Internal Structure and Scope changed.
+	
 	

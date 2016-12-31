@@ -8,14 +8,14 @@
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
 
-class wp_poll_widget extends WP_Widget {
+class wpp_widget extends WP_Widget {
 
 	function __construct() {
 		
 		parent::__construct(
-			'wp_poll_widget', 
-			__('WP Poll', 'wp_poll'),
-			array( 'description' => __( 'Show the poll of Today', 'wp_poll' ), ) 
+			'wpp_widget', 
+			__('WP Poll', WPP_TEXT_DOMAIN),
+			array( 'description' => __( 'Show the poll of Today', WPP_TEXT_DOMAIN ), ) 
 		);
 	}
 
@@ -25,14 +25,14 @@ class wp_poll_widget extends WP_Widget {
 		//echo $args['before_widget'];
 		//if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
 
-		echo '[wp_poll_short_code]';
+		echo '[wpp_short_code]';
 		//echo $args['after_widget'];
 		
 	}
 	
 	public function form( $instance ) {
 		if ( isset( $instance[ 'title' ] ) ) $title = $instance[ 'title' ];
-		else $title = __( 'New title', 'wp_poll' );
+		else $title = __( 'New title', WPP_TEXT_DOMAIN );
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
@@ -49,6 +49,6 @@ class wp_poll_widget extends WP_Widget {
 }
 
 	function wpb_load_widget() {
-		register_widget( 'wp_poll_widget' );
+		register_widget( 'wpp_widget' );
 	}
 	add_action( 'widgets_init', 'wpb_load_widget' );

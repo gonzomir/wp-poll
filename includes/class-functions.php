@@ -9,87 +9,87 @@
 
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
-class class_wp_poll_functions{
+class class_wpp_functions{
 	
 
-	public function wp_poll_themes($themes = array())
+	public function wpp_themes($themes = array())
 	{
 		$themes = array(
 					'flat'=>'Flat',		
 				);
-		foreach(apply_filters( 'wp_poll_themes', $themes ) as $theme_key=> $theme_name)
+		foreach(apply_filters( 'wpp_themes', $themes ) as $theme_key=> $theme_name)
 			$theme_list[$theme_key] = $theme_name;
 		return $theme_list;
 	}
 	
-	public function wp_poll_themes_dir($themes_dir = array())
+	public function wpp_themes_dir($themes_dir = array())
 	{
-		$main_dir = wp_poll_plugin_dir.'themes/show-poll/';
+		$main_dir = WPP_PLUGIN_DIR.'themes/show-poll/';
 		$themes_dir = array(
 						'flat'=>$main_dir.'flat',
 					);
 			
-		foreach(apply_filters( 'wp_poll_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
+		foreach(apply_filters( 'wpp_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
 			$theme_list_dir[$theme_key] = $theme_dir;
 		return $theme_list_dir;
 	}
 
-	public function wp_poll_themes_url($themes_url = array())
+	public function wpp_themes_url($themes_url = array())
 	{
-		$main_url = wp_poll_plugin_url.'themes/show-poll/';
+		$main_url = WPP_PLUGIN_URL.'themes/show-poll/';
 		$themes_url = array(
 						'flat'=>$main_url.'flat',
 					);
 			
-		foreach(apply_filters( 'wp_poll_themes_url', $themes_url ) as $theme_key=> $theme_url)
+		foreach(apply_filters( 'wpp_themes_url', $themes_url ) as $theme_key=> $theme_url)
 			$theme_list_url[$theme_key] = $theme_url;
 		return $theme_list_url;
 	}
 	
-	public function wp_poll_single_themes_dir($themes_dir = array())
+	public function wpp_single_themes_dir($themes_dir = array())
 	{
-		$main_dir = wp_poll_plugin_dir.'themes/single-poll/';
+		$main_dir = WPP_PLUGIN_DIR.'themes/single-poll/';
 		$themes_dir = array(
 						'flat'=>$main_dir.'flat',
 					);
 			
-		foreach(apply_filters( 'wp_poll_single_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
+		foreach(apply_filters( 'wpp_single_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
 			$theme_list_dir[$theme_key] = $theme_dir;
 		return $theme_list_dir;
 	}
 
-	public function wp_poll_single_themes_url($themes_url = array())
+	public function wpp_single_themes_url($themes_url = array())
 	{
-		$main_url = wp_poll_plugin_url.'themes/single-poll/';
+		$main_url = WPP_PLUGIN_URL.'themes/single-poll/';
 		$themes_url = array(
 						'flat'=>$main_url.'flat',
 					);
 			
-		foreach(apply_filters( 'wp_poll_single_themes_url', $themes_url ) as $theme_key=> $theme_url)
+		foreach(apply_filters( 'wpp_single_themes_url', $themes_url ) as $theme_key=> $theme_url)
 			$theme_list_url[$theme_key] = $theme_url;
 		return $theme_list_url;
 	}
 	
-	public function wp_poll_list_themes_dir($themes_dir = array())
+	public function wpp_list_themes_dir($themes_dir = array())
 	{
-		$main_dir = wp_poll_plugin_dir.'themes/poll-list/';
+		$main_dir = WPP_PLUGIN_DIR.'themes/poll-list/';
 		$themes_dir = array(
 						'flat'=>$main_dir.'flat',
 					);
 			
-		foreach(apply_filters( 'wp_poll_list_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
+		foreach(apply_filters( 'wpp_list_themes_dir', $themes_dir ) as $theme_key=> $theme_dir)
 			$theme_list_dir[$theme_key] = $theme_dir;
 		return $theme_list_dir;
 	}
 
-	public function wp_poll_list_themes_url($themes_url = array())
+	public function wpp_list_themes_url($themes_url = array())
 	{
-		$main_url = wp_poll_plugin_url.'themes/poll-list/';
+		$main_url = WPP_PLUGIN_URL.'themes/poll-list/';
 		$themes_url = array(
 						'flat'=>$main_url.'flat',
 					);
 			
-		foreach(apply_filters( 'wp_poll_list_themes_url', $themes_url ) as $theme_key=> $theme_url)
+		foreach(apply_filters( 'wpp_list_themes_url', $themes_url ) as $theme_key=> $theme_url)
 			$theme_list_url[$theme_key] = $theme_url;
 		return $theme_list_url;
 	}
@@ -100,7 +100,7 @@ class class_wp_poll_functions{
 	
 //=====  Extra Functions  ====================================//
 	
-	public function wp_poll_get_submit_percent( $wp_poll_id, $wp_poll_option )
+	public function wpp_get_submit_percent( $wpp_id, $wpp_option )
 	{
 		wp_reset_query();
 		
@@ -112,12 +112,12 @@ class class_wp_poll_functions{
 				'meta_query' => array(
 					array(
 						'key' => 'wp_polled_post_id',
-						'value' => $wp_poll_id,
+						'value' => $wpp_id,
 							
 						),	
 					array(
 						'key' => 'wp_polled_option',
-						'value' => $wp_poll_option,
+						'value' => $wpp_option,
 							
 						),	
 					
@@ -127,7 +127,7 @@ class class_wp_poll_functions{
 		$poll_submit = $wp_query_get_total_submit->found_posts;
 		wp_reset_query();
 		
-		$poll_total_submit = $this->wp_poll_get_total_submit( $wp_poll_id );
+		$poll_total_submit = $this->wpp_get_total_submit( $wpp_id );
 		if ( empty($poll_total_submit) )
 			$poll_submit_percent = 0;
 		else 
@@ -136,7 +136,7 @@ class class_wp_poll_functions{
 		return (int)$poll_submit_percent;
 	}
 	
-	public function wp_poll_get_total_submit( $wp_poll_id )
+	public function wpp_get_total_submit( $wpp_id )
 	{
 		wp_reset_query();
 		
@@ -148,7 +148,7 @@ class class_wp_poll_functions{
 				'meta_query' => array(
 					array(
 						'key' => 'wp_polled_post_id',
-						'value' => $wp_poll_id,
+						'value' => $wpp_id,
 							
 						),					
 					),
@@ -194,4 +194,4 @@ class class_wp_poll_functions{
 	
 	
 		
-} new class_wp_poll_functions();
+} new class_wpp_functions();
