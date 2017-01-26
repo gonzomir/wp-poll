@@ -4,7 +4,7 @@
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
 	Tested up to: 4.7
-	Stable tag: 2.0.0
+	Stable tag: 2.0.2
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,5 +70,8 @@ And finally you will get a Report in the Admin view to be confirmed about how yo
 	
 	= 2.0.0 =
     * 01/01/2017 It's a Major Update, Internal Structure and Scope changed.
+	
+	= 2.0.2 =
+    * 26/01/2017 Visitors can add new Poll, Transalation Ready.
 	
 	

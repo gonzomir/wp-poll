@@ -7,15 +7,19 @@
 	$poll_meta_options = get_post_meta( $post->ID, 'poll_meta_options', true );
 	$poll_deadline = get_post_meta( $post->ID, 'poll_deadline', true );
 	$poll_meta_multiple = get_post_meta( $post->ID, 'poll_meta_multiple', true );
+	$poll_meta_new_option = get_post_meta( $post->ID, 'poll_meta_new_option', true );
 
 	if( empty( $poll_meta_options ) ) { $poll_meta_options = array( time() => '' ); }
 	if( empty( $poll_meta_multiple ) ) { $poll_meta_multiple = 'no'; }
+	if( empty( $poll_meta_new_option ) ) { $poll_meta_new_option = 'no'; }
 	
 	// echo '<pre>'; print_r( $poll_meta_options ); echo '</pre>';
 
 ?>
 <div class="poll_meta_box">
-
+	
+<a class="button button-orange poll_view_link" href="<?php echo get_the_permalink(); ?>" target="_blank">View Poll</a>
+		
 	<div class="section-box">
 		<p class="section-title">Poll Title</p>
 		<div class="section-box">
@@ -51,7 +55,8 @@
 		
 		<div class="section-box">
 			<div class="section-box-label">Poll Shortcode | Using this you can place this Poll anywhere you want.</div>
-			<input type="text" value="[poll id=<?php echo get_the_ID(); ?>]" disabled="disabled" style="background:#ddd;" />
+			<input id="wp_poll_shortcode" type="text" value="[poll id=<?php echo get_the_ID(); ?>]" disabled="disabled" style="background:#ddd;" />
+			<span class="button" onclick="copyToClipboard('#wp_poll_shortcode')">Copy it</span>
 		</div>
 		
 		<div class="section-box">
@@ -66,6 +71,16 @@
 				<option <?php if( $poll_meta_multiple == 'no' ) echo 'selected'; ?> value="no">No - Not Allow</option>
 			</select>
 		</div>
+		
+		<div class="section-box">
+			<div class="section-box-label">Allow Visitors to add New Option | Default is No - Not Allow</div>
+			<select name="poll_meta_new_option">
+				<option <?php if( $poll_meta_new_option == 'yes' ) echo 'selected'; ?> value="yes">Yes - Allow</option>
+				<option <?php if( $poll_meta_new_option == 'no' ) echo 'selected'; ?> value="no">No - Not Allow</option>
+			</select>
+		</div>
+		
+		
 	</div>
 	
 	

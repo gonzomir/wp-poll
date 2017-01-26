@@ -9,10 +9,14 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	
 	if( empty( $poll_id ) ) $poll_id = get_the_ID();
 	
+	
+	
 	$poll_meta_options 	= get_post_meta( $poll_id, 'poll_meta_options', true );
 	$polled_data		= get_post_meta( $poll_id, 'polled_data', true );
 	$poller 			= get_poller();
-
+	
+	if( empty( $polled_data ) ) $polled_data = array();
+	
 	// echo '<pre>'; print_r( $poll_meta_options ); echo '</pre>';
 	// echo '<pre>'; print_r( $polled_data ); echo '</pre>';
 

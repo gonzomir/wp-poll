@@ -30,7 +30,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 			'<p class="wpp_message wpp_poll_closed">%s</p>',
 			apply_filters(
 				'wpp_filter_message_poll_closed_html', 
-				"<i class='fa fa-envelope'></i> Sorry, This poll is completed on <b><i>$poll_deadline</i></b> - 
+				"<i class='fa fa-envelope'></i> ".__('Sorry, This poll is completed on', WPP_TEXT_DOMAIN)." <b><i>$poll_deadline</i></b> - 
 				about <b><i>$time_ago</i></b> ago" 
 			)
 		);
@@ -45,9 +45,10 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 			'<p class="wpp_message">%s</p>',
 			apply_filters(
 				'wpp_filter_message_poll_open_html', 
-				"<i class='fa fa-envelope'></i> This poll is open till <b><i>$poll_deadline</i></b> - 
-				only <b><i>$time_remaining</i></b> remaining" 
+				"<i class='fa fa-envelope'></i> ".__("This poll is open till ", WPP_TEXT_DOMAIN)." $poll_deadline<b><i></i></b> - 
+				".__('remaining only', WPP_TEXT_DOMAIN)." <b><i>$time_remaining</i></b> " 
 			)
+			
 		);
 		$GLOBALS['wpp_status'] = 'open';
 	endif;

@@ -59,8 +59,9 @@ class WPP_Post_meta_Poll{
 		$poll_deadline = stripslashes_deep( $_POST['poll_deadline'] );
 		update_post_meta( $post_id, 'poll_deadline', $poll_deadline );		
 		
-		
-		
+		$poll_meta_new_option = stripslashes_deep( $_POST['poll_meta_new_option'] );
+		update_post_meta( $post_id, 'poll_meta_new_option', $poll_meta_new_option );		
+			
 	}
 	
 } new WPP_Post_meta_Poll();

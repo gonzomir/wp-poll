@@ -20,10 +20,17 @@ class WPP_Update_db {
 		if( get_option( 'wpp_complete_update', 'no' ) == 'no' ) {
 			?>
 			<div id="message" class="updated">
-				<p><?php _e( '<strong>Welcome to WP Poll</strong> &#8211; You may have Previous poll data. You need to <b><i>Update Database</i></b> to get back them all.', WPP_TEXT_DOMAIN ); ?></p>
+				<p><?php 
+				echo 
+				'<strong>'. 
+				__( 'Welcome to WP Poll.', WPP_TEXT_DOMAIN ). ' '.
+				__( 'You may have Previous poll data.', WPP_TEXT_DOMAIN ). ' '.
+				__( 'You need to Update Database to get back them all.', WPP_TEXT_DOMAIN ).
+				'</strong>';
+				?></p>
 				<p class="submit">
 					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'do_update' ) ); ?>" class="button-primary"><?php _e( 'Update Now', WPP_TEXT_DOMAIN ); ?></a> 
-					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'skip_update' ) ); ?>" class="button-secondary skip"><?php _e( 'Skip setup', WPP_TEXT_DOMAIN ); ?></a>
+					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'skip_update' ) ); ?>" class="button-secondary skip"><?php _e( 'Skip Update', WPP_TEXT_DOMAIN ); ?></a>
 				</p>
 			</div>
 			<?php

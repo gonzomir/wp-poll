@@ -49,3 +49,13 @@ Admin css
 .button.wpp_result {
     background: #009D91;
 }
+
+.button.wpp_new_option {
+    background: #6C2EB9;
+}
+
+.wpp_input_error,
+.wpp_input_error:focus,
+.wpp_input_error:active{
+    border-color: #DE5044;
+}

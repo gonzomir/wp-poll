@@ -3,7 +3,7 @@
 	Plugin Name: WP Poll
 	Plugin URI: https://www.pluginbazar.net/product/wp-poll/
 	Description: 	It allows user to poll in your website with many awesome feature.
-	Version: 2.0.0
+	Version: 2.0.2
 	Author: Pluginbazar
 	Author URI: https://pluginbazar.net/
 	License: GPLv2 or later
@@ -23,7 +23,15 @@ class WPPollManager {
 		$this->wpp_define_shortcodes();
 		$this->wpp_load_functions();
 		$this->wpp_load_scripts();
+		
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ));
 	}
+	
+	public function load_textdomain() {
+
+		load_plugin_textdomain( WPP_TEXT_DOMAIN, false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' ); 
+	}
+	
 	
 	public function wpp_load_scripts(){
 		
@@ -60,7 +68,7 @@ class WPPollManager {
 		
 		define('WPP_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 		define('WPP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-		define('WPP_TEXT_DOMAIN', plugin_dir_path( __FILE__ ) );
+		define('WPP_TEXT_DOMAIN', 'wp-poll' );
 	}
 	
 	public function wpp_front_scripts() {
@@ -86,10 +94,7 @@ class WPPollManager {
 		
 		wp_enqueue_script( 'jquery-ui-datepicker' );
 		wp_enqueue_style( 'jquery-ui-datepicker-style' , '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css');
-		
-		// wp_enqueue_style( 'wp-color-picker' );
-		// wp_enqueue_script( 'wpp_color_picker', plugins_url('/admin/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
-		
+
 		wp_enqueue_script('wpp_admin_js', plugins_url( 'assets/admin/js/scripts.js' , __FILE__ ) , array( 'jquery' ));
 		// wp_localize_script('wpp_admin_js', 'wpp_ajax', array( 'wpp_ajaxurl' => admin_url( 'admin-ajax.php')));
 		

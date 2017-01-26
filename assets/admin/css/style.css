@@ -23,3 +23,23 @@ Admin css
     margin-right: 15px;
 }
 
+#wp_shortcode_notice {
+	color:red;
+}
+
+.poll_view_link { float:right; text-decoration:none; }
+
+.button.button-orange{
+	background: #e77f11;
+    color: #fff;
+	transition: all ease-out 0.15s;
+	border-color: #e77f11;
+    box-shadow: 0 1px 0 #e77f11;
+}
+
+.button.button-orange:hover,.button.button-orange:active,.button.button-orange:focus{
+	background: #D54E21;
+	color: #fff;
+    border-color: #D54E21;
+    box-shadow: 0 1px 0 #D54E21;
+}

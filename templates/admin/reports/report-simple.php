@@ -4,9 +4,12 @@
 * Copyright: 	2015 Jaed Mosharraf
 */
 
-
+	$polled_data = array();
+	
 	$poll_meta_options 	= get_post_meta( $poll_id, 'poll_meta_options', true );
 	$polled_data		= get_post_meta( $poll_id, 'polled_data', true );
+	
+	
 ?>
 
 <div id="wpp_chart_report_1"></div>

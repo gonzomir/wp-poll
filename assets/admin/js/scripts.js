@@ -3,9 +3,26 @@ jQuery(document).ready(function($) {
 	$("#poll_deadline").datepicker({ minDate: new Date, dateFormat: 'dd-mm-yy' });
 	$(function() { $( ".poll_option_container" ).sortable({ handle: ".poll_option_single_sorter" }); });
 	
-	$(document).on('change', '#wpp_report_form select', function() {
+	$(document).on('click', '.wp_poll_shortcode_copy', function() {
 		
-		// $('#wpp_report_form')
+		__COPY_TEXT__ = $('#wp_poll_shortcode').val();
+		
+		try
+            {
+                $('#wp_poll_shortcode').select();
+                document.execCommand('copy');
+            }
+            catch(e)
+            {
+                alert(e);
+            }
+		
+		// window.prompt( __COPY_TEXT__ , text);
+		
+	})
+	
+	
+	$(document).on('change', '#wpp_report_form select', function() {
 		
 		$(this).closest('form').trigger('submit');
 	})
@@ -62,12 +79,21 @@ jQuery(document).ready(function($) {
 			// chart_booking.render();
 			
 			
-			
+	
 
 });	
 
 
-
+	function copyToClipboard(element) {
+	  var $temp = jQuery("<input>");
+	  jQuery("body").append($temp);
+	  $temp.val(jQuery(element).val()).select();
+	  document.execCommand("copy");
+	  $temp.remove();
+	  
+	  jQuery('#wp_shortcode_notice').remove();
+	  jQuery(element).parent().append('<span id="wp_shortcode_notice">Copied to Clipboard.</span>');
+	}	
 
 
 

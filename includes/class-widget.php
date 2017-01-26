@@ -14,7 +14,7 @@ class wpp_widget extends WP_Widget {
 		
 		parent::__construct(
 			'wpp_widget', 
-			__('WP Poll', WPP_TEXT_DOMAIN),
+			'WP Poll',
 			array( 'description' => __( 'Show the poll of Today', WPP_TEXT_DOMAIN ), ) 
 		);
 	}

@@ -23,11 +23,11 @@ class WPP_Poll_column{
 		foreach ( $columns as $col_id => $col_label ) { $count++;
 
 			if ( $count == 3 ) {
-				$new['poll-report'] = esc_html__( 'Poll Report', WPP_TEXTDOMAIN );
+				$new['poll-report'] = __( 'Poll Report', WPP_TEXT_DOMAIN );
 			}
 			
 			if( 'title' === $col_id ) {
-				$new[$col_id] = esc_html__( 'Poll title', WPP_TEXTDOMAIN );
+				$new[$col_id] = __( 'Poll title', WPP_TEXT_DOMAIN );
 			} else {
 				$new[ $col_id ] = $col_label;
 			}
@@ -35,7 +35,7 @@ class WPP_Poll_column{
 			unset( $new['date'] );
 		}
 		
-		$new['poll-date'] = esc_html__( 'Published at', WPP_TEXTDOMAIN );
+		$new['poll-date'] = __( 'Published at', WPP_TEXT_DOMAIN );
 		
 		return $new;
 	}
@@ -47,7 +47,7 @@ class WPP_Poll_column{
 			$polled_data	= get_post_meta( $post_id, 'polled_data', true );
 			$poller 		= count( $polled_data );
 			
-			echo "<i>$poller people</i> polled on this";
+			echo sprintf("<i>%d %s</i>", $poller, __('people polled on this', WPP_TEXT_DOMAIN) );
 			
 			echo '<div class="row-actions">';
 			echo sprintf(  '<span class="view_report"><a href="%s" rel="permalink">'.__('View Reports', WPP_TEXT_DOMAIN).'</a></span>', "edit.php?post_type=poll&page=wpp_reports&id=".$post_id );
@@ -58,7 +58,7 @@ class WPP_Poll_column{
 		if( $column == 'poll-date' ):
 			
 			$time_ago = human_time_diff( get_the_time('U'), current_time('timestamp') ); 
-			echo "<i>$time_ago</i> ago";
+			echo "<i>$time_ago ". __('ago', WPP_TEXT_DOMAIN) ."</i>";
 			
 		endif;
 	}

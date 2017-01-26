@@ -8,6 +8,30 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	
 	
 	
+	function wpp_ajax_add_new_option() {
+		
+		$response 		= array();
+		$poll_id 		= (int)sanitize_text_field($_POST['poll_id']);
+		$option_val 	= sanitize_text_field($_POST['option_val']);
+		
+		if( empty( $poll_id ) || empty( $option_val ) ) die();
+		
+		$poll_meta_options 	= get_post_meta( $poll_id, 'poll_meta_options', true );
+		if( empty( $poll_meta_options ) ) $poll_meta_options = array();
+		
+		$poll_meta_options[ time() ] = $option_val;
+		
+		
+		update_post_meta( $poll_id, 'poll_meta_options', $poll_meta_options );
+		
+		echo 'ok';
+		die();
+	}
+	add_action('wp_ajax_wpp_ajax_add_new_option', 'wpp_ajax_add_new_option');
+	add_action('wp_ajax_nopriv_wpp_ajax_add_new_option', 'wpp_ajax_add_new_option');	
+	
+	
+	
 	function wpp_ajax_submit_poll() {
 		
 		$response 		= array();
