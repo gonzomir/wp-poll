@@ -14,7 +14,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	<?php
 		do_action( 'wpp_action_single_poll_title', $poll_id );
 		do_action( 'wpp_action_single_poll_notice', $poll_id );
-		do_action('wpp_action_single_poll_message', $poll_id);
+		do_action( 'wpp_action_single_poll_message', $poll_id);
 		do_action( 'wpp_action_single_poll_options', $poll_id );
 		do_action( 'wpp_action_single_poll_results', $poll_id );
 		do_action( 'wpp_action_single_poll_buttons', $poll_id );

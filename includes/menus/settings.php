@@ -21,357 +21,168 @@ class class_wpp_settings_page  {
 	
 	public function wpp_settings_options($options = array()){
 		
-		$options['Poll Options'] = array(
-			
-			'wpp_short_code'=>array(
-				'css_class'=>'wpp_short_code',					
-				'title'=>'Poll display Shortcode',
-				'option_details'=>'',						
-				'input_type'=>'text', // text, radio, checkbox, select, 
-				'input_values'=>'['.wpp_short_code.']', // could be array
-				'status'=>'disabled', // could be array
-			),
-			
-			'wpp_show_featured'=>array(
-				'css_class'=>'wpp_show_featured',					
-				'title'=>'Show Featured Post',
-				'option_details'=>'',						
-				'input_type'=>'radio', 
-				'input_values'=> 'no',
-				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
-			),	
-			
-			'wpp_result_btn_text'=>array(
-				'css_class'=>'wpp_result_btn_text',					
-				'title'=>'Result Button Text',
+		$options['Button Text'] = array(
+					
+			'wpp_btn_text_new_option'=>array(
+				'css_class'=>'wpp_btn_text_new_option',					
+				'title'=>__('New Option Button Text',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
 				'input_type'=>'text', 
-				'placeholder'=>'Result',
+				'placeholder'=>__('New Option',WPP_TEXT_DOMAIN),
 			),
 			
-			'wpp_archive_btn_text'=>array(
-				'css_class'=>'wpp_archive_btn_text',					
-				'title'=>'Archive Button Text',
+			'wpp_btn_text_submit'=>array(
+				'css_class'=>'wpp_btn_text_submit',					
+				'title'=>__('Submit Button Text',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
 				'input_type'=>'text', 
-				'placeholder'=>'Archive',
+				'placeholder'=>__('Submit',WPP_TEXT_DOMAIN),
 			),
-
+			
+			'wpp_btn_text_results'=>array(
+				'css_class'=>'wpp_btn_text_results',					
+				'title'=>__('Results Button Text',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text', 
+				'placeholder'=>__('Results',WPP_TEXT_DOMAIN),
+			),
+			
+			
 		);
 		
 		$options['Poll List Options'] = array(
 
-			'wpp_page'=>array(
-				'css_class'=>'wpp_page',					
-				'title'=>'Select Poll Page',
+			'wpp_poll_page'=>array(
+				'css_class'=>'wpp_poll_page',					
+				'title'=>__('Select a Poll Page',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
 				'input_type'=>'select', // text, radio, checkbox, select, 
 				'input_values'=>'', // could be array
 				'input_args'=> fn_get_array_pages(),
 			),
 			
-			'wpp_show_page_content'=>array(
-				'css_class'=>'wpp_show_page_content',					
-				'title'=>'Do you want to show page Content?',
+			'wpp_poll_page_content_show'=>array(
+				'css_class'=>'wpp_poll_page_content_show',					
+				'title'=>__('Do you want to show page Content?',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
 				'input_type'=>'radio',
 				'input_values'=>'yes', 
 				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
 			),
 			
-			
-			
 			'wpp_list_per_page'=>array(
 				'css_class'=>'wpp_list_per_page',					
-				'title'=>'List Per Page',
+				'title'=>__('List Per Page',WPP_TEXT_DOMAIN),
 				'input_type'=>'text',
 				'input_values'=>'', 
 				'placeholder'=>'10',
 			),
 			
-			'wpp_show_poll_icon'=>array(
-				'css_class'=>'wpp_show_poll_icon',					
-				'title'=>'Show Poll Icon in the List',
-				'input_type'=>'radio',
-				'input_args'=> array('yes'=>'Yes', 'no'=>'No'),
-			),
-			
-			'wpp_list_title_font_color'=>array(
-				'css_class'=>'wpp_list_title_font_color',					
-				'title'=>'Set Poll List Title Color',
+			'wpp_list_empty_text'=>array(
+				'css_class'=>'wpp_list_empty_text',					
+				'title'=>__('No Poll Found Text',WPP_TEXT_DOMAIN),
 				'input_type'=>'text',
-				'input_values'=> '#08519B',
-			),
-			
-			'wpp_no_poll_found_text'=>array(
-				'css_class'=>'wpp_no_poll_found_text',					
-				'title'=>'No Poll Found Text',
-				'input_type'=>'text',
-				'placeholder'=>'No Poll Found',
+				'placeholder'=>__('No Poll Found',WPP_TEXT_DOMAIN),
 				
 			),
-			
-			
-			
-		);
-
-		$options['Style-Header'] = array(
-
-			'wpp_header_font_color'=>array(
-				'css_class'=>'wpp_header_font_color',					
-				'title'=>'Wp Poll Header Font Color',
-				'option_details'=>'',						
-				'input_type'=>'text',
-				'input_values'=> '#ffffff',
-			),
-			
-			'wpp_header_bg_color'=>array(
-				'css_class'=>'wpp_header_bg_color',					
-				'title'=>'Wp Poll Header Background Color',
-				'option_details'=>'',						
-				'input_type'=>'text',
-				'input_values'=> '#08519B',
-			),
-			
-			'wpp_header_font_size'=>array(
-				'css_class'=>'wpp_header_font_size',					
-				'title'=>'Wp Poll Header Font Size',
-				'option_details'=>'',						
-				'input_type'=>'text',
-				'input_values'=> '',
-				'placeholder'=> '13px',
-				'status'=>'',
-			),
-
-			'wpp_header_font_weight'=>array(
-				'css_class'=>'wpp_header_font_weight',					
-				'title'=>'Wp Poll Header Font Weight',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'normal',
-				'input_args'=> 
-					array(
-						'100'=>'100', 
-						'200'=>'200', 
-						'300'=>'300', 
-						'400'=>'400', 
-						'500'=>'500', 
-						'600'=>'600', 
-						'700'=>'700', 
-						'800'=>'800',
-						'900'=>'900',
-						'bold'=>'bold',
-						'bolder'=>'bolder',
-						'initial'=>'initial',
-						'lighter'=>'lighter',
-						'normal'=>'normal',
-					),
-			),
-			
-			'wpp_header_font_style'=>array(
-				'css_class'=>'wpp_header_font_style',					
-				'title'=>'Wp Poll Header Font Style',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'normal',
-				'input_args'=> 
-					array(
-						'italic'=>'italic', 
-						'initial'=>'initial',
-						'lighter'=>'lighter',
-						'oblique'=>'oblique',
-						'normal'=>'normal',	
-					),
-			),
-			
 		);
 		
-		$options['Style-Content'] = array(
+		$options['Color'] = array(
 
-			'wpp_content_font_color'=>array(
-				'css_class'=>'wpp_content_font_color',					
-				'title'=>'Wp Poll Content Font Color',
+			'wpp_color_new_option'=>array(
+				'css_class'=>'wpp_color_new_option',					
+				'title'=>__('New Button Color',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
 				'input_type'=>'text',
-				'input_values'=> '#08519B',
+				'input_values'=> '#6C2EB9',
 			),
-			
-			'wpp_content_font_size'=>array(
-				'css_class'=>'wpp_content_font_size',					
-				'title'=>'Wp Poll Content Font Size',
+			'wpp_color_submit'=>array(
+				'css_class'=>'wpp_color_submit',					
+				'title'=>__('Submit Button Color',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
 				'input_type'=>'text',
-				'input_values'=> '',
-				'placeholder'=> '13px',
+				'input_values'=> '#787878',
 			),
-
-			'wpp_content_font_weight'=>array(
-				'css_class'=>'wpp_content_font_weight',					
-				'title'=>'Wp Poll Content Font Weight',
+			'wpp_color_results'=>array(
+				'css_class'=>'wpp_color_results',					
+				'title'=>__('Results Button Color',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'normal',
-				'input_args'=> 
-					array(
-						'100'=>'100', 
-						'200'=>'200', 
-						'300'=>'300', 
-						'400'=>'400', 
-						'500'=>'500', 
-						'600'=>'600', 
-						'700'=>'700', 
-						'800'=>'800',
-						'900'=>'900',
-						'bold'=>'bold',
-						'bolder'=>'bolder',
-						'initial'=>'initial',
-						'lighter'=>'lighter',
-						'normal'=>'normal',
-					),
-			),
-			
-			'wpp_content_font_style'=>array(
-				'css_class'=>'wpp_content_font_style',					
-				'title'=>'Wp Poll Content Font Style',
+				'input_type'=>'text',
+				'input_values'=> '#009D91',
+			),		
+			'wpp_color_title'=>array(
+				'css_class'=>'wpp_color_title',					
+				'title'=>__('Title Text Color',WPP_TEXT_DOMAIN),
 				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'normal',
-				'input_args'=> 
-					array(
-						'italic'=>'italic', 
-						'initial'=>'initial',
-						'lighter'=>'lighter',
-						'oblique'=>'oblique',
-						'normal'=>'normal',	
-					),
+				'input_type'=>'text',
+				'input_values'=> '#2D2D2D',
+			),		
+			'wpp_color_options'=>array(
+				'css_class'=>'wpp_color_options',					
+				'title'=>__('Options Text Color',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#2D2D2D',
+			),		
+			'wpp_color_notice_text_success'=>array(
+				'css_class'=>'wpp_color_notice_text_success',					
+				'title'=>__('Notice Text Color - Success',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#fff',
+			),		
+			'wpp_color_notice_background_success'=>array(
+				'css_class'=>'wpp_color_notice_background_success',					
+				'title'=>__('Notice Bankground Color - Success',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#17A15E',
 			),
-			
+			'wpp_color_notice_text_error'=>array(
+				'css_class'=>'wpp_color_notice_text_error',					
+				'title'=>__('Notice Text Color - Error',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#fff',
+			),		
+			'wpp_color_notice_background_error'=>array(
+				'css_class'=>'wpp_color_notice_background_error',					
+				'title'=>__('Notice Bankground Color - Error',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#DE746C',
+			),
+			'wpp_color_message_text_normal'=>array(
+				'css_class'=>'wpp_color_message_text_normal',					
+				'title'=>__('Message Text Color - Normal',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#757575',
+			),		
+			'wpp_color_message_background_normal'=>array(
+				'css_class'=>'wpp_color_message_background_normal',					
+				'title'=>__('Message Bankground Color - Normal',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#EEEEEE',
+			),
+			'wpp_color_message_text_error'=>array(
+				'css_class'=>'wpp_color_message_text_error',					
+				'title'=>__('Message Text Color - Error',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#fff',
+			),		
+			'wpp_color_message_background_error'=>array(
+				'css_class'=>'wpp_color_message_background_error',					
+				'title'=>__('Message Bankground Color - Error',WPP_TEXT_DOMAIN),
+				'option_details'=>'',						
+				'input_type'=>'text',
+				'input_values'=> '#DE746C',
+			),
 		);
 		
-		$options['Style-Option'] = array(
-
-			'wpp_option_font_color'=>array(
-				'css_class'=>'wpp_option_font_color',					
-				'title'=>'Wp Poll Option Font Color',
-				'option_details'=>'',						
-				'input_type'=>'text',
-				'input_values'=> '#08519B',
-			),
-			
-			'wpp_option_font_size'=>array(
-				'css_class'=>'wpp_option_font_size',					
-				'title'=>'Wp Poll Option Font Size',
-				'option_details'=>'',						
-				'input_type'=>'text',
-				'input_values'=> '',
-				'placeholder'=> '13px',
-			),
-
-			'wpp_option_font_weight'=>array(
-				'css_class'=>'wpp_option_font_weight',					
-				'title'=>'Wp Poll Option Font Weight',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'normal',
-				'input_args'=> 
-					array(
-						'100'=>'100', 
-						'200'=>'200', 
-						'300'=>'300', 
-						'400'=>'400', 
-						'500'=>'500', 
-						'600'=>'600', 
-						'700'=>'700', 
-						'800'=>'800',
-						'900'=>'900',
-						'bold'=>'bold',
-						'bolder'=>'bolder',
-						'initial'=>'initial',
-						'lighter'=>'lighter',
-						'normal'=>'normal',
-					),
-			),
-			
-			'wpp_option_font_style'=>array(
-				'css_class'=>'wpp_option_font_style',					
-				'title'=>'Wp Poll Option Font Style',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'normal',
-				'input_args'=> 
-					array(
-						'italic'=>'italic', 
-						'initial'=>'initial',
-						'lighter'=>'lighter',
-						'oblique'=>'oblique',
-						'normal'=>'normal',	
-					),
-			),
-			
-		);
-		
-		$options['Style-Buttons'] = array(
-
-			'wpp_submit_button'=>array(
-				'css_class'=>'wpp_submit_button',					
-				'title'=>'Wp Poll Submit Button Selection',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'wpp_button_dark_blue',
-				'input_args'=> 
-					array(
-						'wpp_button_green'=>'Green Button', 
-						'wpp_button_light_violate'=>'Light Violate Button', 
-						'wpp_button_sky_blue'=>'Sky Blue Button', 
-						'wpp_button_navy_blue'=>'Navy Blue Button', 
-						'wpp_button_dark_blue'=>'Dark Blue Button', 
-						'wpp_button_red'=>'Red Button', 
-						'wpp_button_facebook'=>'Facebook Button', 
-						
-					),
-			),
-			
-			'wpp_result_button'=>array(
-				'css_class'=>'wpp_result_button',					
-				'title'=>'Wp Poll Result Button Selection',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'wpp_button_dark_blue',
-				'input_args'=> 
-					array(
-						'wpp_button_green'=>'Green Button', 
-						'wpp_button_light_violate'=>'Light Violate Button', 
-						'wpp_button_sky_blue'=>'Sky Blue Button', 
-						'wpp_button_navy_blue'=>'Navy Blue Button', 
-						'wpp_button_dark_blue'=>'Dark Blue Button', 
-						'wpp_button_red'=>'Red Button', 
-						'wpp_button_facebook'=>'Facebook Button', 
-						
-					),
-			),
-			
-			'wpp_archive_button'=>array(
-				'css_class'=>'wpp_archive_button',					
-				'title'=>'Wp Poll Archive Button Selection',
-				'option_details'=>'',						
-				'input_type'=>'select',
-				'input_values'=> 'wpp_button_dark_blue',
-				'input_args'=> 
-					array(
-						'wpp_button_green'=>'Green Button', 
-						'wpp_button_light_violate'=>'Light Violate Button', 
-						'wpp_button_sky_blue'=>'Sky Blue Button', 
-						'wpp_button_navy_blue'=>'Navy Blue Button', 
-						'wpp_button_dark_blue'=>'Dark Blue Button', 
-						'wpp_button_red'=>'Red Button', 
-						'wpp_button_facebook'=>'Facebook Button', 
-						
-					),
-			),
-			
-		);
-		
-		$options = apply_filters( 'wpp_settings_options', $options );
+		$options = apply_filters( 'wpp_filter_settings_options', $options );
 		return $options;
 	}
 	
@@ -386,8 +197,8 @@ class class_wpp_settings_page  {
 		$html_box = '';
 		
 		$i=1;
-		foreach($wpp_settings_options as $key=>$options)
-		{
+		foreach($wpp_settings_options as $key=>$options) {
+			
 			if( $i == 1 ) $html_nav.= '<li nav="'.$i.'" class="nav'.$i.' active">'.$key.'</li>';				
 			else $html_nav.= '<li nav="'.$i.'" class="nav'.$i.'">'.$key.'</li>';
 							
@@ -405,31 +216,23 @@ class class_wpp_settings_page  {
 				if(!isset($option_info['status'])) $option_info['status'] = '';
 				if(!isset($option_info['option_details'])) $option_info['option_details'] = '';
 				
-				
-				
 				if(empty($option_value)) $option_value = $option_info['input_values'];
 				
-				$html_box.= '<div class="option-box '.$option_info['css_class'].'">';
-				$html_box.= '<p class="option-title">'.$option_info['title'].'</p>';
-				$html_box.= '<p class="option-info">'.$option_info['option_details'].'</p>';
-				
-				
-				
+				$html_box.= '<div class="section-box '.$option_info['css_class'].'">';
+				$html_box.= '<p class="section-title">'.$option_info['title'].'</p>';
+				$html_box.= '<p class="section-info">'.$option_info['option_details'].'</p>';
 				
 				if($option_info['input_type'] == 'text') 
 					$html_box.= '<input type="text" '.$option_info['status'].' placeholder="'.$placeholder.'" name="'.$option_key.'" id="'.$option_key.'" value="'.$option_value.'" /> ';					
-				elseif($option_info['input_type'] == 'text-multi')
-				{
+				elseif($option_info['input_type'] == 'text-multi') {
 					$input_args = $option_info['input_args'];
-					foreach($input_args as $input_args_key=>$input_args_values)
-					{
+					foreach($input_args as $input_args_key=>$input_args_values) {
 						if(empty($option_value[$input_args_key])) $option_value[$input_args_key] = $input_args[$input_args_key];
 						$html_box.= '<label>'.$input_args_key.'<br/><input class="job-bm-color" type="text" placeholder="" name="'.$option_key.'['.$input_args_key.']" value="'.$option_value[$input_args_key].'" /></label><br/>';	
 					}
 				}					
 				elseif($option_info['input_type'] == 'textarea') $html_box.= '<textarea placeholder="" name="'.$option_key.'" >'.$option_value.'</textarea> ';
-				elseif($option_info['input_type'] == 'radio')
-				{
+				elseif($option_info['input_type'] == 'radio') {
 					$input_args = $option_info['input_args'];
 					foreach($input_args as $input_args_key=>$input_args_values)
 					{
@@ -438,8 +241,7 @@ class class_wpp_settings_page  {
 						$html_box.= '<label><input class="'.$option_key.'" type="radio" '.$checked.' value="'.$input_args_key.'" name="'.$option_key.'"   >'.$input_args_values.'</label><br/>';
 					}
 				}
-				elseif($option_info['input_type'] == 'select')
-				{
+				elseif($option_info['input_type'] == 'select') {
 					$input_args = $option_info['input_args'];
 					$html_box.= '<select name="'.$option_key.'" >';
 					foreach($input_args as $input_args_key=>$input_args_values)
@@ -450,8 +252,7 @@ class class_wpp_settings_page  {
 					}
 					$html_box.= '</select>';
 				}					
-				elseif($option_info['input_type'] == 'checkbox')
-				{
+				elseif($option_info['input_type'] == 'checkbox') {
 					$input_args = $option_info['input_args'];
 					foreach($input_args as $input_args_key=>$input_args_values)
 					{
@@ -460,8 +261,7 @@ class class_wpp_settings_page  {
 						$html_box.= '<label><input '.$checked.' value="'.$input_args_key.'" name="'.$option_key.'['.$input_args_key.']"  type="checkbox" >'.$input_args_values.'</label><br/>';
 					}
 				}
-				elseif($option_info['input_type'] == 'file')
-				{
+				elseif($option_info['input_type'] == 'file') {
 					$html_box.= '<input type="text" id="file_'.$option_key.'" name="'.$option_key.'" value="'.$option_value.'" /><br />';
 					$html_box.= '<input id="upload_button_'.$option_key.'" class="upload_button_'.$option_key.' button" type="button" value="Upload File" />';					
 					$html_box.= '<br /><br /><div style="overflow:hidden;max-height:150px;max-width:150px;" class="logo-preview"><img width="100%" src="'.$option_value.'" /></div>';
@@ -543,7 +343,7 @@ class class_wpp_settings_page  {
 
 	<div class="wrap">
 		<div id="icon-tools" class="icon32"><br></div>
-		<?php echo "<h2>".__(wpp_plugin_name.' Settings', WPP_TEXT_DOMAIN)."</h2>";?>
+		<?php echo "<h2>WP Poll ".__('Settings', WPP_TEXT_DOMAIN)."</h2>";?><br>
 		
 		<form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 			<input type="hidden" name="wpp_hidden" value="Y" />
@@ -554,7 +354,7 @@ class class_wpp_settings_page  {
 				$class_wpp_settings_page = new class_wpp_settings_page();
 				echo $class_wpp_settings_page->wpp_settings_options_form(); 
 			?>
-			
+			<br>
 			<input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes',WPP_TEXT_DOMAIN ); ?>" />
 			<!--<div class="button button-primary" id="wpp_reset_settings" > <?php //_e('Reset Settings',WPP_TEXT_DOMAIN ); ?> </div> -->
 		</form>
@@ -562,16 +362,14 @@ class class_wpp_settings_page  {
 	</div>
 
 <?php
-	function fn_get_array_pages()
-	{
+	function fn_get_array_pages(){
 		$pages = get_pages( );
 		$array_pages = array();
-		$array_pages['none'] = 'None';
+		$array_pages[''] = 'None';
 		
-		foreach($pages as $page)
-		{
+		foreach($pages as $page) {
 			if ( $page->post_title )
-				$array_pages[$page->post_title] = $page->post_title;
+				$array_pages[$page->ID] = $page->post_title;
 		}
 		
 		return $array_pages;

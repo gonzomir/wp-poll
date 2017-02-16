@@ -17,10 +17,14 @@ class class_wpp_settings{
 	public function wpp_menu_reports(){	
 		include( WPP_PLUGIN_DIR. 'includes/menus/reports.php');			
 	}
+	
+	public function wpp_menu_settings(){	
+		include( WPP_PLUGIN_DIR. 'includes/menus/settings.php');			
+	}
 
 	public function wpp_menu_init() {
 		add_submenu_page('edit.php?post_type=poll', __('Reports',WPP_TEXT_DOMAIN), __('Reports',WPP_TEXT_DOMAIN), 'manage_options', 'wpp_reports', array( $this, 'wpp_menu_reports' ));	
-		// add_submenu_page('edit.php?post_type=wp_poll', __('Settings',WPP_TEXT_DOMAIN), __('Settings',WPP_TEXT_DOMAIN), 'manage_options', 'wpp_menu_settings', array( $this, 'wpp_menu_settings' ));	
+		add_submenu_page('edit.php?post_type=poll', __('Settings',WPP_TEXT_DOMAIN), __('Settings',WPP_TEXT_DOMAIN), 'manage_options', 'wpp_menu_settings', array( $this, 'wpp_menu_settings' ));	
 	}
 }
 	

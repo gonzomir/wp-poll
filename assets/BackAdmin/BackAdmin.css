@@ -5,6 +5,22 @@
 /*Admin CSS*/
 
 
+.section-box {
+    padding: 10px;
+}
+
+.section-box .section-box-label {
+    font-size: 14px;
+    color: #8a8a8a;
+    margin: 0 0 1em 0;
+}
+
+.section-box .section-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #888585;
+}
+
 
 .back-settings .option-box {
 	margin: 10px 0;

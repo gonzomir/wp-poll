@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	
+
 	$("#poll_deadline").datepicker({ minDate: new Date, dateFormat: 'dd-mm-yy' });
 	$(function() { $( ".poll_option_container" ).sortable({ handle: ".poll_option_single_sorter" }); });
 	
@@ -7,18 +7,12 @@ jQuery(document).ready(function($) {
 		
 		__COPY_TEXT__ = $('#wp_poll_shortcode').val();
 		
-		try
-            {
-                $('#wp_poll_shortcode').select();
-                document.execCommand('copy');
-            }
-            catch(e)
-            {
-                alert(e);
-            }
-		
-		// window.prompt( __COPY_TEXT__ , text);
-		
+		try {
+			$('#wp_poll_shortcode').select();
+            document.execCommand('copy');
+        } catch(e) {
+            alert(e);
+        }
 	})
 	
 	

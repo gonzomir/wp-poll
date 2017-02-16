@@ -3,7 +3,7 @@
 	Plugin Name: WP Poll
 	Plugin URI: https://www.pluginbazar.net/product/wp-poll/
 	Description: 	It allows user to poll in your website with many awesome feature.
-	Version: 2.0.3
+	Version: 2.1.0
 	Author: Pluginbazar
 	Author URI: https://pluginbazar.net/
 	License: GPLv2 or later
@@ -53,10 +53,12 @@ class WPPollManager {
 	public function wpp_define_shortcodes(){
 		
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/shortcodes/shortcode-poll.php');	
+		require_once( plugin_dir_path( __FILE__ ) . 'includes/shortcodes/shortcode-poll-list.php');	
 	}
 	
 	public function wpp_define_classes(){
 		
+		require_once( plugin_dir_path( __FILE__ ) . 'includes/classes/class-dynamic-css.php');	
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/classes/class-post-type-poll.php');	
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/classes/class-post-meta-poll.php');	
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/classes/class-menu.php');	
@@ -73,17 +75,14 @@ class WPPollManager {
 	
 	public function wpp_front_scripts() {
 		wp_enqueue_script('jquery');
-
+		wp_enqueue_style( 'dashicons' );
+		
 		wp_enqueue_script('wpp_js', plugins_url( 'assets/front/js/scripts.js' , __FILE__ ) , array( 'jquery' ));
 		wp_localize_script( 'wpp_js', 'wpp_ajax', array( 'wpp_ajaxurl' => admin_url( 'admin-ajax.php')));
 
 		wp_enqueue_style('wpp_style', WPP_PLUGIN_URL.'assets/front/css/style.css');
 
 		wp_enqueue_style('font-awesome', WPP_PLUGIN_URL.'assets/global/css/font-awesome.css');
-		
-
-		// wp_enqueue_style('BackAdmin', WPP_PLUGIN_URL.'BackAdmin/css/BackAdmin.css');
-		// wp_enqueue_script('BackAdmin', plugins_url( 'BackAdmin/js/BackAdmin.js' , __FILE__ ) , array( 'jquery' ));
 	}
 
 	public function wpp_admin_scripts() {
@@ -101,9 +100,13 @@ class WPPollManager {
 		wp_enqueue_style('font-awesome', WPP_PLUGIN_URL.'assets/global/css/font-awesome.css');
 		wp_enqueue_style('wpp_admin_style', WPP_PLUGIN_URL.'assets/admin/css/style.css');
 
-		//BackAdmin
-		// wp_enqueue_style('BackAdmin_Style', WPP_PLUGIN_URL.'assets/BackAdmin/BackAdmin.css');		
-		// wp_enqueue_script('BackAdmin_JS', plugins_url( 'assets/BackAdmin/BackAdmin.js' , __FILE__ ) , array( 'jquery' ));
+		// BackAdmin
+		wp_enqueue_style('BackAdmin_Style', WPP_PLUGIN_URL.'assets/BackAdmin/BackAdmin.css');		
+		wp_enqueue_script('BackAdmin_JS', plugins_url( 'assets/BackAdmin/BackAdmin.js' , __FILE__ ) , array( 'jquery' ));
+		
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'qa_color_picker', plugins_url('assets/admin/js/color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+	
 	
 		wp_enqueue_script('jquery.canvasjs.min', plugins_url( '/assets/admin/js/jquery.canvasjs.min.js' , __FILE__ ) , array( 'jquery' ));							
 	}

@@ -1,20 +1,24 @@
 jQuery(document).ready(function($) {
 	
+	$(document).on('click', '.single-poll .woc_alert_box .alert_box_close .fa', function() {
+		
+		$(this).parent().parent().parent().fadeOut();
+	})
 	
-
+	
 	$(document).on('click', '.single-poll .wpp_visitor_option_new_confirm', function() {
 		
 		__POLL_ID__ 	= $(this).attr( 'poll_id' );
 		option_val 		= $('.single-poll .wpp_new_option_input').val();
-		
-		__HTML__		= $(this).html();
-		$(this).html('<i class="fa fa-cog fa-spin"></i>');
 		
 		if( option_val.length == 0 ) {
 			
 			$('.single-poll .wpp_new_option_input').addClass('wpp_input_error');
 			return;
 		}
+		
+		__HTML__		= $(this).html();
+		$(this).html('<i class="fa fa-cog fa-spin"></i>');
 		
 		$.ajax(
 			{

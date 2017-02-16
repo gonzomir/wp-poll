@@ -16,22 +16,6 @@ Admin css
     box-shadow: none;
 }
 
-.poll_meta_box .section-box {
-    padding: 10px;
-}
-
-.poll_meta_box .section-box .section-box-label {
-    font-size: 14px;
-    color: #8a8a8a;
-    margin: 0 0 1em 0;
-}
-
-.poll_meta_box .section-box .section-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #888585;
-}
-
 .poll_meta_box .poll_option_container  .poll_option_single{
     background: #dedede;
     padding: 5px 20px;
