@@ -23,8 +23,8 @@ class WPP_Shortcode_Poll{
 		$poll_id = empty( $atts['id'] ) ? '' : $atts['id'];
 		
 		ob_start();		
-		// include( WPP_PLUGIN_DIR . 'templates/shortcodes/poll.php');
-		include( WPP_PLUGIN_DIR . 'templates/check.php');
+		include( WPP_PLUGIN_DIR . 'templates/shortcodes/poll.php');
+		// include( WPP_PLUGIN_DIR . 'templates/check.php');
 		return ob_get_clean();		
 	}
 	

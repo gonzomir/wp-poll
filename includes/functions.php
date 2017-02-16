@@ -64,8 +64,6 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	
 	
 	
-	
-	
 	function show_notice( $type = 1 ){
 		
 		if( $type == 1 ) $notice_type = 'wpp_success';
@@ -101,6 +99,18 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	add_filter( 'single_template', 'qa_single_poll_template' );
 	
 	
+	// function qa_single_poll_template($content) {
+		 // global $post;
+		 
+		 // if ($post->post_type == 'poll') {
+			 
+			// ob_start();		
+			// include WPP_PLUGIN_DIR . 'templates/single-poll/single-poll.php';
+			// return ob_get_clean();		
+		 // }
+		 // return $content;
+	// }
+	// add_filter( 'the_content', 'qa_single_poll_template' );
 	
 	
 	function wpp_dark_color($rgb, $darker=2) {
