@@ -18,7 +18,7 @@ a poll in your WordPress without any harrasement.
 
 And finally you will get a Report in the Admin view to be confirmed about how your visitor react on your each Poll.
 
-[See What's New in 2.1.2](https://pluginbazar.net/docs/docs/wp-poll/whats-new/)
+[See What's New in 2.1.2](https://goo.gl/Vf5dtP)
 
 `
 	https://pluginbazar.net/demo/wp-poll/wp-admin/
