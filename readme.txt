@@ -26,10 +26,9 @@ And finally you will get a Report in the Admin view to be confirmed about how yo
 	Password: demo
 `
 
-`
-### KEY Features
-[See What's New in 2.1.2&raquo;](https://pluginbazar.net/docs/docs/wp-poll/whats-new/)
-`
+
+[###See What's New in 2.1.2&raquo;](https://pluginbazar.net/docs/docs/wp-poll/whats-new/)
+
 
 ### KEY Features
 * 100% User Friendly and Customization Support without having any coding skill.
