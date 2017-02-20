@@ -4,7 +4,7 @@
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
 	Tested up to: 4.7.2
-	Stable tag: 2.1.1
+	Stable tag: 2.1.2
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,12 @@ And finally you will get a Report in the Admin view to be confirmed about how yo
 	Username: demo
 	Password: demo
 `
-	
+
+`
+### KEY Features
+[See What's New in 2.1.2&raquo;](https://pluginbazar.net/docs/docs/wp-poll/whats-new/)
+`
+
 ### KEY Features
 * 100% User Friendly and Customization Support without having any coding skill.
 * 100% Unique Review. No SPAM. No one can review twice in single Question.
