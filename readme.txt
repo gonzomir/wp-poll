@@ -1,6 +1,6 @@
 === WP Poll ===
 	Contributors: jaedm97,pluginbazar
-	Donate link: http://pluginbazar.ml/donate
+	Donate link: https://www.pluginbazar.net/product/gift-a-coffee/
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
 	Tested up to: 4.7.2
@@ -18,17 +18,14 @@ a poll in your WordPress without any harrasement.
 
 And finally you will get a Report in the Admin view to be confirmed about how your visitor react on your each Poll.
 
+[See What's New in 2.1.2](https://pluginbazar.net/docs/docs/wp-poll/whats-new/)
 
 `
-	http://www.demo.pluginbazar.net/wp-poll/
+	https://pluginbazar.net/demo/wp-poll/wp-admin/
 	
 	Username: demo
 	Password: demo
 `
-
-
-[### See What's New in 2.1.2&raquo;](https://pluginbazar.net/docs/docs/wp-poll/whats-new/)
-
 
 ### KEY Features
 * 100% User Friendly and Customization Support without having any coding skill.
@@ -75,7 +72,7 @@ And finally you will get a Report in the Admin view to be confirmed about how yo
 	= 2.0.0 =
     * 01/01/2017 It's a Major Update, Internal Structure and Scope changed.
 	
-	= 2.0.2 =
-    * 26/01/2017 Visitors can add new Poll, Transalation Ready.
+	= 2.1.2 =
+    * 26/01/2017 Visitors can add new Poll, Transalation Ready and so on
 	
 	
