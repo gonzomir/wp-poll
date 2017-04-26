@@ -74,3 +74,52 @@ Admin css
     color: red;
 }
 
+/* Thumbnail Section Start */
+.wpp_thumbnail_container {
+    text-align: center;
+    margin: 20px 0;
+}
+.wpp_thumbnail_container img {
+    box-shadow: inset 0 0 18px 7px rgba(0, 0, 0, 0.2) !important;
+    padding: 20px;
+}
+/* Thumbnail Section End */
+
+
+/* Comments Section  */
+
+.wpp_comments{
+
+}
+.wpp_comments .wpp_comments_box {
+    padding: 20px;
+    width: 96%;
+    background: #f1f1f1;
+    box-shadow: 0 0px 6px rgba(0,0,0,.4);
+}
+.wpp_comments .wpp_comment_header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #7d7676;
+    margin-bottom: 15px;
+}
+.wpp_comments .wpp_comment_section_label {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.wpp_comments .wpp_comment_section input[type=text],
+.wpp_comments .wpp_comment_section input[type=email],
+.wpp_comments .wpp_comment_section textarea {
+    width:90%;
+    min-width:220px;
+	outline:none !important;
+	box-shadow:none !important;
+}
+.wpp_comments .wpp_comment_message {
+    margin: 15px 0;
+    font-size: 15px;
+	display:none;
+}
+
+

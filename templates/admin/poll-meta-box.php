@@ -28,10 +28,8 @@
 	</div>
 	
 	<div class="section-box">
-		
 		<p class="section-title">Poll Options</p>
 		<div class="section-box">
-		
 			<div class="button add_new_option">Add New</div>
 			<ul class="option-box poll_option_container">
 			<?php foreach( $poll_meta_options as $option_id => $option_value ) { ?>
@@ -43,9 +41,21 @@
 				</li>
 			<?php } ?>
 			</ul>
-	
 		</div>
-		
+	</div>
+	
+	<div class="section-box">
+		<p class="section-title">Poll Content</p>
+		<div class="section-box">
+			<?php
+			wp_editor( $post->post_content,'poll_content_editor',
+				$settings = array(
+					'textarea_name' => 'content',
+					'textarea_rows' => 10,
+				)
+			);
+			?>
+		</div>
 	</div>
 	
 	

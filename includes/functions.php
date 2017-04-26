@@ -6,6 +6,67 @@
 
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
+
+
+function wpp_ajax_submit_comment() {
+	
+	$html 			= '';
+	$poll_id 		= (int)sanitize_text_field($_POST['poll_id']);
+	$wpp_name 		= sanitize_text_field($_POST['wpp_name']);
+	$wpp_email 		= sanitize_email($_POST['wpp_email']);
+	$wpp_comment 	= sanitize_text_field($_POST['wpp_comment']);
+	
+	$user_id = email_exists( $wpp_email );
+	if ( !$user_id ) {
+		
+		$arr_user_name		= explode($wpp_email);
+		$user_name			= isset($arr_user_name[0]) ? $arr_user_name[0] : $wpp_email;
+		$random_password 	= wp_generate_password( $length=12, $include_standard_special_chars=false );
+		
+		$user_id = wp_create_user( $user_name, $random_password, $wpp_email );
+		wp_update_user( array( 'ID' => $user_id, 'display_name' => $wpp_name ) );
+	}
+	
+	$wpp_comment_data = array(
+		'comment_post_ID' => $poll_id,
+		'comment_author' => $wpp_name,
+		'comment_author_email' => $wpp_email,
+		'comment_content' => $wpp_comment,
+		'comment_type' => '',
+		'comment_parent' => 0,
+		'user_id' => $user_id,
+		'comment_author_IP' => wpp_get_ip_address(),
+		'comment_date' => current_time('mysql'),
+		'comment_approved' => 1,
+	);
+
+	$wpp_comment_id = wp_insert_comment($wpp_comment_data);
+	
+	$wpp_comment_message_error = get_option( 'wpp_comment_message_error' );
+	$wpp_comment_message_success = get_option( 'wpp_comment_message_success' );
+	if( empty( $wpp_comment_message_error ) )
+		$wpp_comment_message_error = __('Something went wrong, Please try latter', WPP_TEXT_DOMAIN );
+	if( empty( $wpp_comment_message_success ) )
+		$wpp_comment_message_success = __('Success, Your Comment may be under review and publish latter', WPP_TEXT_DOMAIN );
+	
+	if( ! $wpp_comment_id ){	
+		$html .= '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> '.
+		apply_filters( 'wpp_filters_comment_error', $wpp_comment_message_error );
+	}
+	else {
+		$html .= '<i class="fa fa-check-circle-o" aria-hidden="true"></i> '.
+		apply_filters( 'wpp_filters_comment_success', $wpp_comment_message_success );
+	}
+	
+	echo $html;
+	die();
+}
+add_action('wp_ajax_wpp_ajax_submit_comment', 'wpp_ajax_submit_comment');
+add_action('wp_ajax_nopriv_wpp_ajax_submit_comment', 'wpp_ajax_submit_comment');	
+	
+	
+	
+	
 	function wpp_ajax_add_new_option() {
 		
 		$response 		= array();
@@ -128,3 +189,13 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 
 		return $hash.$R.$G.$B;
 	}
+	
+function wpp_get_ip_address() {
+    $ip = $_SERVER['REMOTE_ADDR'];
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    return $ip;
+}

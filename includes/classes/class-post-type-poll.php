@@ -51,7 +51,7 @@ class WPP_Post_type_Poll{
 				'hierarchical' 			=> false,
 				'rewrite' 				=> true,
 				'query_var' 			=> true,
-				'supports' 				=> array(''),
+				'supports' 				=> array('comments','thumbnail'),
 				'show_in_nav_menus' 	=> false,
 				'menu_icon' => 'dashicons-chart-bar',
 			) )

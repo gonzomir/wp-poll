@@ -79,4 +79,13 @@ And finally you will get a Report in the Admin view to be confirmed about how yo
 	= 2.1.3 =
     * 26/01/2017 Checked on Latest WordPress
 	
+	= 2.2.0 =
+    * 26/04/2017 It's a major Update, There are many new Features added. [Check on Here](https://goo.gl/G1peJu)
+	
+	
+== Upgrade Notice ==
+
+= 2.0.0 =
+2.0 is a major update. 
+
 	

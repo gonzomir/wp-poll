@@ -6,6 +6,40 @@ jQuery(document).ready(function($) {
 	})
 	
 	
+	$(document).on('click', '.wpp_comments_box .wpp_submit_comment', function() {
+		
+		poll_id = $(this).attr('poll_id');
+		wpp_name = $('.wpp_comments_box .wpp_name').val();
+		wpp_email = $('.wpp_comments_box .wpp_email').val();
+		wpp_comment = $('.wpp_comments_box .wpp_comment').val();
+		
+		if( poll_id == 0 || wpp_name.length == 0 || wpp_email.length == 0 || wpp_comment.length == 0 ) return;
+		
+		$.ajax(
+			{
+		type: 'POST',
+		context: this,
+		url:wpp_ajax.wpp_ajaxurl,
+		data: {
+			"action": "wpp_ajax_submit_comment", 
+			"poll_id": poll_id, 
+			"wpp_name": wpp_name, 
+			"wpp_email": wpp_email, 
+			"wpp_comment": wpp_comment, 
+		},
+		success: function(data) {	
+			
+			
+			$('.wpp_comments_box .wpp_comment_header').fadeOut();
+			$('.wpp_comments_box .wpp_comment_section').fadeOut();
+			$(this).fadeOut();
+			
+			$('.wpp_comments_box .wpp_comment_message').hide().html(data).fadeIn();
+		}
+			});
+		
+	})
+	
 	$(document).on('click', '.single-poll .wpp_visitor_option_new_confirm', function() {
 		
 		__POLL_ID__ 	= $(this).attr( 'poll_id' );

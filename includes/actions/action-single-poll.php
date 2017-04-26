@@ -11,13 +11,35 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	if ( ! function_exists( 'wpp_action_single_poll_main_function' ) ) {
 		function wpp_action_single_poll_main_function() {
 			
-			do_action('wpp_action_single_poll_notice');
-			do_action('wpp_action_single_poll_title');
-			do_action('wpp_action_single_poll_message');
-			do_action('wpp_action_single_poll_options');
-			do_action('wpp_action_single_poll_results');
-			do_action('wpp_action_single_poll_buttons');
+			$WPP_Functions = new WPP_Functions();
+			$template_sections = $WPP_Functions->wpp_poll_template_sections();
 			
+			$wpp_poll_template = get_option( 'wpp_poll_template' );
+			if( empty( $wpp_poll_template ) ) $wpp_poll_template = array();
+			
+			$wpp_use_customized_template = get_option( 'wpp_use_customized_template' );
+			if( empty( $wpp_use_customized_template ) ) $wpp_use_customized_template = 'no';
+			
+			if( $wpp_use_customized_template == 'yes' ) {
+				
+				foreach( $wpp_poll_template as $section_key ){
+				
+					$callable = isset( $template_sections[$section_key]['callable'] ) ? $template_sections[$section_key]['callable'] : '';
+					if( empty( $callable ) ) continue;
+
+					do_action( "wpp_action_single_poll_$callable" );
+				}
+			}
+			else {
+				
+				foreach( $template_sections as $section_key => $section ){
+				
+					$callable = isset( $section['callable'] ) ? $section['callable'] : '';
+					if( empty( $callable ) ) continue;
+
+					do_action( "wpp_action_single_poll_$callable" );
+				}
+			}			
 		}
 	}
 	add_action( 'wpp_action_single_poll_main', 'wpp_action_single_poll_main_function', 10 );
@@ -32,6 +54,20 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 		}
 	}
 	add_action( 'wpp_action_single_poll_title', 'wpp_action_single_poll_title_function', 10, 1 );
+	
+	if ( ! function_exists( 'wpp_action_single_poll_thumb_function' ) ) {
+		function wpp_action_single_poll_thumb_function($poll_id) {
+			include( WPP_PLUGIN_DIR. 'templates/single-poll/thumb.php');			
+		}
+	}
+	add_action( 'wpp_action_single_poll_thumb', 'wpp_action_single_poll_thumb_function', 10, 1 );
+	
+	if ( ! function_exists( 'wpp_action_single_poll_content_function' ) ) {
+		function wpp_action_single_poll_content_function($poll_id) {
+			include( WPP_PLUGIN_DIR. 'templates/single-poll/content.php');			
+		}
+	}
+	add_action( 'wpp_action_single_poll_content', 'wpp_action_single_poll_content_function', 10, 1 );
 	
 	
 	if ( ! function_exists( 'wpp_action_single_poll_options_function' ) ) {
@@ -68,6 +104,14 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 		}
 	}
 	add_action( 'wpp_action_single_poll_results', 'wpp_action_single_poll_results_function', 10, 1 );
+	
+	
+	if ( ! function_exists( 'wpp_action_single_poll_comments_function' ) ) {
+		function wpp_action_single_poll_comments_function($poll_id) {
+			include( WPP_PLUGIN_DIR. 'templates/single-poll/comments.php');			
+		}
+	}
+	add_action( 'wpp_action_single_poll_comments', 'wpp_action_single_poll_comments_function', 10, 1 );
 	
 	
 	

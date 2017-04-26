@@ -21,6 +21,36 @@ class class_wpp_settings_page  {
 	
 	public function wpp_settings_options($options = array()){
 		
+		$options['Options'] = array(
+					
+			// 'wpp_redirection_url'=>array(
+				// 'css_class'=>'wpp_redirection_url',					
+				// 'title'=>__('Redirect after poll submission',WPP_TEXT_DOMAIN),
+				// 'option_details'=>__('Enter the URL on where you want to redirect user after submitting a Poll.<br>Leave empty for no redirection.',WPP_TEXT_DOMAIN),						
+				// 'input_type'=>'text', 
+				// 'placeholder'=>'https://yoursite.com/thankyou',
+			// ),
+			
+			// 'wpp_enable_capcha'=>array(
+				// 'css_class'=>'wpp_enable_capcha',					
+				// 'title'=>__('Enable Capcha validation',WPP_TEXT_DOMAIN),
+				// 'option_details'=>__('Do you want to add capcha validation to restrict spam on Poll submission?<br><b>Default: No</b>',WPP_TEXT_DOMAIN),						
+				// 'input_type'=>'select', 
+				// 'input_args'=> array('no'=>__('No', WPP_TEXT_DOMAIN),'yes'=>__('Yes', WPP_TEXT_DOMAIN)),
+			// ),
+			
+			'wpp_allow_comments'=>array(
+				'css_class'=>'wpp_allow_comments',					
+				'title'=>__('Allow Comments',WPP_TEXT_DOMAIN),
+				'option_details'=>__('Do you allow comments on single Poll page?<br><b>Default: No</b>',WPP_TEXT_DOMAIN),						
+				'input_type'=>'select', 
+				'input_args'=> array('no'=>__('No', WPP_TEXT_DOMAIN),'yes'=>__('Yes', WPP_TEXT_DOMAIN)),
+			),
+			
+			
+		);
+		
+		
 		$options['Button Text'] = array(
 					
 			'wpp_btn_text_new_option'=>array(
@@ -297,6 +327,85 @@ class class_wpp_settings_page  {
 			$html_box.= '</li>';
 			$i++;
 		}
+		
+		
+		$WPP_Functions = new WPP_Functions();
+		$template_sections = $WPP_Functions->wpp_poll_template_sections();
+		
+		$wpp_poll_template = get_option( 'wpp_poll_template' );
+		if( empty( $wpp_poll_template ) ) $wpp_poll_template = array();
+		
+		$wpp_use_customized_template = get_option( 'wpp_use_customized_template' );
+		if( empty( $wpp_use_customized_template ) ) $wpp_use_customized_template = 'no';
+		
+		
+		// echo '<pre>'; print_r( $wpp_use_customized_template ); echo '</pre>';
+		
+		$input_args = array( 'no'=>__('No', WPP_TEXT_DOMAIN),'yes'=>__('Yes', WPP_TEXT_DOMAIN) );
+		
+		$html_nav.= '<li nav="'.$i.'" class="nav'.$i.'">'.__('Poll Template', WPP_TEXT_DOMAIN).'</li>';
+		$html_box.= '<li style="display: none;" class="box'.$i.' tab-box">';
+		
+		$html_box.= '<div class="section-box">';
+		$html_box.= '<p class="section-title">'.__('Use Customized Template?', WPP_TEXT_DOMAIN).'</p>';
+		$html_box.= '<p class="section-info">'.__('Do you want to use customized template to display Single Poll?', WPP_TEXT_DOMAIN).'</p>';
+		
+		$html_box.= "<select name='wpp_use_customized_template'>";
+		foreach($input_args as $input_args_key=>$input_args_values) {
+			$selected = $input_args_key == $wpp_use_customized_template ? 'selected' : '';
+			$html_box.= '<option '.$selected.' value="'.$input_args_key.'">'.$input_args_values.'</option>';
+		}
+		$html_box.= '</select>';
+		$html_box.= '</div>';
+		
+		$html_box.= '<div class="section-box">';
+		$html_box.= '<p class="section-title">'.__('Single Poll Template', WPP_TEXT_DOMAIN).'</p>';
+		$html_box.= '<p class="section-info">'.
+			__('Design your custom template how you want to display a Single Poll', WPP_TEXT_DOMAIN).
+			'<br>'.
+			__('Select your choices from left side and sort them from right side.', WPP_TEXT_DOMAIN).
+			'<b>'.__('Use the Recommended section to make it nice.', WPP_TEXT_DOMAIN).'</b></p>';
+		
+		$html_box.= "<ul class='wpp_td'>";
+		foreach( $template_sections as $section_key => $section ){
+			
+			$label = isset( $section['label'] ) ? $section['label'] : '';
+			$priority = isset( $section['priority'] ) ? $section['priority'] : 0;
+			
+			if( $priority >= 50 ) $priority_text = ' - '.__('Recommended', WPP_TEXT_DOMAIN);
+			else $priority_text = '';
+			
+			$html_box.= "
+			<li class='wpp_td_single'>
+				<span class='wpp_td_label'>$label</span>
+				<span class='wpp_td_priority'>$priority_text</span>
+				<div class='wpp_td_icon wpp_td_add_section' section_key='$section_key'><i class='fa fa-location-arrow'></i></div>
+			</li>";
+		}	
+		$html_box.= '</ul>';
+		
+		
+		$html_box.= "<ul class='wpp_td wpp_td_templates'>";
+		foreach( $wpp_poll_template as $section_key ){
+			
+			$label = isset( $template_sections[$section_key]['label'] ) ? $template_sections[$section_key]['label'] : '';
+			
+			$html_box.= "
+			<li class='wpp_td_single'>
+				<span class='wpp_td_label'>$label</span>
+				<div class='wpp_td_icon wpp_td_single_remove' step=f><i class='fa fa-times'></i></div>
+				<div class='wpp_td_icon wpp_td_single_sorter'><i class='fa fa-sort'></i></div>
+				<input type='hidden' name='wpp_poll_template[]' value='$section_key' />
+			</li>";
+		}
+		$html_box.= '</ul>';
+		
+		
+		$html_box.= '</div>';
+		$html_box.= '</li>';
+				
+				
+				
 		$html.= '<ul class="tab-nav">';
 		$html.= $html_nav;			
 		$html.= '</ul>';
@@ -330,6 +439,13 @@ class class_wpp_settings_page  {
 					update_option($option_key, ${$option_key});
 				}
 			}
+			
+			$wpp_poll_template = stripslashes_deep( $_POST['wpp_poll_template'] );
+			update_option( 'wpp_poll_template', $wpp_poll_template );
+			
+			$wpp_use_customized_template = sanitize_text_field( $_POST['wpp_use_customized_template'] );
+			update_option( 'wpp_use_customized_template', $wpp_use_customized_template );
+			
 			?>
 			<div class="updated"><p><strong><?php _e('Changes Saved.', WPP_TEXT_DOMAIN ); ?></strong></p></div>
 			<?php
@@ -343,7 +459,7 @@ class class_wpp_settings_page  {
 
 	<div class="wrap">
 		<div id="icon-tools" class="icon32"><br></div>
-		<?php echo "<h2>WP Poll ".__('Settings', WPP_TEXT_DOMAIN)."</h2>";?><br>
+		<?php echo "<h2>WP Poll - ".__('Settings', WPP_TEXT_DOMAIN)."</h2>";?><br>
 		
 		<form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 			<input type="hidden" name="wpp_hidden" value="Y" />

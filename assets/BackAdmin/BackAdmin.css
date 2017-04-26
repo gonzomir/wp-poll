@@ -6,20 +6,20 @@
 
 
 .section-box {
-    padding: 10px;
+    padding: 10px 25px;
 }
-
-.section-box .section-box-label {
-    font-size: 14px;
-    color: #8a8a8a;
-    margin: 0 0 1em 0;
-}
-
 .section-box .section-title {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 700;
     color: #888585;
 }
+.section-box .section-info,
+.section-box .section-box-label {
+    font-size: 13px;
+	font-style:italic;
+    margin: 10px 0 15px;
+}
+
 
 
 .back-settings .option-box {
@@ -32,8 +32,6 @@
 .back-settings .option-box .input-box {
     padding: 8px 0;
 }
-
-
 .back-settings .option-box  input[type=text],
 .back-settings .option-box textarea,
 .back-settings .option-box select{
@@ -54,12 +52,6 @@
 .back-settings .option-box .option-title {
 	color: rgb(6, 120, 175);
     font-size: 15px;
-    font-weight: 500;
-    margin: 10px 0;
-}
-
-.back-settings .option-box .option-info {
-    font-size: 12px;
     font-weight: 500;
     margin: 10px 0;
 }
