@@ -16,7 +16,7 @@ Hello, Now a days, to be updated with the flow of time, having a option to take 
 From this Idea we build this plug-in that will satisfy your need in case of poll management. You can easily create and maintain 
 a poll in your WordPress without any harassment.
 
-[### See What's New in 2.1.3](https://goo.gl/eE9uz3)
+[### See What's New in 2.2](https://goo.gl/G1peJu)
 
 And finally you will get a Report in the Admin view to be confirmed about how your visitor react on your each Poll.
 
