@@ -3,8 +3,8 @@
 	Donate link: https://www.pluginbazar.net/product/gift-a-coffee/
 	Tags: WP Poll, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
-	Tested up to: 4.7.4
-	Stable tag: 2.2.0
+	Tested up to: 4.8
+	Stable tag: 2.2.1
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Hello, Now a days, to be updated with the flow of time, having a option to take 
 From this Idea we build this plug-in that will satisfy your need in case of poll management. You can easily create and maintain 
 a poll in your WordPress without any harassment.
 
-[### See What's New in 2.2.0](https://goo.gl/G1peJu)
+[### See What's New in 2.2](https://goo.gl/G1peJu)
 
 And finally you will get a Report in the Admin view to be confirmed about how your visitor react on your each Poll.
 
