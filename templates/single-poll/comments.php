@@ -7,7 +7,7 @@
 
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
-	if( $poll_post->comment_status == 'closed' ) return;
+	// if( $poll_post->comment_status == 'closed' ) return;
 	
 	echo '<br /><br />';
 	comments_template();
