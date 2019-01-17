@@ -15,7 +15,7 @@ class wpp_widget extends WP_Widget {
 		parent::__construct(
 			'wpp_widget', 
 			'WP Poll',
-			array( 'description' => __( 'Show the poll of Today', WPP_TEXT_DOMAIN ), ) 
+			array( 'description' => __( 'Show the poll of Today', 'wp-poll' ), )
 		);
 	}
 
@@ -32,7 +32,7 @@ class wpp_widget extends WP_Widget {
 	
 	public function form( $instance ) {
 		if ( isset( $instance[ 'title' ] ) ) $title = $instance[ 'title' ];
-		else $title = __( 'New title', WPP_TEXT_DOMAIN );
+		else $title = __( 'New title', 'wp-poll' );
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 

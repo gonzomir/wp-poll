@@ -15,12 +15,12 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	
 	$submit_button_text = get_option( 'wpp_btn_text_submit' );
 	if( empty( $submit_button_text ) ) 
-	$submit_button_text = __('Submit', WPP_TEXT_DOMAIN);
+	$submit_button_text = __('Submit', 'wp-poll');
 	$submit_button_text = apply_filters( 'wpp_filter_submit_button_text', $submit_button_text );
 	
 	$results_button_text = get_option( 'wpp_btn_text_results' );
 	if( empty( $results_button_text ) ) 
-	$results_button_text = __('Results', WPP_TEXT_DOMAIN);
+	$results_button_text = __('Results', 'wp-poll');
 	$results_button_text = apply_filters( 'wpp_filter_results_button_text', $results_button_text );
 	
 	// Color section

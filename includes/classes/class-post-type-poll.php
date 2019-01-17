@@ -18,8 +18,8 @@ class WPP_Post_type_Poll{
 		if ( post_type_exists( "poll" ) )
 		return;
 
-		$singular  = __( 'Poll', WPP_TEXT_DOMAIN );
-		$plural    = __( 'Polls', WPP_TEXT_DOMAIN );
+		$singular  = __( 'Poll', 'wp-poll' );
+		$plural    = __( 'Polls', 'wp-poll' );
 	 
 	 
 		register_post_type( "poll",
@@ -28,20 +28,20 @@ class WPP_Post_type_Poll{
 					'name' 					=> $plural,
 					'singular_name' 		=> $singular,
 					'menu_name'             => $singular,
-					'all_items'             => __( 'All', WPP_TEXT_DOMAIN ) 	." $plural",
-					'add_new' 				=> __( 'Add', WPP_TEXT_DOMAIN ) 	." $singular",
-					'add_new_item' 			=> __( 'Add', WPP_TEXT_DOMAIN ) 	." $singular",
-					'edit' 					=> __( 'Edit', WPP_TEXT_DOMAIN ),
-					'edit_item' 			=> __( 'Edit', WPP_TEXT_DOMAIN ) 	." $singular",
-					'new_item' 				=> __( 'New', WPP_TEXT_DOMAIN ) 	." $singular",
-					'view' 					=> __( 'View', WPP_TEXT_DOMAIN ) 	." $singular",
-					'view_item' 			=> __( 'View', WPP_TEXT_DOMAIN ) 	." $singular",
-					'search_items' 			=> __( 'Search', WPP_TEXT_DOMAIN ) 	." $singular",
-					'not_found' 			=> sprintf( __( 'No %s found', WPP_TEXT_DOMAIN ), $singular ),
-					'not_found_in_trash' 	=> sprintf( __( 'No %s found in trash', WPP_TEXT_DOMAIN ), $plural ),
-					'parent' 				=> __( 'Parent', WPP_TEXT_DOMAIN ) 	." $singular",
+					'all_items'             => __( 'All', 'wp-poll' ) 	." $plural",
+					'add_new' 				=> __( 'Add', 'wp-poll' ) 	." $singular",
+					'add_new_item' 			=> __( 'Add', 'wp-poll' ) 	." $singular",
+					'edit' 					=> __( 'Edit', 'wp-poll' ),
+					'edit_item' 			=> __( 'Edit', 'wp-poll' ) 	." $singular",
+					'new_item' 				=> __( 'New', 'wp-poll' ) 	." $singular",
+					'view' 					=> __( 'View', 'wp-poll' ) 	." $singular",
+					'view_item' 			=> __( 'View', 'wp-poll' ) 	." $singular",
+					'search_items' 			=> __( 'Search', 'wp-poll' ) 	." $singular",
+					'not_found' 			=> sprintf( __( 'No %s found', 'wp-poll' ), $singular ),
+					'not_found_in_trash' 	=> sprintf( __( 'No %s found in trash', 'wp-poll' ), $plural ),
+					'parent' 				=> __( 'Parent', 'wp-poll' ) 	." $singular",
 				),
-				'description' => __( 'This is where you can create and manage', WPP_TEXT_DOMAIN ) ." $plural",
+				'description' => __( 'This is where you can create and manage', 'wp-poll' ) ." $plural",
 				'public' 				=> true,
 				'show_ui' 				=> true,
 				'capability_type' 		=> 'post',
@@ -57,8 +57,8 @@ class WPP_Post_type_Poll{
 			) )
 		); 
 		
-		$singular  = __( 'Poll Category', WPP_TEXT_DOMAIN );
-		$plural    = __( 'Poll Categories', WPP_TEXT_DOMAIN );
+		$singular  = __( 'Poll Category', 'wp-poll' );
+		$plural    = __( 'Poll Categories', 'wp-poll' );
 	 
 		register_taxonomy( "poll_cat",
 			apply_filters( 'register_taxonomy_poll_cat_object_type', array( 'poll' ) ),
@@ -71,14 +71,14 @@ class WPP_Post_type_Poll{
 					'name'              => $plural,
 					'singular_name'     => $singular,
 					'menu_name'         => ucwords( $plural ),
-					'search_items'      => __( 'Search', WPP_TEXT_DOMAIN ) 	." $singular",
-					'all_items'         => __( 'All', WPP_TEXT_DOMAIN ) 	." $plural",
-					'parent_item'       => __( 'Parent', WPP_TEXT_DOMAIN ) 	." $singular",
-					'parent_item_colon' => __( 'Parent', WPP_TEXT_DOMAIN ) 	." $singular",
-					'edit_item'         => __( 'Edit', WPP_TEXT_DOMAIN ) 	." $singular",
-					'update_item'       => __( 'Update', WPP_TEXT_DOMAIN ) 	." $singular",
-					'add_new_item'      => __( 'Add', WPP_TEXT_DOMAIN ) 	." $singular",
-					'new_item_name'     => sprintf( __( 'New %s Name', WPP_TEXT_DOMAIN ),  $singular )
+					'search_items'      => __( 'Search', 'wp-poll' ) 	." $singular",
+					'all_items'         => __( 'All', 'wp-poll' ) 	." $plural",
+					'parent_item'       => __( 'Parent', 'wp-poll' ) 	." $singular",
+					'parent_item_colon' => __( 'Parent', 'wp-poll' ) 	." $singular",
+					'edit_item'         => __( 'Edit', 'wp-poll' ) 	." $singular",
+					'update_item'       => __( 'Update', 'wp-poll' ) 	." $singular",
+					'add_new_item'      => __( 'Add', 'wp-poll' ) 	." $singular",
+					'new_item_name'     => sprintf( __( 'New %s Name', 'wp-poll' ),  $singular )
 	            ),
 		        'show_ui' 				=> true,
 		        'public' 	     		=> true,

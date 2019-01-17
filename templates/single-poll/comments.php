@@ -77,22 +77,22 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	</div>
 	
 	<div class="wpp_comments_box">
-		<div class="wpp_comment_header"><?php echo __('Comment on this', WPP_TEXT_DOMAIN); ?></div>
+		<div class="wpp_comment_header"><?php echo __('Comment on this', 'wp-poll'); ?></div>
 		<div class="wpp_comment_section">
-			<div class="wpp_comment_section_label"><?php echo __('Your Name', WPP_TEXT_DOMAIN) ?></div>
+			<div class="wpp_comment_section_label"><?php echo __('Your Name', 'wp-poll') ?></div>
 			<input type="text" name="wpp_name" class="wpp_name" placeholder="John Butter" />
 		</div>
 		<div class="wpp_comment_section">
-			<div class="wpp_comment_section_label"><?php echo __('Your Email', WPP_TEXT_DOMAIN) ?></div>
+			<div class="wpp_comment_section_label"><?php echo __('Your Email', 'wp-poll') ?></div>
 			<input type="email" name="wpp_email" class="wpp_email" placeholder="user@yoursite.com" />
 		</div>
 		<div class="wpp_comment_section">
-			<div class="wpp_comment_section_label"><?php echo __('Your Comment', WPP_TEXT_DOMAIN) ?></div>
+			<div class="wpp_comment_section_label"><?php echo __('Your Comment', 'wp-poll') ?></div>
 			<textarea rows="10" name="wpp_comment" class="wpp_comment" placeholder="Write something here..."></textarea>
 		</div>
 		<br>
 		<div class="wpp_comment_message"></div>
-		<div class="button wpp_submit_comment" poll_id="<?php echo $poll_id; ?>"><?php echo __('Submit Comment', WPP_TEXT_DOMAIN); ?></div>
+		<div class="button wpp_submit_comment" poll_id="<?php echo $poll_id; ?>"><?php echo __('Submit Comment', 'wp-poll'); ?></div>
 		
 	</div>
 	

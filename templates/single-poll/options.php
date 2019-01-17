@@ -39,13 +39,13 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 	$poll_meta_new_option	= get_post_meta( $poll_id, 'poll_meta_new_option', true );
 	if( empty( $poll_meta_new_option ) ) $poll_meta_new_option = 'no';
 	
-	$wpp_new_option_save_text = __('Confirm Add', WPP_TEXT_DOMAIN);
+	$wpp_new_option_save_text = __('Confirm Add', 'wp-poll');
 	
 	if( $poll_meta_new_option == 'yes' ) {
 		
 		$add_option_button_text = get_option( 'wpp_btn_text_new_option' );
 		if( empty( $add_option_button_text ) ) 
-		$add_option_button_text = __('New Option', WPP_TEXT_DOMAIN);
+		$add_option_button_text = __('New Option', 'wp-poll');
 		$add_option_button_text = apply_filters( 'wpp_filter_results_button_text', $add_option_button_text );
 		
 		echo "

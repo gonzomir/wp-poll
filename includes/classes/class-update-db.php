@@ -23,14 +23,14 @@ class WPP_Update_db {
 				<p><?php 
 				echo 
 				'<strong>'. 
-				__( 'Welcome to WP Poll.', WPP_TEXT_DOMAIN ). ' '.
-				__( 'You may have Previous poll data.', WPP_TEXT_DOMAIN ). ' '.
-				__( 'You need to Update Database to get back them all.', WPP_TEXT_DOMAIN ).
+				__( 'Welcome to WP Poll.', 'wp-poll' ). ' '.
+				__( 'You may have Previous poll data.', 'wp-poll' ). ' '.
+				__( 'You need to Update Database to get back them all.', 'wp-poll' ).
 				'</strong>';
 				?></p>
 				<p class="submit">
-					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'do_update' ) ); ?>" class="button-primary"><?php _e( 'Update Now', WPP_TEXT_DOMAIN ); ?></a> 
-					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'skip_update' ) ); ?>" class="button-secondary skip"><?php _e( 'Skip Update', WPP_TEXT_DOMAIN ); ?></a>
+					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'do_update' ) ); ?>" class="button-primary"><?php _e( 'Update Now', 'wp-poll' ); ?></a>
+					<a href="<?php echo esc_url( add_query_arg( 'wpp_action', 'skip_update' ) ); ?>" class="button-secondary skip"><?php _e( 'Skip Update', 'wp-poll' ); ?></a>
 				</p>
 			</div>
 			<?php

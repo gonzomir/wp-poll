@@ -45,9 +45,9 @@ function wpp_ajax_submit_comment() {
 	$wpp_comment_message_error = get_option( 'wpp_comment_message_error' );
 	$wpp_comment_message_success = get_option( 'wpp_comment_message_success' );
 	if( empty( $wpp_comment_message_error ) )
-		$wpp_comment_message_error = __('Something went wrong, Please try latter', WPP_TEXT_DOMAIN );
+		$wpp_comment_message_error = __('Something went wrong, Please try latter', 'wp-poll' );
 	if( empty( $wpp_comment_message_success ) )
-		$wpp_comment_message_success = __('Success, Your Comment may be under review and publish latter', WPP_TEXT_DOMAIN );
+		$wpp_comment_message_success = __('Success, Your Comment may be under review and publish latter', 'wp-poll' );
 	
 	if( ! $wpp_comment_id ){	
 		$html .= '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> '.

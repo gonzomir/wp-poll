@@ -13,47 +13,47 @@ class WPP_Functions{
 		
 		$template_sections = array(
 			'wpp_poll_notice' => array(
-				'label' => __('Poll Notice', WPP_TEXT_DOMAIN),
+				'label' => __('Poll Notice', 'wp-poll'),
 				'callable' => 'notice',
 				'priority' => 90,
 			),
 			'wpp_poll_title' => array(
-				'label' => __('Poll Title', WPP_TEXT_DOMAIN),
+				'label' => __('Poll Title', 'wp-poll'),
 				'callable' => 'title',
 				'priority' => 70,
 			),
 			'wpp_poll_message' => array(
-				'label' => __('Message Section', WPP_TEXT_DOMAIN),
+				'label' => __('Message Section', 'wp-poll'),
 				'callable' => 'message',
 				'priority' => 30,
 			),
 			'wpp_poll_thumb' => array(
-				'label' => __('Poll Thumbnail', WPP_TEXT_DOMAIN),
+				'label' => __('Poll Thumbnail', 'wp-poll'),
 				'callable' => 'thumb',
 				'priority' => 50,
 			),
 			'wpp_poll_content' => array(
-				'label' => __('Content', WPP_TEXT_DOMAIN),
+				'label' => __('Content', 'wp-poll'),
 				'callable' => 'content',
 				'priority' => 30,
 			),
 			'wpp_poll_options' => array(
-				'label' => __('Poll Options', WPP_TEXT_DOMAIN),
+				'label' => __('Poll Options', 'wp-poll'),
 				'callable' => 'options',
 				'priority' => 90,
 			),
 			'wpp_poll_results' => array(
-				'label' => __('Results', WPP_TEXT_DOMAIN),
+				'label' => __('Results', 'wp-poll'),
 				'callable' => 'results',
 				'priority' => 80,
 			),
 			'wpp_poll_buttons' => array(
-				'label' => __('Buttons', WPP_TEXT_DOMAIN),
+				'label' => __('Buttons', 'wp-poll'),
 				'callable' => 'buttons',
 				'priority' => 90,
 			),
 			'wpp_poll_comments' => array(
-				'label' => __('Comments', WPP_TEXT_DOMAIN),
+				'label' => __('Comments', 'wp-poll'),
 				'callable' => 'comments',
 				'priority' => 30,
 			),

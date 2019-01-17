@@ -37,7 +37,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 		$poll_permalink = get_the_permalink();
 		$polled_data	= get_post_meta( get_the_ID(), 'polled_data', true );
 		$poller 		= empty($polled_data) ? 0 : count( $polled_data );
-		$time_ago 		= human_time_diff( get_the_time('U'), current_time('timestamp') ) .__(' ago',WPP_TEXT_DOMAIN); 
+		$time_ago 		= human_time_diff( get_the_time('U'), current_time('timestamp') ) .__(' ago','wp-poll');
 		$terms 			= get_the_terms( get_the_ID(), 'poll_cat' );
 		$terms_html 	= '';
 		$count 			= 0;
@@ -56,7 +56,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 			<div class='wpp_right'>
 				<a class='wpp_title' href='$poll_permalink'>$poll_title</a>
 				<a class='inline wpp_categories'><i class='fa fa-folder-open'></i> $terms_html</a>
-				<a class='inline wpp_report'><i class='fa fa-paper-plane'></i> $poller ".__('Response(s)',WPP_TEXT_DOMAIN)."</a>
+				<a class='inline wpp_report'><i class='fa fa-paper-plane'></i> $poller ".__('Response(s)','wp-poll')."</a>
 				<a class='inline wpp_published'><i class='fa fa-clock-o'></i> $time_ago</a>
 			</div>
 		</div>";
@@ -75,7 +75,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 	
 	wp_reset_query();
 	
-	else: ?><span><?php echo __('No Poll found', WPP_TEXT_DOMAIN); ?></span> <?php 
+	else: ?><span><?php echo __('No Poll found', 'wp-poll'); ?></span> <?php
 	endif; ?>
 	
 	

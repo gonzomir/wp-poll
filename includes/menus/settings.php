@@ -25,26 +25,26 @@ class class_wpp_settings_page  {
 					
 			// 'wpp_redirection_url'=>array(
 				// 'css_class'=>'wpp_redirection_url',					
-				// 'title'=>__('Redirect after poll submission',WPP_TEXT_DOMAIN),
-				// 'option_details'=>__('Enter the URL on where you want to redirect user after submitting a Poll.<br>Leave empty for no redirection.',WPP_TEXT_DOMAIN),						
+				// 'title'=>__('Redirect after poll submission','wp-poll'),
+				// 'option_details'=>__('Enter the URL on where you want to redirect user after submitting a Poll.<br>Leave empty for no redirection.','wp-poll'),
 				// 'input_type'=>'text', 
 				// 'placeholder'=>'https://yoursite.com/thankyou',
 			// ),
 			
 			// 'wpp_enable_capcha'=>array(
 				// 'css_class'=>'wpp_enable_capcha',					
-				// 'title'=>__('Enable Capcha validation',WPP_TEXT_DOMAIN),
-				// 'option_details'=>__('Do you want to add capcha validation to restrict spam on Poll submission?<br><b>Default: No</b>',WPP_TEXT_DOMAIN),						
+				// 'title'=>__('Enable Capcha validation','wp-poll'),
+				// 'option_details'=>__('Do you want to add capcha validation to restrict spam on Poll submission?<br><b>Default: No</b>','wp-poll'),
 				// 'input_type'=>'select', 
-				// 'input_args'=> array('no'=>__('No', WPP_TEXT_DOMAIN),'yes'=>__('Yes', WPP_TEXT_DOMAIN)),
+				// 'input_args'=> array('no'=>__('No', 'wp-poll'),'yes'=>__('Yes', 'wp-poll')),
 			// ),
 			
 			'wpp_allow_comments'=>array(
 				'css_class'=>'wpp_allow_comments',					
-				'title'=>__('Allow Comments',WPP_TEXT_DOMAIN),
-				'option_details'=>__('Do you allow comments on single Poll page?<br><b>Default: No</b>',WPP_TEXT_DOMAIN),						
+				'title'=>__('Allow Comments','wp-poll'),
+				'option_details'=>__('Do you allow comments on single Poll page?<br><b>Default: No</b>','wp-poll'),
 				'input_type'=>'select', 
-				'input_args'=> array('no'=>__('No', WPP_TEXT_DOMAIN),'yes'=>__('Yes', WPP_TEXT_DOMAIN)),
+				'input_args'=> array('no'=>__('No', 'wp-poll'),'yes'=>__('Yes', 'wp-poll')),
 			),
 			
 			
@@ -55,26 +55,26 @@ class class_wpp_settings_page  {
 					
 			'wpp_btn_text_new_option'=>array(
 				'css_class'=>'wpp_btn_text_new_option',					
-				'title'=>__('New Option Button Text',WPP_TEXT_DOMAIN),
+				'title'=>__('New Option Button Text','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text', 
-				'placeholder'=>__('New Option',WPP_TEXT_DOMAIN),
+				'placeholder'=>__('New Option','wp-poll'),
 			),
 			
 			'wpp_btn_text_submit'=>array(
 				'css_class'=>'wpp_btn_text_submit',					
-				'title'=>__('Submit Button Text',WPP_TEXT_DOMAIN),
+				'title'=>__('Submit Button Text','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text', 
-				'placeholder'=>__('Submit',WPP_TEXT_DOMAIN),
+				'placeholder'=>__('Submit','wp-poll'),
 			),
 			
 			'wpp_btn_text_results'=>array(
 				'css_class'=>'wpp_btn_text_results',					
-				'title'=>__('Results Button Text',WPP_TEXT_DOMAIN),
+				'title'=>__('Results Button Text','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text', 
-				'placeholder'=>__('Results',WPP_TEXT_DOMAIN),
+				'placeholder'=>__('Results','wp-poll'),
 			),
 			
 			
@@ -84,7 +84,7 @@ class class_wpp_settings_page  {
 
 			'wpp_poll_page'=>array(
 				'css_class'=>'wpp_poll_page',					
-				'title'=>__('Select a Poll Page',WPP_TEXT_DOMAIN),
+				'title'=>__('Select a Poll Page','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'select', // text, radio, checkbox, select, 
 				'input_values'=>'', // could be array
@@ -93,7 +93,7 @@ class class_wpp_settings_page  {
 			
 			'wpp_poll_page_content_show'=>array(
 				'css_class'=>'wpp_poll_page_content_show',					
-				'title'=>__('Do you want to show page Content?',WPP_TEXT_DOMAIN),
+				'title'=>__('Do you want to show page Content?','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'radio',
 				'input_values'=>'yes', 
@@ -102,7 +102,7 @@ class class_wpp_settings_page  {
 			
 			'wpp_list_per_page'=>array(
 				'css_class'=>'wpp_list_per_page',					
-				'title'=>__('List Per Page',WPP_TEXT_DOMAIN),
+				'title'=>__('List Per Page','wp-poll'),
 				'input_type'=>'text',
 				'input_values'=>'', 
 				'placeholder'=>'10',
@@ -110,9 +110,9 @@ class class_wpp_settings_page  {
 			
 			'wpp_list_empty_text'=>array(
 				'css_class'=>'wpp_list_empty_text',					
-				'title'=>__('No Poll Found Text',WPP_TEXT_DOMAIN),
+				'title'=>__('No Poll Found Text','wp-poll'),
 				'input_type'=>'text',
-				'placeholder'=>__('No Poll Found',WPP_TEXT_DOMAIN),
+				'placeholder'=>__('No Poll Found','wp-poll'),
 				
 			),
 		);
@@ -121,91 +121,91 @@ class class_wpp_settings_page  {
 
 			'wpp_color_new_option'=>array(
 				'css_class'=>'wpp_color_new_option',					
-				'title'=>__('New Button Color',WPP_TEXT_DOMAIN),
+				'title'=>__('New Button Color','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#6C2EB9',
 			),
 			'wpp_color_submit'=>array(
 				'css_class'=>'wpp_color_submit',					
-				'title'=>__('Submit Button Color',WPP_TEXT_DOMAIN),
+				'title'=>__('Submit Button Color','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#787878',
 			),
 			'wpp_color_results'=>array(
 				'css_class'=>'wpp_color_results',					
-				'title'=>__('Results Button Color',WPP_TEXT_DOMAIN),
+				'title'=>__('Results Button Color','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#009D91',
 			),		
 			'wpp_color_title'=>array(
 				'css_class'=>'wpp_color_title',					
-				'title'=>__('Title Text Color',WPP_TEXT_DOMAIN),
+				'title'=>__('Title Text Color','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#2D2D2D',
 			),		
 			'wpp_color_options'=>array(
 				'css_class'=>'wpp_color_options',					
-				'title'=>__('Options Text Color',WPP_TEXT_DOMAIN),
+				'title'=>__('Options Text Color','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#2D2D2D',
 			),		
 			'wpp_color_notice_text_success'=>array(
 				'css_class'=>'wpp_color_notice_text_success',					
-				'title'=>__('Notice Text Color - Success',WPP_TEXT_DOMAIN),
+				'title'=>__('Notice Text Color - Success','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#fff',
 			),		
 			'wpp_color_notice_background_success'=>array(
 				'css_class'=>'wpp_color_notice_background_success',					
-				'title'=>__('Notice Bankground Color - Success',WPP_TEXT_DOMAIN),
+				'title'=>__('Notice Bankground Color - Success','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#17A15E',
 			),
 			'wpp_color_notice_text_error'=>array(
 				'css_class'=>'wpp_color_notice_text_error',					
-				'title'=>__('Notice Text Color - Error',WPP_TEXT_DOMAIN),
+				'title'=>__('Notice Text Color - Error','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#fff',
 			),		
 			'wpp_color_notice_background_error'=>array(
 				'css_class'=>'wpp_color_notice_background_error',					
-				'title'=>__('Notice Bankground Color - Error',WPP_TEXT_DOMAIN),
+				'title'=>__('Notice Bankground Color - Error','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#DE746C',
 			),
 			'wpp_color_message_text_normal'=>array(
 				'css_class'=>'wpp_color_message_text_normal',					
-				'title'=>__('Message Text Color - Normal',WPP_TEXT_DOMAIN),
+				'title'=>__('Message Text Color - Normal','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#757575',
 			),		
 			'wpp_color_message_background_normal'=>array(
 				'css_class'=>'wpp_color_message_background_normal',					
-				'title'=>__('Message Bankground Color - Normal',WPP_TEXT_DOMAIN),
+				'title'=>__('Message Bankground Color - Normal','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#EEEEEE',
 			),
 			'wpp_color_message_text_error'=>array(
 				'css_class'=>'wpp_color_message_text_error',					
-				'title'=>__('Message Text Color - Error',WPP_TEXT_DOMAIN),
+				'title'=>__('Message Text Color - Error','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#fff',
 			),		
 			'wpp_color_message_background_error'=>array(
 				'css_class'=>'wpp_color_message_background_error',					
-				'title'=>__('Message Bankground Color - Error',WPP_TEXT_DOMAIN),
+				'title'=>__('Message Bankground Color - Error','wp-poll'),
 				'option_details'=>'',						
 				'input_type'=>'text',
 				'input_values'=> '#DE746C',
@@ -341,14 +341,14 @@ class class_wpp_settings_page  {
 		
 		// echo '<pre>'; print_r( $wpp_use_customized_template ); echo '</pre>';
 		
-		$input_args = array( 'no'=>__('No', WPP_TEXT_DOMAIN),'yes'=>__('Yes', WPP_TEXT_DOMAIN) );
+		$input_args = array( 'no'=>__('No', 'wp-poll'),'yes'=>__('Yes', 'wp-poll') );
 		
-		$html_nav.= '<li nav="'.$i.'" class="nav'.$i.'">'.__('Poll Template', WPP_TEXT_DOMAIN).'</li>';
+		$html_nav.= '<li nav="'.$i.'" class="nav'.$i.'">'.__('Poll Template', 'wp-poll').'</li>';
 		$html_box.= '<li style="display: none;" class="box'.$i.' tab-box">';
 		
 		$html_box.= '<div class="section-box">';
-		$html_box.= '<p class="section-title">'.__('Use Customized Template?', WPP_TEXT_DOMAIN).'</p>';
-		$html_box.= '<p class="section-info">'.__('Do you want to use customized template to display Single Poll?', WPP_TEXT_DOMAIN).'</p>';
+		$html_box.= '<p class="section-title">'.__('Use Customized Template?', 'wp-poll').'</p>';
+		$html_box.= '<p class="section-info">'.__('Do you want to use customized template to display Single Poll?', 'wp-poll').'</p>';
 		
 		$html_box.= "<select name='wpp_use_customized_template'>";
 		foreach($input_args as $input_args_key=>$input_args_values) {
@@ -359,12 +359,12 @@ class class_wpp_settings_page  {
 		$html_box.= '</div>';
 		
 		$html_box.= '<div class="section-box">';
-		$html_box.= '<p class="section-title">'.__('Single Poll Template', WPP_TEXT_DOMAIN).'</p>';
+		$html_box.= '<p class="section-title">'.__('Single Poll Template', 'wp-poll').'</p>';
 		$html_box.= '<p class="section-info">'.
-			__('Design your custom template how you want to display a Single Poll', WPP_TEXT_DOMAIN).
+			__('Design your custom template how you want to display a Single Poll', 'wp-poll').
 			'<br>'.
-			__('Select your choices from left side and sort them from right side.', WPP_TEXT_DOMAIN).
-			'<b>'.__('Use the Recommended section to make it nice.', WPP_TEXT_DOMAIN).'</b></p>';
+			__('Select your choices from left side and sort them from right side.', 'wp-poll').
+			'<b>'.__('Use the Recommended section to make it nice.', 'wp-poll').'</b></p>';
 		
 		$html_box.= "<ul class='wpp_td'>";
 		foreach( $template_sections as $section_key => $section ){
@@ -372,7 +372,7 @@ class class_wpp_settings_page  {
 			$label = isset( $section['label'] ) ? $section['label'] : '';
 			$priority = isset( $section['priority'] ) ? $section['priority'] : 0;
 			
-			if( $priority >= 50 ) $priority_text = ' - '.__('Recommended', WPP_TEXT_DOMAIN);
+			if( $priority >= 50 ) $priority_text = ' - '.__('Recommended', 'wp-poll');
 			else $priority_text = '';
 			
 			$html_box.= "
@@ -447,7 +447,7 @@ class class_wpp_settings_page  {
 			update_option( 'wpp_use_customized_template', $wpp_use_customized_template );
 			
 			?>
-			<div class="updated"><p><strong><?php _e('Changes Saved.', WPP_TEXT_DOMAIN ); ?></strong></p></div>
+			<div class="updated"><p><strong><?php _e('Changes Saved.', 'wp-poll' ); ?></strong></p></div>
 			<?php
 		endif;
 	endif;
@@ -459,7 +459,7 @@ class class_wpp_settings_page  {
 
 	<div class="wrap">
 		<div id="icon-tools" class="icon32"><br></div>
-		<?php echo "<h2>WP Poll - ".__('Settings', WPP_TEXT_DOMAIN)."</h2>";?><br>
+		<?php echo "<h2>WP Poll - ".__('Settings', 'wp-poll')."</h2>";?><br>
 		
 		<form  method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 			<input type="hidden" name="wpp_hidden" value="Y" />
@@ -471,8 +471,8 @@ class class_wpp_settings_page  {
 				echo $class_wpp_settings_page->wpp_settings_options_form(); 
 			?>
 			<br>
-			<input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes',WPP_TEXT_DOMAIN ); ?>" />
-			<!--<div class="button button-primary" id="wpp_reset_settings" > <?php //_e('Reset Settings',WPP_TEXT_DOMAIN ); ?> </div> -->
+			<input class="button button-primary" type="submit" name="Submit" value="<?php _e('Save Changes','wp-poll' ); ?>" />
+			<!--<div class="button button-primary" id="wpp_reset_settings" > <?php //_e('Reset Settings','wp-poll' ); ?> </div> -->
 		</form>
 		
 	</div>

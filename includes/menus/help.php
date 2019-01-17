@@ -10,7 +10,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 ?>
 <div class="wrap">
 	<div id="icon-tools" class="icon32"><br></div>
-	<h2>WP Poll - <?php echo __('Help', WPP_TEXT_DOMAIN);?></h2><br>
+	<h2>WP Poll - <?php echo __('Help', 'wp-poll');?></h2><br>
 	
 	<div class="section-box">
 		<div class="section-title">Any Question?</div>

@@ -28,7 +28,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 		<input type="hidden" name="page" value="wpp_reports" />
 		<select name="p">
 			<?php
-			echo sprintf('<option value="%d">%s</option>', '', __('Select a Poll', WPP_TEXT_DOMAIN ) );		
+			echo sprintf('<option value="%d">%s</option>', '', __('Select a Poll', 'wp-poll' ) );
 			
 			if ( $Poll_Query->have_posts() ) : while ( $Poll_Query->have_posts() ) : $Poll_Query->the_post();
 				$selected = $poll_id == get_the_ID() ? 'selected' : '';

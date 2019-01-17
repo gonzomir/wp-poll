@@ -3,7 +3,7 @@
 	Plugin Name: WP Poll
 	Plugin URI: https://www.pluginbazar.net/product/wp-poll/
 	Description: It allows user to poll in your website with many awesome feature.
-	Version: 2.3.0
+	Version: 3.0.1
 	Author: Pluginbazar
 	Author URI: https://pluginbazar.net/
 	License: GPLv2 or later
@@ -30,7 +30,7 @@ class WPPollManager {
 	
 	public function load_textdomain() {
 
-		load_plugin_textdomain( WPP_TEXT_DOMAIN, false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' ); 
+		load_plugin_textdomain( 'wp-poll', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
 	}
 	
 	public function load_functions(){
@@ -103,6 +103,5 @@ class WPPollManager {
 		
 		define('WPP_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 		define('WPP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-		define('WPP_TEXT_DOMAIN', 'wp-poll' );
 	}
 } new WPPollManager();

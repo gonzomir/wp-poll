@@ -27,9 +27,9 @@ class class_wpp_settings{
 	}
 
 	public function wpp_menu_init() {
-		add_submenu_page('edit.php?post_type=poll', __('Reports',WPP_TEXT_DOMAIN), __('Reports',WPP_TEXT_DOMAIN), 'manage_options', 'wpp_reports', array( $this, 'wpp_menu_reports' ));	
-		add_submenu_page('edit.php?post_type=poll', __('Settings',WPP_TEXT_DOMAIN), __('Settings',WPP_TEXT_DOMAIN), 'manage_options', 'wpp_menu_settings', array( $this, 'wpp_menu_settings' ));	
-		add_submenu_page('edit.php?post_type=poll', __('Help',WPP_TEXT_DOMAIN), __('Help',WPP_TEXT_DOMAIN), 'manage_options', 'wpp_help', array( $this, 'wpp_help' ));	
+		add_submenu_page('edit.php?post_type=poll', __('Reports','wp-poll'), __('Reports','wp-poll'), 'manage_options', 'wpp_reports', array( $this, 'wpp_menu_reports' ));
+		add_submenu_page('edit.php?post_type=poll', __('Settings','wp-poll'), __('Settings','wp-poll'), 'manage_options', 'wpp_menu_settings', array( $this, 'wpp_menu_settings' ));
+		add_submenu_page('edit.php?post_type=poll', __('Help','wp-poll'), __('Help','wp-poll'), 'manage_options', 'wpp_help', array( $this, 'wpp_help' ));
 	}
 }
 	

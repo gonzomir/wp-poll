@@ -19,7 +19,7 @@ class WPP_Post_meta_Poll{
 		if (in_array($post_type, $post_types)) {
 		
 			add_meta_box('poll_metabox',
-				__( 'Poll Data Box', WPP_TEXT_DOMAIN ),
+				__( 'Poll Data Box', 'wp-poll' ),
 				array($this, 'poll_meta_box_function'),
 				$post_type,
 				'normal',
