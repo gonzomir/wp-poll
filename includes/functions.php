@@ -96,9 +96,9 @@ add_action('wp_ajax_nopriv_wpp_ajax_submit_comment', 'wpp_ajax_submit_comment');
 		$response 		= array();
 		$poll_id 		= (int)sanitize_text_field($_POST['poll_id']);
 		$checked_opts	= $_POST['checked'];
-		
-		$polled_data 	= array();
+
 		$polled_data	= get_post_meta( $poll_id, 'polled_data', true );
+        $polled_data    = empty( $polled_data ) ? array() : $polled_data;
 		$poller 		= get_poller();
 		
 		if( array_key_exists( $poller, $polled_data ) ) {
