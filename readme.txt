@@ -8,7 +8,7 @@
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-	Complete solution for Polls in WordPress with 20+ styles variations, countdown timers, advanced reporting, ready widget and frontend option creation ability.
+	Complete solution for Polls in WordPress with 20+ styles variations, countdown timers, advanced reporting, ready widget & frontend option creation
 
 == Description ==
 
