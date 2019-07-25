@@ -38,6 +38,10 @@ Easy solution for taking opinions from your visitors/users with multiple styles/
 Don't hesitate to start using it and let us know any issue...
 
 
+[### Report an Issue](https://pluginbazar.com/forums/forum/wp-poll/)
+
+
+
 `
 	https://demo.pluginbazar.com/wp-poll/
 	
