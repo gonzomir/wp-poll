@@ -1,14 +1,14 @@
 === WP Poll ===
 	Contributors: jaedm97,pluginbazar
 	Donate link: https://pluginbazar.com/contact/
-	Tags: WP Polls, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
+	Tags: Poll, Polls, WP Polls, WordPress Polling,WordPress Poll, democracy, poll, polling, polls, Post, survey, vote, widget, opinion, justice
 	Requires at least: 3.8
 	Tested up to: 5.2.2
-	Stable tag: 3.1.0
+	Stable tag: 3.1.1
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-	Complete solution for Polls in WordPress with 20+ styles variations, countdown timers, advanced reporting, ready widget & frontend option creation
+	Complete solution for Polls in WordPress
 
 == Description ==
 
@@ -38,7 +38,7 @@ Easy solution for taking opinions from your visitors/users with multiple styles/
 Don't hesitate to start using it and let us know any issue...
 
 
-[Report an Issue](https://pluginbazar.com/forums/forum/wp-poll/)
+[### Report an Issue](https://pluginbazar.com/forums/forum/wp-poll/)
 
 
 
@@ -111,8 +111,11 @@ Don't hesitate to start using it and let us know any issue...
 	= 3.0.2 =
     * 23/01/2019 Fixed bug
 
-	= 3.1.1 =
+	= 3.1.0 =
     * 25/07/2019 Coming up with completely new backend and frontend with multiple variations
+
+	= 3.1.1 =
+    * 28/07/2019 Bug Fixing
 
 
 == Upgrade Notice ==
