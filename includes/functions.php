@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }  // if direct access
 
 
-if( ! function_exists( 'wpp_is_page' ) ) {
+if ( ! function_exists( 'wpp_is_page' ) ) {
 	/**
 	 * Return whether a page is $searched_page or not
 	 *
@@ -368,8 +368,8 @@ if ( ! function_exists( 'wpp_locate_template' ) ) {
 
 if ( ! function_exists( 'wpp_pagination' ) ) {
 	/**
-     * Return Pagination HTML Content
-     *
+	 * Return Pagination HTML Content
+	 *
 	 * @param bool $query_object
 	 * @param array $args
 	 *

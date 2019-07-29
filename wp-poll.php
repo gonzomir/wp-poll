@@ -1,16 +1,17 @@
 <?php
-/*
-    Plugin Name: WP Poll
-    Plugin URI: https://www.pluginbazar.com/plugin/wp-poll/
-    Description: It allows user to poll in your website with many awesome features.
-    Version: 3.1.1
-    Author: Pluginbazar
-	Text Domain: wp-poll
-	Domain Path: /languages/
-    Author URI: https://pluginbazar.com/
-    License: GPLv2 or later
-    License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * Plugin Name: WP Poll
+ *
+ * Plugin URI: https://www.pluginbazar.com/plugin/wp-poll/
+ * Description: It allows user to poll in your website with many awesome features.
+ * Version: 3.1.2
+ * Author: Pluginbazar
+ * Text Domain: wp-poll
+ * Domain Path: /languages/
+ * Author URI: https://pluginbazar.com/
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -141,6 +142,9 @@ class WPPollManager {
 	 */
 	function define_constants() {
 
+		global $wpdb;
+
+		define( 'WPP_TABLE_RESULTS', sprintf( '%spoll_results', $wpdb->prefix ) );
 		define( 'WPP_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
 		define( 'WPP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 		define( 'WPP_PLUGIN_FILE', plugin_basename( __FILE__ ) );
