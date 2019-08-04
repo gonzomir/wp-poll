@@ -17,6 +17,66 @@ if ( ! class_exists( 'WPP_Functions' ) ) {
 
 
 		/**
+		 * Return Polls
+		 *
+		 * @param array $args
+		 * @param string $return_type array | wp_query
+		 *
+		 * @return array|mixed|void
+		 */
+		function get_polls( $args = array(), $return_type = 'array' ) {
+
+			$return = array();
+
+			/**
+			 * set post type
+			 */
+			$args['post_type'] = 'poll';
+
+
+			if ( $return_type == 'array' ) {
+				$return = apply_filters( 'wpp_filters_get_polls', get_posts( $args ) );
+			}
+
+			if ( $return_type == 'wp-query' ) {
+				$return = apply_filters( 'wpp_filters_get_polls', new WP_Query( $args ) );
+			}
+
+			return $return;
+		}
+
+
+		/**
+		 * Return poll categories
+		 *
+		 * @param array $args
+		 *
+		 * @return mixed|void
+		 */
+		function get_poll_categories( $args = array() ) {
+
+			$args['taxonomy'] = 'poll_cat';
+
+			return apply_filters( 'wpp_filters_poll_categories', get_terms( $args ) );
+		}
+
+
+		/**
+		 * Return Poll types
+		 *
+		 * @return mixed|void
+		 */
+		function get_poll_types() {
+
+			$poll_types = array(
+				'poll' => esc_html__( 'General Poll', 'wp-poll' ),
+			);
+
+			return apply_filters( 'wpp_filters_poll_types', $poll_types );
+		}
+
+
+		/**
 		 * Display Items or Not in Archive page
 		 *
 		 * @param bool $thing_to_check page-content | results | thumb | pagination
@@ -25,13 +85,13 @@ if ( ! class_exists( 'WPP_Functions' ) ) {
 		 */
 		function display_on_archive( $thing_to_check = false ) {
 
-			if( ! $thing_to_check || empty( $thing_to_check ) ) {
+			if ( ! $thing_to_check || empty( $thing_to_check ) ) {
 				return false;
 			}
 
 			$archive_show_hide = $this->get_option( 'wpp_archive_show_hide', array( 'pagination' ) );
 
-			if( in_array( $thing_to_check, $archive_show_hide ) ) {
+			if ( in_array( $thing_to_check, $archive_show_hide ) ) {
 				return true;
 			}
 

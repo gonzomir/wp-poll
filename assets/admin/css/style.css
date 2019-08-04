@@ -2,6 +2,10 @@
 Admin css
 */
 
+.wpp-no-display {
+    display: none;
+}
+
 #poll_metabox #post_title {
     width: 100%;
     padding: 8px 12px;
@@ -60,21 +64,22 @@ Admin css
     color: #2f2f2f;
 }
 
-
+Ã¢â‚¬â€¹
+Ã¢â‚¬â€¹
 .post-type-poll .wps-field fieldset label {
-    display: block;
+    display: inline-block;
     margin-bottom: 10px;
 }
 
-.post-type-poll .wps-field fieldset br {
-    display: none;
+.post-type-poll .wps-field fieldset label input[type="checkbox"],
+.post-type-poll .wps-field fieldset label input[type="radio"] {
+    margin-top: -2px;
+    margin-right: 8px;
 }
-
 
 /**
  * Chart Reporting
  */
-
 #wpp-chart-report {
     background: #fff;
     border: 1px solid #ddd;
@@ -83,11 +88,9 @@ Admin css
     margin: 10px auto 20px auto;
 }
 
-
 /**
  * Widgets
  */
-
 .widget-inside .wps-field {
     display: flex;
     justify-content: space-between;
@@ -117,7 +120,85 @@ a.wpp-preview-link:hover {
     margin-left: 10px;
     text-decoration: none;
     color: #FF5722;
-    outline:none;
-    box-shadow:none;
+    outline: none;
+    box-shadow: none;
 }
 
+/**
+ * Notices
+ */
+
+.wpp-notice {
+    background: #00bcd43b;
+    padding: 10px;
+    border-left: 3px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.wpp-notice.wpp-warning {
+    background: #ff98003b;
+}
+
+.wpp-notice.wpp-error {
+    background: #ff57223b;
+}
+
+.wpp-notice.wpp-success {
+    background: #4caf503b;
+}
+
+/**
+ * Extensions
+ */
+
+.wpp-extensions {
+    padding: 25px;
+}
+
+.wpp-extensions .wpp-extension {
+    display: inline-block;
+    width: 33%;
+    max-width: 370px;
+    margin: 0 30px 30px 0;
+}
+
+.wpp-extensions .wpp-extension:nth-child(3n+0) {
+    margin-right: 0;
+}
+
+.wpp-extensions .wpp-extension > img {
+    vertical-align: bottom;
+}
+
+.wpp-extensions .wpp-extension .info {
+    padding: 25px 20px;
+    box-shadow: 0 5px 20px 5px #ddd;
+    background: #fff;
+}
+
+.wpp-extensions .wpp-extension .info h2 {
+    margin-top: 0;
+}
+
+.wpp-extensions .wpp-extension .info .pricing {
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.wpp-extensions .wpp-extension .info .pricing a.price,
+.wpp-extensions .wpp-extension .info .pricing a.price:focus,
+.wpp-extensions .wpp-extension .info .pricing a.price:hover,
+.wpp-extensions .wpp-extension .info .pricing a.price:active {
+    background-color: #e65550;
+    background-image: linear-gradient(-100deg, #424242d9, transparent);
+    padding: 8px 15px;
+    display: inline-block;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 10px;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+}

@@ -192,23 +192,45 @@ if ( ! function_exists( 'wpp_poll_archive_class' ) ) {
 }
 
 
-if ( ! function_exists( 'wpp_single_poll_class' ) ) {
+if ( ! function_exists( 'wpp_generate_classes' ) ) {
 	/**
-	 * Return single poll classes
-	 *
+     * Generate and return classes
+     *
 	 * @param string $classes
+	 *
+	 * @return string
 	 */
-	function wpp_single_poll_class( $classes = '' ) {
+	function wpp_generate_classes( $classes = '' ) {
 
 		if ( ! is_array( $classes ) ) {
 			$classes = explode( "~", str_replace( array( ' ', ',', ', ' ), '~', $classes ) );
 		}
 
-		$classes[] = 'single-poll';
-
-		printf( 'class="%s"', esc_attr( implode( " ", apply_filters( 'wpp_single_poll_class', $classes ) ) ) );
+		return implode( " ", apply_filters( 'wpp_generate_classes', array_filter( $classes ) ) );
 	}
 }
+
+
+if ( ! function_exists( 'wpp_single_post_class' ) ) {
+	/**
+	 * Return single post classes
+	 *
+	 * @param string $classes
+	 */
+	function wpp_single_post_class( $classes = '' ) {
+
+		if ( ! is_array( $classes ) ) {
+			$classes = explode( "~", str_replace( array( ' ', ',', ', ' ), '~', $classes ) );
+		}
+
+		$classes[] = sprintf( '%s-single', get_post_type() );
+
+		printf( 'class="%s"', wpp_generate_classes( $classes ) );
+	}
+}
+
+
+
 
 
 if ( ! function_exists( 'wpp_options_single_class' ) ) {
@@ -240,19 +262,19 @@ if ( ! function_exists( 'wpp_options_single_class' ) ) {
 
 
 		// Add common class excluding for Theme - 1
-		if ( $options_theme != 1 ) {
+		if ( $options_theme != 1 && $options_theme != 2 ) {
 			$classes[] = 'wpp-custom';
 		}
 
 
 		// Add checkbox animation class excluding for Theme - 1
-		if ( $options_theme != 1 && $poll->can_vote_multiple() ) {
+		if ( $options_theme != 1 && $options_theme != 2 && $poll->can_vote_multiple() ) {
 			$classes[] = sprintf( 'wpp-%s', $poll->get_style( 'animation_checkbox' ) );
 		}
 
 
 		// Add radio animation class excluding for Theme - 1
-		if ( $options_theme != 1 && ! $poll->can_vote_multiple() ) {
+		if ( $options_theme != 1 && $options_theme != 2 && ! $poll->can_vote_multiple() ) {
 			$classes[] = sprintf( 'wpp-%s', $poll->get_style( 'animation_radio' ) );
 		}
 
@@ -271,9 +293,12 @@ if ( ! function_exists( 'wpp_get_template_part' ) ) {
 	 */
 	function wpp_get_template_part( $slug, $name = '', $args = array() ) {
 
-		$template = '';
+		$template   = '';
+		$plugin_dir = WPP_PLUGIN_DIR;
 
-		// Look in yourtheme/slug-name.php and yourtheme/woocommerce/slug-name.php.
+		/**
+		 * Locate template
+		 */
 		if ( $name ) {
 			$template = locate_template( array(
 				"{$slug}-{$name}.php",
@@ -281,18 +306,46 @@ if ( ! function_exists( 'wpp_get_template_part' ) ) {
 			) );
 		}
 
-		// Get default slug-name.php.
-		if ( ! $template && $name && file_exists( untrailingslashit( WPP_PLUGIN_DIR ) . "/templates/{$slug}-{$name}.php" ) ) {
-			$template = untrailingslashit( WPP_PLUGIN_DIR ) . "/templates/{$slug}-{$name}.php";
+		/**
+		 * Check directory for templates from Addons
+		 */
+		$backtrace      = debug_backtrace( 2, true );
+		$backtrace      = empty( $backtrace ) ? array() : $backtrace;
+		$backtrace      = reset( $backtrace );
+		$backtrace_file = isset( $backtrace['file'] ) ? $backtrace['file'] : '';
+
+		if ( strpos( $backtrace_file, 'wp-poll-survey' ) !== false && defined( 'WPPS_PLUGIN_DIR' ) ) {
+			$plugin_dir = WPPS_PLUGIN_DIR;
 		}
 
-		// If template file doesn't exist, look in yourtheme/slug.php and yourtheme/woocommerce/slug.php.
+
+		/**
+		 * Search for Template in Plugin
+		 *
+		 * @in Plugin
+		 */
+		if ( ! $template && $name && file_exists( untrailingslashit( $plugin_dir ) . "/templates/{$slug}-{$name}.php" ) ) {
+			$template = untrailingslashit( $plugin_dir ) . "/templates/{$slug}-{$name}.php";
+		}
+
+
+		/**
+		 * Search for Template in Theme
+		 *
+		 * @in Theme
+		 */
 		if ( ! $template ) {
 			$template = locate_template( array( "{$slug}.php", "wpp/{$slug}.php" ) );
 		}
 
-		// Allow 3rd party plugins to filter template file from their plugin.
+
+		/**
+		 * Allow 3rd party plugins to filter template file from their plugin.
+		 *
+		 * @filter wpp_filters_get_template_part
+		 */
 		$template = apply_filters( 'wpp_filters_get_template_part', $template, $slug, $name );
+
 
 		if ( $template ) {
 			load_template( $template, false );
@@ -318,7 +371,16 @@ if ( ! function_exists( 'wpp_get_template' ) ) {
 			extract( $args ); // @codingStandardsIgnoreLine
 		}
 
-		$located = wpp_locate_template( $template_name, $template_path, $default_path );
+		/**
+		 * Check directory for templates from Addons
+		 */
+		$backtrace      = debug_backtrace( 2, true );
+		$backtrace      = empty( $backtrace ) ? array() : $backtrace;
+		$backtrace      = reset( $backtrace );
+		$backtrace_file = isset( $backtrace['file'] ) ? $backtrace['file'] : '';
+
+		$located = wpp_locate_template( $template_name, $template_path, $default_path, $backtrace_file );
+
 
 		if ( ! file_exists( $located ) ) {
 			return new WP_Error( 'invalid_data', __( '%s does not exist.', 'woc-open-close' ), '<code>' . $located . '</code>' );
@@ -336,18 +398,41 @@ if ( ! function_exists( 'wpp_get_template' ) ) {
 
 
 if ( ! function_exists( 'wpp_locate_template' ) ) {
-	function wpp_locate_template( $template_name, $template_path = '', $default_path = '' ) {
+	/**
+	 *  Locate template
+	 *
+	 * @param $template_name
+	 * @param string $template_path
+	 * @param string $default_path
+	 * @param string $backtrace_file
+	 *
+	 * @return mixed|void
+	 */
+	function wpp_locate_template( $template_name, $template_path = '', $default_path = '', $backtrace_file = '' ) {
 
+		$plugin_dir = WPP_PLUGIN_DIR;
 
+		/**
+		 * Template path in Theme
+		 */
 		if ( ! $template_path ) {
 			$template_path = 'wpp/';
 		}
 
-		if ( ! $default_path ) {
-			$default_path = untrailingslashit( WPP_PLUGIN_DIR ) . '/templates/';
+		if ( ! empty( $backtrace_file ) && strpos( $backtrace_file, 'wp-poll-survey' ) !== false && defined( 'WPPS_PLUGIN_DIR' ) ) {
+			$plugin_dir = WPPS_PLUGIN_DIR;
 		}
 
-		// Look within passed path within the theme - this is priority.
+		/**
+		 * Template default path from Plugin
+		 */
+		if ( ! $default_path ) {
+			$default_path = untrailingslashit( $plugin_dir ) . '/templates/';
+		}
+
+		/**
+		 * Look within passed path within the theme - this is priority.
+		 */
 		$template = locate_template(
 			array(
 				trailingslashit( $template_path ) . $template_name,
@@ -355,12 +440,18 @@ if ( ! function_exists( 'wpp_locate_template' ) ) {
 			)
 		);
 
-		// Get default template/.
+		/**
+		 * Get default template
+		 */
 		if ( ! $template ) {
 			$template = $default_path . $template_name;
 		}
 
-		// Return what we found.
+		/**
+		 * Return what we found with allowing 3rd party to override
+		 *
+		 * @filter wpp_filters_locate_template
+		 */
 		return apply_filters( 'wpp_filters_locate_template', $template, $template_name, $template_path );
 	}
 }
