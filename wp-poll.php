@@ -4,7 +4,7 @@
  *
  * Plugin URI: https://www.pluginbazar.com/plugin/wp-poll/
  * Description: It allows user to poll in your website with many awesome features.
- * Version: 3.1.3
+ * Version: 3.1.4
  * Author: Pluginbazar
  * Text Domain: wp-poll
  * Domain Path: /languages/
@@ -60,6 +60,7 @@ class WPPollManager {
 	function define_classes_functions() {
 
 		require_once( WPP_PLUGIN_DIR . 'includes/classes/class-pb-settings.php' );
+		
 		require_once( WPP_PLUGIN_DIR . 'includes/classes/class-item-data.php' );
 		require_once( WPP_PLUGIN_DIR . 'includes/classes/class-poll-post-types.php' );
 		require_once( WPP_PLUGIN_DIR . 'includes/classes/class-functions.php' );

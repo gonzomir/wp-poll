@@ -5,7 +5,7 @@
  * Quick settings page generator for WordPress
  *
  * @package PB_Settings
- * @version 3.0.3
+ * @version 3.0.5
  * @author Pluginbazar
  * @copyright 2019 Pluginbazar.com
  * @see https://github.com/jaedm97/PB-Settings
@@ -17,12 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 if ( ! class_exists( 'PB_Settings' ) ) {
-
 	class PB_Settings {
 
 		public $data = array();
 		public $disabled_notice = null;
+
 		private $options = array();
+		private $checked = array();
 
 		/**
 		 * PB_Settings constructor.
@@ -104,6 +105,7 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 					$option_id = isset( $option['id'] ) ? $option['id'] : '';
 					$option_title = isset( $option['title'] ) ? $option['title'] : '';
 					$option_class = isset( $option['class'] ) ? $option['class'] : '';
+					$option_type  = isset( $option['type'] ) ? $option['type'] : '';
 					$field_id     = str_replace( array( '[', ']' ), '', $option_id );
 
 					if ( $post_id && ! empty( $post_id ) ) {
@@ -120,7 +122,7 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 					}
 
 					?>
-                    <div class="wps-field <?php echo esc_attr( $option_class ); ?>">
+                    <div class="wps-field <?php echo esc_attr( implode( ' ', array( $option_class, $option_type ) ) ); ?>">
                         <label for="<?php echo esc_attr( $field_id ); ?>"
                                class="wps-field-inline wps-field-title"><?php echo esc_html( $option_title ); ?></label>
 
@@ -189,7 +191,13 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 			do_action( "pb_settings_before_$id", $option );
 
 			if ( isset( $option['type'] ) && ! empty( $field_type = $option['type'] ) ) {
-				call_user_func( array( $this, "generate_$field_type" ), $option );
+
+				if ( method_exists( $this, "generate_$field_type" ) && is_callable( array(
+						$this,
+						"generate_$field_type"
+					) ) ) {
+					call_user_func( array( $this, "generate_$field_type" ), $option );
+				}
 			}
 
 			if ( isset( $option['disabled'] ) && $option['disabled'] ) {
@@ -859,6 +867,100 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 
 
 		/**
+		 * Generate Image Select Field
+		 *
+		 * @param $option
+		 */
+		function generate_image_select( $option ) {
+
+			$option_id  = isset( $option['id'] ) ? $option['id'] : "";
+			$args       = isset( $option['args'] ) ? $option['args'] : array();
+			$value      = isset( $option['value'] ) ? $option['value'] : get_option( $option_id );
+			$disabled   = isset( $option['disabled'] ) && $option['disabled'] ? 'disabled' : '';
+			$multiple   = isset( $option['multiple'] ) && $option['multiple'] ? true : false;
+			$input_type = $multiple ? 'checkbox' : 'radio';
+
+			if ( empty( $value ) || ! $value ) {
+				$value = isset( $option['default'] ) ? $option['default'] : $value;
+			}
+
+			$value = is_array( $value ) ? $value : array( $value );
+
+			?>
+            <div class="image-select">
+				<?php
+				foreach ( $args as $key => $val ) {
+					$checked = is_array( $value ) && in_array( $key, $value ) ? "checked" : "";
+					printf( '<label class="%2$s"><input %1$s %2$s type="%6$s" name="%3$s[]" value="%4$s"><img src="%5$s" /></label>',
+						$disabled, $checked, $option_id, $key, $val, $input_type
+					);
+				}
+				?>
+            </div>
+
+			<?php if ( ! in_array( 'image_select', $this->checked ) ) : ?>
+                <style>
+                    .image-select > label {
+                        display: inline-block;
+                        width: 120px;
+                        margin: 0 15px 15px 0;
+                        position: relative;
+                        border: 1px solid #d1d1d1;
+                        border-radius: 5px;
+                    }
+
+                    .image-select > label.checked:after {
+                        content: '✔';
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        background: #4CAF50;
+                        color: #fff;
+                        top: -10px;
+                        right: -10px;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 30px;
+                    }
+
+                    .image-select > label > input[type="radio"],
+                    .image-select > label > input[type="checkbox"] {
+                        display: none;
+                    }
+
+                    .image-select > label > img {
+                        width: 100%;
+                        transition: 0.3s;
+                        border-radius: 5px;
+                    }
+
+                    .image-select > label.checked > img {
+                        opacity: 0.7;
+                        border-radius: 5px;
+                    }
+                </style>
+                <script>
+                    jQuery(document).ready(function ($) {
+                        $('.image-select > label > input').on('change', function () {
+                            if ($(this).attr('type') === 'radio') {
+                                $(this).parent().parent().find('> label').removeClass('checked');
+                            }
+
+                            if ($(this).is(":checked")) {
+                                $(this).parent().addClass('checked');
+                            } else {
+                                $(this).parent().removeClass('checked');
+                            }
+                        });
+                    });
+                </script>
+			<?php
+			endif;
+
+			$this->checked[] = 'image_select';
+		}
+
+		/**
 		 * Section Callback
 		 *
 		 * @param $section
@@ -981,10 +1083,14 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 				return $this->get_users_array();
 			}
 			if ( strpos( $string, 'TAX_' ) !== false ) {
-				return $this->get_taxonomies_array( $string, $option );
+				$taxonomies = $this->get_taxonomies_array( $string, $option );
+
+				return is_wp_error( $taxonomies ) ? array() : $taxonomies;
 			}
 			if ( strpos( $string, 'POSTS_' ) !== false ) {
-				return $this->get_posts_array( $string, $option );
+				$posts = $this->get_posts_array( $string, $option );
+
+				return is_wp_error( $posts ) ? array() : $posts;
 			}
 			if ( strpos( $string, 'TIME_ZONES' ) !== false ) {
 				return $this->get_timezones_array( $string, $option );

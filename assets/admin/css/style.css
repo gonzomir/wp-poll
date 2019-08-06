@@ -202,3 +202,11 @@ a.wpp-preview-link:hover {
     outline: none;
     box-shadow: none;
 }
+
+.wps-field.count-down-selection .image-select > label {
+    width: 280px;
+}
+
+.wps-field.image_select a.wpp-preview-link {
+    margin-left: 0;
+}
