@@ -294,6 +294,8 @@ if ( ! class_exists( 'WPP_Poll' ) ) {
 				$style = $this->get_meta( 'poll_animation_radio', 'checkmark' );
 			}
 
+			$style = is_array( $style ) ? reset( $style ) : $style;
+
 			return apply_filters( 'wpp_filters_get_style', $style, $style_of );
 		}
 
