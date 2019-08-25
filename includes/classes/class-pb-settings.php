@@ -122,7 +122,10 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 					}
 
 					?>
-                    <div class="wps-field <?php echo esc_attr( implode( ' ', array( $option_class, $option_type ) ) ); ?>">
+                    <div class="wps-field <?php echo esc_attr( implode( ' ', array(
+						$option_class,
+						$option_type
+					) ) ); ?>">
                         <label for="<?php echo esc_attr( $field_id ); ?>"
                                class="wps-field-inline wps-field-title"><?php echo esc_html( $option_title ); ?></label>
 
@@ -200,8 +203,8 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 				}
 			}
 
-			if ( isset( $option['disabled'] ) && $option['disabled'] ) {
-				printf( '<span style="background: #ffe390eb;margin-left: 10px;padding: 5px 12px;font-size: 12px;border-radius: 3px;color: #717171;">%s</span>', $this->disabled_notice );
+			if ( isset( $option['disabled'] ) && $option['disabled'] && ! empty( $this->disabled_notice ) ) {
+				printf( '<span class="disabled-notice" style="background: #ffe390eb;margin-left: 10px;padding: 5px 12px;font-size: 12px;border-radius: 3px;color: #717171;">%s</span>', $this->disabled_notice );
 			}
 
 			do_action( "pb_settings_before_option", $option );
@@ -744,6 +747,7 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 
 			$id          = isset( $option['id'] ) ? $option['id'] : "";
 			$placeholder = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
+			$rows        = isset( $option['rows'] ) ? $option['rows'] : 4;
 			$value       = isset( $option['value'] ) ? $option['value'] : get_option( $id );
 			$required    = isset( $option['required'] ) ? $option['required'] : false;
 			$required    = $required ? "required='required'" : '';
@@ -755,7 +759,7 @@ if ( ! class_exists( 'PB_Settings' ) ) {
 
 			?>
             <textarea cols="40" <?php echo esc_attr( $disabled ); ?> <?php echo esc_attr( $required ); ?>
-                      rows="5"
+                      rows="<?php echo esc_attr( $rows ); ?>"
                       name="<?php echo esc_attr( $id ); ?>"
                       id="<?php echo esc_attr( $id ); ?>"
                       placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo esc_html( $value ); ?></textarea>
