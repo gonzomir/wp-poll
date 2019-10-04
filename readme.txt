@@ -41,7 +41,7 @@ WP Poll allows your to integrate highly customizable polling system with so many
 
 ### ADDONS
 #### 1. WP Poll - Survey
-[Buy this addon only at $29](https://pluginbazar.com/?add-to-cart=1125)
+[Buy this addon only at $29](https://pluginbazar.com/?add-to-cart=1125/)
 
 
 ###### Features
