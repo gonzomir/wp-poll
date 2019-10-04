@@ -28,20 +28,21 @@ WP Poll allows your to integrate highly customizable polling system with so many
 * Display results for an option of a single poll with shortcode
 
 ### PRO VERSION
-[Purchase WP Poll Pro](https://pluginbazar.com/?add-to-cart/)
+[Purchase WP Poll Pro](https://pluginbazar.com/?add-to-cart=1125/)
 
 ###### Features
 * Duplicate Poll
 * Reset Results
 * Lock Content Until Poll
 * Popup Poll on Scroll
+
 * Social Share Buttons
 * And many more are coming soon
 
 
 ### ADDONS
 #### 1. WP Poll - Survey
-[Buy this addon only at $29](https://pluginbazar.com/plugin/wp-poll/)
+[Buy this addon only at $29](https://pluginbazar.com/?add-to-cart=900)
 
 
 ###### Features
