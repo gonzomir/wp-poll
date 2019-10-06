@@ -1,4 +1,4 @@
-=== WP Poll - Best Polling Solution with Quiz & sSurvey ===
+=== WP Poll - Best Polling Solution with Quiz & Survey ===
 	Contributors: jaedm97,pluginbazar
 	Donate link: https://pluginbazar.com/contact/
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
