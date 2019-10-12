@@ -1,10 +1,10 @@
-=== WP Poll - Best Polling Solution with Quiz & Survey ===
+=== WP Poll - Best Polling Solution with Quiz & sSurvey ===
 	Contributors: jaedm97,pluginbazar
 	Donate link: https://pluginbazar.com/contact/
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
 	Requires at least: 4.6
 	Tested up to: 5.2.3
-	Stable tag: 3.1.13
+	Stable tag: 3.1.14
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,10 +36,10 @@ WP Poll allows your to integrate highly customisable polling system with so many
 * Reset Results
 * Lock Content Until Poll
 * Popup Poll on Scroll
+
 * Social Share Buttons
 * And many more are coming soon
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/17r3FDRmMVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### ADDONS
 #### 1. WP Poll - Survey
@@ -184,6 +184,9 @@ Don't hesitate to start using it and let us know any issue...
 
     = 3.1.13 =
     * 06/10/2019 WooCommerce Integration - Pay to Poll
+
+    = 3.1.14 =
+    * 12/10/2019 WooCommerce Integration Update
 
 == Upgrade Notice ==
 
