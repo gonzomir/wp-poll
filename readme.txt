@@ -40,6 +40,7 @@ WP Poll allows your to integrate highly customisable polling system with so many
 * Embed Poll in a Click
 * And many more are coming soon
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/17r3FDRmMVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### ADDONS
 #### 1. WP Poll - Survey
