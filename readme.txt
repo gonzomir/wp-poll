@@ -79,19 +79,6 @@ WP Poll allows your to integrate highly customisable polling system with so many
 * Startup Wizard
 * Integration with MailChimp, twilio, Zapier and so on....
 
-Don't hesitate to start using it and let us know any issue...
-
-
-[### Report an Issue](https://pluginbazar.com/forums/forum/wp-poll/)
-
-
-`
-	https://demo.pluginbazar.com/wp-poll/
-	
-	Username: pbwppoll
-	Password: pluginbazar
-`
-
 
 == Installation ==
 
