@@ -3,8 +3,8 @@
 	Donate link: https://pluginbazar.com/contact/
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
 	Requires at least: 4.6
-	Tested up to: 5.3
-	Stable tag: 3.1.17
+	Tested up to: 5.3.2
+	Stable tag: 3.1.18
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,19 @@ WP Poll allows your to integrate highly customisable polling system with so many
 * Elementor Widget Compatibility
 * Startup Wizard
 * Integration with MailChimp, twilio, Zapier and so on....
+
+Don't hesitate to start using it and let us know any issue...
+
+
+[### Report an Issue](https://pluginbazar.com/forums/forum/wp-poll/)
+
+
+`
+	https://demo.pluginbazar.com/wp-poll/
+	
+	Username: pbwppoll
+	Password: pluginbazar
+`
 
 
 == Installation ==
