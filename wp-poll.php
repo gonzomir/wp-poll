@@ -23,7 +23,7 @@ define( 'WPP_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE
 define( 'WPP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WPP_PLUGIN_FILE', plugin_basename( __FILE__ ) );
 
-define( 'WPP_PRO_URL', '' );
+define( 'WPP_PRO_URL', 'https://codecanyon.net/item/wp-poll-pro/25587395' );
 define( 'WPP_DOCS_URL', 'https://help.pluginbazar.com/docs/wp-poll/' );
 define( 'WPP_FORUM_URL', 'https://help.pluginbazar.com/forums/forum/wp-poll/' );
 define( 'WPP_CONTACT_URL', 'https://pluginbazar.com/contact/' );
