@@ -26,6 +26,7 @@ WP Poll allows your to integrate highly customisable polling system with so many
 * Ability to create new option from users on Frontend
 * Graphically Poll reporting on Backend
 * Possibility to generate 1000+ variations
+* Export reports as CSV
 * Ready Widget
 * Display results for a single poll with short-code
 * Display results for an option of a single poll with short-code
