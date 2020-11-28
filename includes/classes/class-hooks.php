@@ -77,6 +77,11 @@ if ( ! class_exists( 'WPP_Hooks' ) ) {
 				$transient->response[ WPPP_PLUGIN_FILE ] = $plugin_obj;
 			}
 
+			if ( defined( 'WPPP_VERSION' ) && WPPP_VERSION !== '1.0.2' ) {
+				unset( $transient->response['wp-poll-pro/includes/class-hooks.php'] );
+				unset( $transient->response[ WPPP_PLUGIN_FILE ] );
+			}
+
 			return $transient;
 		}
 
