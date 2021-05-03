@@ -14,8 +14,7 @@
 
 WP Poll allows your to integrate highly customisable polling system with so many options to control each poll to your WordPress website/blog. It's a super easy solution for taking opinions from your visitors/users with multiple styles/themes.
 
-[BUY PRO at 70% OFF](https://pluginbazar.com/plugin/wp-poll/?ref=wordpress.org) | [TRY DEMO](https://demo.pluginbazar.com/wp-poll/try-demo/)
-
+[BUY PRO](https://pluginbazar.com/plugin/wp-poll/?ref=wordpress.org) | [TRY DEMO](https://demo.pluginbazar.com/wp-poll/try-demo/)
 
 ### FEATURES
 * Single and Multi votes
@@ -189,9 +188,12 @@ Don't hesitate to start using it and let us know any issue...
 
     = 3.2.5 =
     * 23/03/2020 Add-on Bug Fixing
+	
+	= 3.3.6 =
+    * 05/05/2021 New version with updated SDK
 
 
 == Upgrade Notice ==
 
-= 3.2.0 =
-3.2.0 is a major update.
+= 3.3.6 =
+3.3.6 is a major update.
