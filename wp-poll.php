@@ -3,7 +3,7 @@
  * Plugin Name: WP Poll - Best Polling Solution in WordPress
  * Plugin URI: https://www.pluginbazar.com/plugin/wp-poll/
  * Description: It allows user to poll in your website with many awesome features.
- * Version: 3.3.5
+ * Version: 3.3.6
  * Author: Pluginbazar
  * Text Domain: wp-poll
  * Domain Path: /languages/
@@ -21,7 +21,7 @@ defined( 'WPP_PLUGIN_URL' ) || define( 'WPP_PLUGIN_URL', WP_PLUGIN_URL . '/' . p
 defined( 'WPP_PLUGIN_DIR' ) || define( 'WPP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'WPP_PLUGIN_FILE' ) || define( 'WPP_PLUGIN_FILE', plugin_basename( __FILE__ ) );
 defined( 'WPP_PLUGIN_LINK' ) || define( 'WPP_PLUGIN_LINK', 'https://pluginbazar.com/plugin/wp-poll/' );
-defined( 'WPP_DOCS_URL' ) || define( 'WPP_DOCS_URL', 'https://pluginbazar.com/docs/wp-poll/' );
+defined( 'WPP_DOCS_URL' ) || define( 'WPP_DOCS_URL', 'https://pluginbazar.com/d/wp-poll/' );
 defined( 'WPP_REVIEW_URL' ) || define( 'WPP_REVIEW_URL', 'https://wordpress.org/support/plugin/wp-poll/reviews/#new-post' );
 defined( 'PB_TICKET_URL' ) || define( 'PB_TICKET_URL', 'https://pluginbazar.com/my-account/tickets/?action=new' );
 
@@ -170,3 +170,23 @@ if ( ! class_exists( 'WP_Poll_main' ) ) {
 }
 
 WP_Poll_main::instance();
+
+
+function pb_sdk_init_wp_poll() {
+
+	if ( ! class_exists( 'Pluginbazar\Client' ) ) {
+		require_once( plugin_dir_path( __FILE__ ) . 'includes/sdk/class-client.php' );
+	}
+
+	global $wpp_sdk;
+
+	$wpp_sdk = Pluginbazar\Client::instance();
+	$wpp_sdk::init( esc_html( 'WP Poll' ), 'wp-poll', 34, '3.3.6' );
+}
+
+/**
+ * @global \Pluginbazar\Client $wpp_sdk
+ */
+global $wpp_sdk;
+
+pb_sdk_init_wp_poll();
