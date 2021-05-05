@@ -4,7 +4,7 @@
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
 	Requires at least: 4.6
 	Tested up to: 5.5.3
-	Stable tag: 3.3.6
+	Stable tag: 3.3.7
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -188,7 +188,7 @@ Don't hesitate to start using it and let us know any issue...
 
     = 3.2.5 =
     * 23/03/2020 Add-on Bug Fixing
-	
+
 	= 3.3.6 =
     * 05/05/2021 New version with updated SDK
 

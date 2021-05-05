@@ -2,7 +2,7 @@
 /**
  * Pluginbazar SDK Client
  *
- * @version 1.0.0
+ * @version 1.0.4
  * @author Pluginbazar
  */
 
@@ -15,14 +15,13 @@ namespace Pluginbazar;
  */
 class Client {
 
-	private static $_instance = null;
-
 	public static $_integration_server = 'https://c.pluginbazar.com';
 	public static $_notices_prefix = 'pb_notices_';
-	public static $_plugin_name = null;
-	public static $_text_domain = null;
-	public static $_plugin_reference = null;
-	public static $_plugin_version = null;
+
+	public $plugin_name = null;
+	public $text_domain = null;
+	public $plugin_reference = null;
+	public $plugin_version = null;
 
 
 	/**
@@ -45,11 +44,24 @@ class Client {
 
 	/**
 	 * Client constructor.
+	 *
+	 * @param $plugin_name
+	 * @param $text_domain
+	 * @param $plugin_reference
+	 * @param $plugin_version
 	 */
-	function __construct() {
-		add_action( 'admin_init', array( $this, 'manage_permanent_dismissible' ) );
+	function __construct( $plugin_name, $text_domain, $plugin_reference, $plugin_version ) {
 
-		self::notifications();
+		// Initialize variables
+		$this->plugin_name      = $plugin_name;
+		$this->text_domain      = $text_domain;
+		$this->plugin_reference = $plugin_reference;
+		$this->plugin_version   = $plugin_version;
+
+		// Enable notifications
+		$this->notifications();
+
+		add_action( 'admin_init', array( $this, 'manage_permanent_dismissible' ) );
 	}
 
 
@@ -58,13 +70,13 @@ class Client {
 	 *
 	 * @return \Pluginbazar\Updater
 	 */
-	public static function updater() {
+	public function updater() {
 		if ( ! class_exists( __NAMESPACE__ . '\Updater' ) ) {
 			require_once __DIR__ . '/class-updater.php';
 		}
 
 		if ( ! self::$updater ) {
-			self::$updater = new Updater();
+			self::$updater = new Updater( $this );
 		}
 
 		return self::$updater;
@@ -76,13 +88,13 @@ class Client {
 	 *
 	 * @return \Pluginbazar\License
 	 */
-	public static function license() {
+	public function license() {
 		if ( ! class_exists( __NAMESPACE__ . '\License' ) ) {
 			require_once __DIR__ . '/class-license.php';
 		}
 
 		if ( ! self::$license ) {
-			self::$license = new License();
+			self::$license = new License( $this );
 		}
 
 		return self::$license;
@@ -94,14 +106,14 @@ class Client {
 	 *
 	 * @return \Pluginbazar\Notifications
 	 */
-	public static function notifications() {
+	public function notifications() {
 
 		if ( ! class_exists( __NAMESPACE__ . '\Notifications' ) ) {
 			require_once __DIR__ . '/class-notifications.php';
 		}
 
 		if ( ! self::$notifications ) {
-			self::$notifications = new Notifications();
+			self::$notifications = new Notifications( $this );
 		}
 
 		return self::$notifications;
@@ -134,23 +146,6 @@ class Client {
 
 
 	/**
-	 * Init client object
-	 *
-	 * @param $plugin_name
-	 * @param $text_domain
-	 * @param $plugin_reference
-	 * @param $plugin_version
-	 */
-	public static function init( $plugin_name, $text_domain, $plugin_reference, $plugin_version ) {
-		// Initialize variables
-		self::$_plugin_name      = $plugin_name;
-		self::$_text_domain      = $text_domain;
-		self::$_plugin_reference = $plugin_reference;
-		self::$_plugin_version   = $plugin_version;
-	}
-
-
-	/**
 	 * Send request to remote endpoint
 	 *
 	 * @param $route
@@ -160,7 +155,7 @@ class Client {
 	 *
 	 * @return array|mixed|\WP_Error
 	 */
-	public static function send_request( $route, $params = array(), $is_post = false, $blocking = false ) {
+	public function send_request( $route, $params = array(), $is_post = false, $blocking = false ) {
 
 		$url = trailingslashit( self::$_integration_server ) . 'wp-json/data/' . $route;
 
@@ -174,7 +169,7 @@ class Client {
 					'user-agent' => 'Pluginbazar/' . md5( esc_url( site_url() ) ) . ';',
 					'Accept'     => 'application/json',
 				),
-				'body'        => array_merge( $params, array( 'version' => self::$_plugin_version ) ),
+				'body'        => array_merge( $params, array( 'version' => $this->plugin_version ) ),
 				'cookies'     => array(),
 				'sslverify'   => false,
 			) );
@@ -198,7 +193,7 @@ class Client {
 	 * @param bool $is_dismissible
 	 * @param bool $permanent_dismiss
 	 */
-	public static function print_notice( $message = '', $type = 'success', $is_dismissible = true, $permanent_dismiss = false ) {
+	public function print_notice( $message = '', $type = 'success', $is_dismissible = true, $permanent_dismiss = false ) {
 
 		if ( $permanent_dismiss && ! empty( get_option( self::get_notices_id( $permanent_dismiss ) ) ) ) {
 			return;
@@ -212,7 +207,7 @@ class Client {
 			$is_dismissible = 'pb-is-dismissible';
 			$pb_dismissible = sprintf( '<a href="%s" class="notice-dismiss"><span class="screen-reader-text">%s</span></a>',
 				esc_url_raw( add_query_arg( array( 'pb_action' => 'permanent_dismissible', 'id' => $permanent_dismiss ), site_url( $_SERVER['REQUEST_URI'] ) ) ),
-				esc_html__( 'Dismiss', Client::$_text_domain )
+				esc_html__( 'Dismiss', $this->text_domain )
 			);
 		}
 
@@ -323,27 +318,25 @@ class Client {
 	/**
 	 * Translate function _e()
 	 */
-	public static function _etrans( $text ) {
-		call_user_func( '_e', $text, self::$_text_domain );
+	public function _etrans( $text ) {
+		call_user_func( '_e', $text, $this->text_domain );
 	}
 
 
 	/**
 	 * Translate function __()
 	 */
-	public static function __trans( $text ) {
-		return call_user_func( '__', $text, self::$_text_domain );
+	public function __trans( $text ) {
+		return call_user_func( '__', $text, $this->text_domain );
 	}
 
 
 	/**
-	 * @return Client
+	 * Return Plugin Basename
+	 *
+	 * @return string
 	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-
-		return self::$_instance;
+	public function basename() {
+		return sprintf( '%1$s/%1$s.php', $this->text_domain );
 	}
 }
