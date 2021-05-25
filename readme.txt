@@ -3,8 +3,8 @@
 	Donate link: https://pluginbazar.com/contact/
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
 	Requires at least: 4.6
-	Tested up to: 5.7.1
-	Stable tag: 3.3.9
+	Tested up to: 5.7.2
+	Stable tag: 3.3.10
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -192,6 +192,8 @@ Don't hesitate to start using it and let us know any issue...
 	= 3.3.6 =
     * 05/05/2021 New version with updated SDK
 
+    = 3.3.10 =
+    * 25/05/2021 Widget fix
 
 == Upgrade Notice ==
 

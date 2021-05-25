@@ -2,7 +2,7 @@
 /**
  * Pluginbazar SDK Client
  *
- * @version 1.0.4
+ * @version 1.0.6
  * @author Pluginbazar
  */
 
@@ -27,19 +27,19 @@ class Client {
 	/**
 	 * @var \Pluginbazar\Notifications
 	 */
-	private static $license;
+	protected $license;
 
 
 	/**
 	 * @var \Pluginbazar\Notifications
 	 */
-	private static $notifications;
+	protected $notifications;
 
 
 	/**
 	 * @var \Pluginbazar\Updater
 	 */
-	private static $updater;
+	protected $updater;
 
 
 	/**
@@ -58,7 +58,7 @@ class Client {
 		$this->plugin_reference = $plugin_reference;
 		$this->plugin_version   = $plugin_version;
 
-		// Enable notifications
+		// Loading notifications
 		$this->notifications();
 
 		add_action( 'admin_init', array( $this, 'manage_permanent_dismissible' ) );
@@ -75,11 +75,11 @@ class Client {
 			require_once __DIR__ . '/class-updater.php';
 		}
 
-		if ( ! self::$updater ) {
-			self::$updater = new Updater( $this );
+		if ( ! $this->updater ) {
+			$this->updater = new Updater( $this );
 		}
 
-		return self::$updater;
+		return $this->updater;
 	}
 
 
@@ -93,11 +93,11 @@ class Client {
 			require_once __DIR__ . '/class-license.php';
 		}
 
-		if ( ! self::$license ) {
-			self::$license = new License( $this );
+		if ( ! $this->license ) {
+			$this->license = new License( $this );
 		}
 
-		return self::$license;
+		return $this->license;
 	}
 
 
@@ -112,11 +112,11 @@ class Client {
 			require_once __DIR__ . '/class-notifications.php';
 		}
 
-		if ( ! self::$notifications ) {
-			self::$notifications = new Notifications( $this );
+		if ( ! $this->notifications ) {
+			$this->notifications = new Notifications( $this );
 		}
 
-		return self::$notifications;
+		return $this->notifications;
 	}
 
 
