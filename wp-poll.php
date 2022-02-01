@@ -3,7 +3,7 @@
  * Plugin Name: WP Poll - Best Polling Solution in WordPress
  * Plugin URI: https://www.pluginbazar.com/plugin/wp-poll/
  * Description: It allows user to poll in your website with many awesome features.
- * Version: 3.3.10
+ * Version: 3.3.11
  * Author: Pluginbazar
  * Text Domain: wp-poll
  * Domain Path: /languages/
@@ -170,14 +170,22 @@ function pb_sdk_init_wp_poll() {
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/sdk/class-client.php' );
 	}
 
-	global $wpp_sdk;
+	if ( ! function_exists( 'get_plugins' ) ) {
+		include_once ABSPATH . '/wp-admin/includes/plugin.php';
+	}
 
-	$wpp_sdk = new Pluginbazar\Client( esc_html( 'WP Poll' ), 'wp-poll', 34, '3.3.10' );
+	global $wppoll_sdk;
+
+	$wppoll_sdk = new Pluginbazar\Client( esc_html( 'WP Poll Pro' ), 'wp-poll', 34, __FILE__ );
+	$wppoll_sdk->license()->add_settings_page( array( 'parent_slug' => 'edit.php?post_type=poll' ) );;
+	$wppoll_sdk->notifications();
+	$wppoll_sdk->updater();
 }
 
 /**
- * @global \Pluginbazar\Client $wpp_sdk
+ * @global \Pluginbazar\Client $wppoll_sdk
  */
-global $wpp_sdk;
+global $wppoll_sdk;
 
 pb_sdk_init_wp_poll();
+

@@ -29,38 +29,54 @@ The SDK will add a custom license page, from where they can **activate** or **de
 You can use the following code to use the sdk in your project.
 
 ```
-function pb_sdk_init_woc_open_close_pro() {
+function pb_sdk_init_wp_poll() {
 
 	if ( ! class_exists( 'Pluginbazar\Client' ) ) {
 		require_once( plugin_dir_path( __FILE__ ) . 'includes/sdk/class-client.php' );
 	}
 
-	global $wooopenclose_pro_sdk;
+	if ( ! function_exists( 'get_plugins' ) ) {
+		include_once ABSPATH . '/wp-admin/includes/plugin.php';
+	}
 
-	$wooopenclose_pro_sdk = new Pluginbazar\Client( esc_html( 'WooCommerce Open Close - Pro' ), 'woc-open-close-pro', 15, '1.2.5' );
-	$wooopenclose_pro_sdk->license()->add_settings_page( array( 'parent_slug' => 'edit.php?post_type=woc_hour' ) );
-	$wooopenclose_pro_sdk->updater();
+	global $wppoll_sdk;
+
+	$wppoll_sdk = new Pluginbazar\Client( esc_html( 'WP Poll Pro' ), 'wp-poll', 34, __FILE__ );
+	$wppoll_sdk->license()->add_settings_page( array( 'parent_slug' => 'edit.php?post_type=poll' ) );;
+	$wppoll_sdk->notifications();
+	$wppoll_sdk->updater();
 }
 
 /**
- * @global \Pluginbazar\Client $wooopenclose_pro_sdk
+ * @global \Pluginbazar\Client $wppoll_sdk
  */
-global $wooopenclose_pro_sdk;
+global $wppoll_sdk;
 
-pb_sdk_init_woc_open_close_pro();
+pb_sdk_init_wp_poll();
 ```
 
 To check the license status, you can use the following code snippet.
 
 ```
-global $wooopenclose_pro_sdk;
+global $wppoll_sdk;
 
 
-if ( $wooopenclose_pro_sdk->license()->is_valid() ) {
+if ( $wppoll_sdk->license()->is_valid() ) {
 	// License key is activated and valid
 }
 ```
 
 ## SUPPORT
 
-For any issues, please create an issue here or email us at support@pluginbazar.com
+For any issues please create an support issue here https://pluginbazar.com/forum/sdk/
+
+
+## CHANGELOG
+
+	1.0.0
+    05/06/2021 | RELEASE | Initial release.
+
+    1.0.5
+    01/02/2022 | FIX | Bug fix with license server
+
+    
