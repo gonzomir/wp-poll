@@ -4,7 +4,7 @@
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
 	Requires at least: 4.6
 	Tested up to: 5.9
-	Stable tag: 3.3.11
+	Stable tag: 3.3.12
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ WP Poll allows you to integrate highly customisable polling system with so many 
 
 [BUY PRO IN 60% PLUS DISCOUNT](https://pluginbazar.com/plugin/wp-poll/?ref=wordpress.org) | [TRY DEMO](https://demo.pluginbazar.com/wp-poll/try-demo/)
 
-### FEATURES
+### FREE PLUGIN FEATURES
 * Single and Multi votes
 * Ability to create Unlimited Poll options
 * 10+ Themes variations
@@ -31,8 +31,7 @@ WP Poll allows you to integrate highly customisable polling system with so many 
 * Display results for an option of a single poll with short-code
 
 
-###### Features
-* Unlimited survey creation with poll
+### PRO PLUGIN FEATURES
 * Progress bar with counter
 * Additional form with multiple fields controlling
 * 8 Different themes for each survey
@@ -42,7 +41,7 @@ WP Poll allows you to integrate highly customisable polling system with so many 
 * And many more are coming soon
 
 
-### Coming on Future versions of Poll
+### FEATURES ON PIPELINE
 * Integration with Contact Form 7
 * Front-end Poll Management
 * Gutenberg Compatibility
@@ -52,7 +51,7 @@ WP Poll allows you to integrate highly customisable polling system with so many 
 * Hide results
 * Integration with MailChimp, twilio, Zapier and so on....
 
-Don't hesitate to start using it and let us know any issue...
+[REPORT ANY ISSUE](https://pluginbazar.com/supports/wp-poll/#new-post)
 
 
 == Installation ==
@@ -180,6 +179,9 @@ Don't hesitate to start using it and let us know any issue...
 
     = 3.3.11 =
     * 01/02/2022 FIX - SDK issue fix
+
+    = 3.3.12 =
+    * 04/02/2022 FIX - SDK issue fix
 
 == Upgrade Notice ==
 
