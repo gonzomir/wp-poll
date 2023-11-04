@@ -32,7 +32,6 @@ if ( ! class_exists( 'WPP_Hooks' ) ) {
 			add_action( 'wp_ajax_wpp_get_poll_results', array( $this, 'wpp_get_poll_results' ) );
 			add_action( 'wp_ajax_nopriv_wpp_get_poll_results', array( $this, 'wpp_get_poll_results' ) );
 
-			add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta' ), 10, 2 );
 			add_filter( 'plugin_action_links_' . WPP_PLUGIN_FILE, array( $this, 'add_plugin_actions' ), 10, 2 );
 
 			add_action( 'pb_settings_wpp-extensions', array( $this, 'render_extensions' ) );
@@ -114,38 +113,9 @@ if ( ! class_exists( 'WPP_Hooks' ) ) {
 
 			$links = array_merge( array(
 				'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'edit.php?post_type=poll&page=wpp-settings' ), esc_html__( 'Settings', 'wp-poll' ) ),
-//				'extensions' => sprintf( '<a href="%s">%s</a>', admin_url( 'edit.php?post_type=poll&page=wpp-settings&tab=wpp-extensions' ), esc_html__( 'Extensions', 'wp-poll' ) ),
 			), $links );
 
-			if ( ! wpp()->is_pro() ) {
-				$links['go-pro'] = sprintf( '<a href="%s">%s</a>', esc_url( WPP_PLUGIN_LINK ), esc_html__( 'Go Pro', 'wp-poll' ) );
-			}
-
 			return $links;
-		}
-
-
-		/**
-		 * Add custom links to plugin meta
-		 *
-		 * @param $links
-		 * @param $file
-		 *
-		 * @return array
-		 */
-		function add_plugin_meta( $links, $file ) {
-
-			if ( WPP_PLUGIN_FILE === $file ) {
-
-				$row_meta = array(
-					'docs'    => sprintf( '<a href="%s" class="wpp-doc" target="_blank">%s</a>', esc_url( WPP_DOCS_URL ), esc_html__( 'Documentation', 'wp-poll' ) ),
-					'support' => sprintf( '<a href="%s" class="wpp-support" target="_blank">%s</a>', esc_url( PB_TICKET_URL ), esc_html__( 'Support Ticket', 'wp-poll' ) ),
-				);
-
-				return array_merge( $links, $row_meta );
-			}
-
-			return (array) $links;
 		}
 
 

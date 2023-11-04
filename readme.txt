@@ -1,6 +1,5 @@
 === WP Poll - Best Polling Solution in WordPress ===
 	Contributors: jaedm97,pluginbazar
-	Donate link: https://pluginbazar.com/contact/
 	Tags: poll, polls, democracy, survey, vote, justice, booth, opinion
 	Requires at least: 4.6
 	Tested up to: 5.9
@@ -14,9 +13,7 @@
 
 WP Poll allows you to integrate highly customisable polling system with so many options to control each poll to your WordPress website/blog. It's a super easy solution for taking opinions from your visitors/users with multiple styles/themes.
 
-[BUY PRO IN 60% PLUS DISCOUNT](https://pluginbazar.com/plugin/wp-poll/?ref=wordpress.org) | [TRY DEMO](https://demo.pluginbazar.com/wp-poll/try-demo/)
-
-### FREE PLUGIN FEATURES
+### PLUGIN FEATURES
 * Single and Multi votes
 * Ability to create Unlimited Poll options
 * 10+ Themes variations
@@ -29,30 +26,6 @@ WP Poll allows you to integrate highly customisable polling system with so many 
 * Ready Widget
 * Display results for a single poll with short-code
 * Display results for an option of a single poll with short-code
-
-
-### PRO PLUGIN FEATURES
-* Progress bar with counter
-* Additional form with multiple fields controlling
-* 8 Different themes for each survey
-* Control custom header with site logo and navigation menu depending on survey theme
-* Terms and Conditions management for each survey
-* List of responses in a single place
-* And many more are coming soon
-
-
-### FEATURES ON PIPELINE
-* Integration with Contact Form 7
-* Front-end Poll Management
-* Gutenberg Compatibility
-* WP Bakery Page Builder Compatibility
-* Elementor Widget Compatibility
-* Startup Wizard
-* Hide results
-* Integration with MailChimp, twilio, Zapier and so on....
-
-[REPORT ANY ISSUE](https://pluginbazar.com/supports/wp-poll/#new-post)
-
 
 == Installation ==
 
@@ -85,34 +58,34 @@ WP Poll allows you to integrate highly customisable polling system with so many 
 
 	= 1.0.0 =
     * 10/13/2015 Initial release.
-	
+
 	= 1.0.1 =
     * 10/16/2015 Provide Extra Feature.
-	
+
 	= 1.1.0 =
     * 11/04/2015 Released a Super Version with Paid Features ( Analytics )
-	
+
 	= 1.1.1 =
     * 11/10/2015 Added Featured Polling. FREE Feature.
-	
+
 	= 1.1.2 =
     * 11/02/2016 Implement New Back Admin Design.
-	
+
 	= 1.1.3 =
     * 21/02/2016 You can show each Poll with shortcode.
-	
+
 	= 2.0.0 =
     * 01/01/2017 It's a Major Update, Internal Structure and Scope changed.
-	
+
 	= 2.1.2 =
     * 26/01/2017 Visitors can add new Poll, Translation Ready and so on
-	
+
 	= 2.1.3 =
     * 26/01/2017 Checked on Latest WordPress
-	
+
 	= 2.2.0 =
     * 26/04/2017 It's a major Update, There are many new Features added. [Check on Here](https://goo.gl/G1peJu)
-	
+
 	= 3.0.2 =
     * 23/01/2019 Fixed bug
 

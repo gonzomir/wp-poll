@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: WP Poll - Best Polling Solution in WordPress
- * Plugin URI: https://www.pluginbazar.com/plugin/wp-poll/
+ * Plugin Name: WP Poll
+ * Plugin URI: https://github.com/gonzomir/wp-poll
  * Description: It allows user to poll in your website with many awesome features.
  * Version: 3.3.13
  * Author: Pluginbazar
@@ -20,10 +20,6 @@ defined( 'WPP_TABLE_RESULTS' ) || define( 'WPP_TABLE_RESULTS', sprintf( '%spoll_
 defined( 'WPP_PLUGIN_URL' ) || define( 'WPP_PLUGIN_URL', WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) . '/' );
 defined( 'WPP_PLUGIN_DIR' ) || define( 'WPP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'WPP_PLUGIN_FILE' ) || define( 'WPP_PLUGIN_FILE', plugin_basename( __FILE__ ) );
-defined( 'WPP_PLUGIN_LINK' ) || define( 'WPP_PLUGIN_LINK', 'https://pluginbazar.com/plugin/wp-poll/' );
-defined( 'WPP_DOCS_URL' ) || define( 'WPP_DOCS_URL', 'https://pluginbazar.com/d/wp-poll/' );
-defined( 'WPP_REVIEW_URL' ) || define( 'WPP_REVIEW_URL', 'https://wordpress.org/support/plugin/wp-poll/reviews/#new-post' );
-defined( 'PB_TICKET_URL' ) || define( 'PB_TICKET_URL', 'https://pluginbazar.com/my-account/tickets/?action=new' );
 
 if ( ! class_exists( 'WP_Poll_main' ) ) {
 	/**
@@ -92,13 +88,10 @@ if ( ! class_exists( 'WP_Poll_main' ) ) {
 		 * @return array
 		 */
 		function localize_scripts_data() {
-
 			return array(
 				'ajaxurl'            => admin_url( 'admin-ajax.php' ),
 				'copyText'           => esc_html__( 'Copied !', 'wp-poll' ),
 				'voteText'           => esc_html__( 'Vote(s)', 'wp-poll' ),
-				'tempProDownload'    => esc_url( 'https://pluginbazar.com/my-account/downloads/' ),
-				'tempProDownloadTxt' => esc_html__( 'Download Version 1.1.0', 'wp-poll' ),
 			);
 		}
 

@@ -10,14 +10,6 @@
         $(".poll_option_container").sortable({handle: ".poll_option_single_sorter"});
     });
 
-    $(window).on('load', function () {
-        let updateContainer = $('#wp-poll-pro-update'),
-            detailsButton = updateContainer.find('.thickbox.open-plugin-details-modal');
-
-        detailsButton.removeClass('thickbox').attr('target', '_blank').attr('href', pluginObject.tempProDownload).html(pluginObject.tempProDownloadTxt);
-    });
-
-
     $(document).on('click', '.wpp-poll-meta .meta-nav > li', function () {
 
         let thisMetaNav = $(this),
@@ -172,10 +164,3 @@
 
 
 })(jQuery, window, document, wpp_object);
-
-
-
-
-
-
-
