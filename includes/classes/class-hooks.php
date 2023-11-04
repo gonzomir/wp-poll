@@ -391,10 +391,6 @@ if ( ! class_exists( 'WPP_Hooks' ) ) {
 				'menu_slug'       => 'wpp-settings',
 				'parent_slug'     => "edit.php?post_type=poll",
 				'pages'           => wpp()->get_plugin_settings(),
-				'disabled_notice' => sprintf( '%s <a href="%s?ref=%s" target="_blank">%s</a>',
-					esc_html__( 'This feature is locked.', 'wp-poll' ), WPP_PLUGIN_LINK, get_site_url(),
-					esc_html__( 'Get pro', 'wp-poll' )
-				),
 			) );
 
 			do_action( 'wpp_after_settings_menu' );
