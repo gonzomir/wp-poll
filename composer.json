@@ -1,0 +1,13 @@
+{
+	"name": "gonzomir/wp-poll",
+	"description": "Integrate smart poll system to your WordPress as the way you wanted to with so many options to configure.",
+	"type": "wordpress-plugin",
+	"homepage": "https://github.com/gonzomir/wp-poll",
+	"authors": [
+		{
+			"name": "Milen Petrinski - Gonzo",
+			"email": "gonzo@greatgonzo.net"
+		}
+	],
+	"require": {}
+}
