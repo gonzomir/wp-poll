@@ -202,7 +202,7 @@ if ( ! class_exists( 'WPP_Poll' ) ) {
 			 */
 			$singles = isset( $poll_results['singles'] ) ? $poll_results['singles'] : array();
 			$singles = ! empty( $singles ) ? $singles : array();
-			
+
 			foreach ( $singles as $option_id => $single_count ) {
 				$poll_results['percentages'][ $option_id ] = floor( ( $single_count * 100 ) / $total_voted );
 			}
@@ -259,7 +259,7 @@ if ( ! class_exists( 'WPP_Poll' ) ) {
 				$thumb_url = array();
 
 				if ( ! empty( $thumb_id ) ) {
-					$thumb_url = wp_get_attachment_image_src( $thumb_id );
+					$thumb_url = wp_get_attachment_image_src( $thumb_id ) ?: [ '' ];
 				}
 
 				$_poll_options[ $option_id ] = array(
